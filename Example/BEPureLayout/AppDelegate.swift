@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Get rid of storyboards
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = ViewController()
+        window.rootViewController = MainViewController()
         window.makeKeyAndVisible()
         self.window = window
         

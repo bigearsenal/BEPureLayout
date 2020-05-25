@@ -1,25 +1,18 @@
 //
-//  ViewController.swift
-//  BEPureLayout
+//  MainViewController.swift
+//  BEPureLayout_Example
 //
-//  Created by bigearsenal on 05/25/2020.
-//  Copyright (c) 2020 bigearsenal. All rights reserved.
+//  Created by Chung Tran on 5/25/20.
+//  Copyright © 2020 CocoaPods. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import BEPureLayout
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        // Do any additional setup after loading the view, typically from a nib.
+class MainViewController: BaseViewController{
+    override func setUp() {
+        super.setUp()
         
-        setUp()
-    }
-    
-    func setUp() {
         // Corner views
         let topLeftView = UIView(width: 100, height: 100, backgroundColor: .green, cornerRadius: 16)
         view.addSubview(topLeftView)
@@ -45,12 +38,17 @@ class ViewController: UIViewController {
         let button1 = UIButton(label: "UIButton+AutoLayout", textColor: .blue)
         buttonsView.addSubview(button1)
         button1.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        button1.addTarget(self, action: #selector(openButtonsVC), for: .touchUpInside)
         
         let button2 = UIButton(label: "UIStackView+AutoLayout", textColor: .blue)
         buttonsView.addSubview(button2)
         button2.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
         button2.autoPinEdge(.top, to: .bottom, of: button1)
     }
-
+    
+    // MARK: - Actions
+    @objc func openButtonsVC() {
+        let vc = ButtonsViewController()
+        show(vc, sender: self)
+    }
 }
-
