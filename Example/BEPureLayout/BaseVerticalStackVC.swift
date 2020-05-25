@@ -15,6 +15,7 @@ class BaseVerticalStackVC: BaseViewController {
     override func setUp() {
         super.setUp()
         view.addSubview(vStackView)
-        vStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16))
+        vStackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), excludingEdge: .bottom)
+        
     }
 }

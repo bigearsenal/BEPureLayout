@@ -44,9 +44,13 @@ class MainViewController: BaseViewController{
         let button3 = UIButton(label: "UITextView", textColor: .blue)
         button3.addTarget(self, action: #selector(openTextViewVC), for: .touchUpInside)
         
+        let button4 = UIButton(label: "UITextField", textColor: .blue)
+        button4.addTarget(self, action: #selector(openTextFieldVC), for: .touchUpInside)
+        
         buttonStackView.addArrangedSubview(button1)
         buttonStackView.addArrangedSubview(button2)
         buttonStackView.addArrangedSubview(button3)
+        buttonStackView.addArrangedSubview(button4)
     }
     
     // MARK: - Actions
@@ -62,6 +66,11 @@ class MainViewController: BaseViewController{
     
     @objc func openTextViewVC() {
         let vc = TextViewVC()
+        show(vc, sender: self)
+    }
+    
+    @objc func openTextFieldVC() {
+        let vc = TextFieldVC()
         show(vc, sender: self)
     }
 }
