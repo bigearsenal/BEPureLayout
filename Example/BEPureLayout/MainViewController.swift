@@ -36,16 +36,23 @@ class MainViewController: BaseViewController{
         buttonStackView.autoCenterInSuperview()
         
         let button1 = UIButton(label: "UIButton+UILabel", textColor: .blue)
-        button1.addTarget(self, action: #selector(openButtonsVC), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(openButtonsLabelsVC), for: .touchUpInside)
         
-        let button2 = UIButton(label: "UILabel+AutoLayout", textColor: .blue)
+        let button2 = UIButton(label: "UIImageView", textColor: .blue)
+        button2.addTarget(self, action: #selector(openImagesVC), for: .touchUpInside)
+        
         buttonStackView.addArrangedSubview(button1)
         buttonStackView.addArrangedSubview(button2)
     }
     
     // MARK: - Actions
-    @objc func openButtonsVC() {
+    @objc func openButtonsLabelsVC() {
         let vc = ButtonsLabelsViewController()
+        show(vc, sender: self)
+    }
+    
+    @objc func openImagesVC() {
+        let vc = ImagesViewController()
         show(vc, sender: self)
     }
 }
