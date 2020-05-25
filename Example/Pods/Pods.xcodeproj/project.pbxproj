@@ -22,6 +22,8 @@
 		A291D6AF7EE904E92219EE160F8DD09C /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 612A8F178DE352A805ACD25C44C62955 /* NSArray+PureLayout.m */; };
 		A7D31D404A50138B3F9D65D80394303A /* PureLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = CE22508875A0D08F4828B1309EE3DEF1 /* PureLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BCEEB5B6247B7802009AAD2D /* AvoidingKeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5B5247B7802009AAD2D /* AvoidingKeyboardLayoutConstraint.swift */; };
+		BCEEB5B8247B7BCE009AAD2D /* UIButton+PureLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5B7247B7BCE009AAD2D /* UIButton+PureLayout.swift */; };
+		BCEEB5BA247B7D47009AAD2D /* UIStackView+PureLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5B9247B7D47009AAD2D /* UIStackView+PureLayout.swift */; };
 		C54159C76BF3AE6AA171DE33F7D7FC99 /* BEPureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 78F61BB26424BEAB68E224EDEC65A547 /* BEPureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D3B100831475FBB7DA4F7B68044FBC0B /* PureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B207639271F0B3AD2D7C527B48C530 /* PureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D86DD89F008F545ACD0DF073E2271178 /* UIView+PureLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A55193897AA490AFB6FAF19EE585614 /* UIView+PureLayout.swift */; };
@@ -101,6 +103,8 @@
 		B83D6B9B2B530259D869B941C15ADC5E /* PureLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-prefix.pch"; sourceTree = "<group>"; };
 		B86FD6AAE4C8C9F226BEEC1908F6633C /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PureLayout.modulemap; sourceTree = "<group>"; };
 		BCEEB5B5247B7802009AAD2D /* AvoidingKeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvoidingKeyboardLayoutConstraint.swift; path = BEPureLayout/Classes/AvoidingKeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
+		BCEEB5B7247B7BCE009AAD2D /* UIButton+PureLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+PureLayout.swift"; sourceTree = "<group>"; };
+		BCEEB5B9247B7D47009AAD2D /* UIStackView+PureLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+PureLayout.swift"; sourceTree = "<group>"; };
 		BF7C0824DBFBE95FCB8AA094AA709D0E /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
 		BFCC39633201F38EF9114E9C7C08EA5A /* BEPureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BEPureLayout.modulemap; sourceTree = "<group>"; };
 		C902E1D5C62E76990C4ADCC2922554CE /* BEPureLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BEPureLayout.debug.xcconfig; sourceTree = "<group>"; };
@@ -285,6 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				7A55193897AA490AFB6FAF19EE585614 /* UIView+PureLayout.swift */,
+				BCEEB5B7247B7BCE009AAD2D /* UIButton+PureLayout.swift */,
+				BCEEB5B9247B7D47009AAD2D /* UIStackView+PureLayout.swift */,
 				BCEEB5B5247B7802009AAD2D /* AvoidingKeyboardLayoutConstraint.swift */,
 				A99BBDDCC9AF00B2158EA7C03DA80AE3 /* Pod */,
 				FEE6FADCA7204E668E39FEB32B7C0DBB /* Support Files */,
@@ -539,6 +545,8 @@
 				BCEEB5B6247B7802009AAD2D /* AvoidingKeyboardLayoutConstraint.swift in Sources */,
 				DD05B19084337CAD9B4C0AFE3489CE9D /* BEPureLayout-dummy.m in Sources */,
 				D86DD89F008F545ACD0DF073E2271178 /* UIView+PureLayout.swift in Sources */,
+				BCEEB5BA247B7D47009AAD2D /* UIStackView+PureLayout.swift in Sources */,
+				BCEEB5B8247B7BCE009AAD2D /* UIButton+PureLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

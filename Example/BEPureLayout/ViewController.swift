@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     }
     
     func setUp() {
+        // Corner views
         let topLeftView = UIView(width: 100, height: 100, backgroundColor: .green, cornerRadius: 16)
         view.addSubview(topLeftView)
         topLeftView.autoPinToTopLeftCornerOfSuperviewSafeArea(xInset: 16, yInset: 16)
@@ -35,6 +36,20 @@ class ViewController: UIViewController {
         let bottomRightView = UIView(width: 100, height: 100, backgroundColor: .yellow, cornerRadius: 16)
         view.addSubview(bottomRightView)
         bottomRightView.autoPinToBottomRightCornerOfSuperview(xInset: 16)
+        
+        // buttons
+        let buttonsView = UIView(forAutoLayout: ())
+        view.addSubview(buttonsView)
+        buttonsView.autoCenterInSuperview()
+        
+        let button1 = UIButton(label: "UIButton+AutoLayout", textColor: .blue)
+        buttonsView.addSubview(button1)
+        button1.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        
+        let button2 = UIButton(label: "UIStackView+AutoLayout", textColor: .blue)
+        buttonsView.addSubview(button2)
+        button2.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
+        button2.autoPinEdge(.top, to: .bottom, of: button1)
     }
 
 }
