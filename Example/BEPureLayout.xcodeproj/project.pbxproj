@@ -16,6 +16,8 @@
 		BCEEB5BC247B7FFA009AAD2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5BB247B7FFA009AAD2D /* MainViewController.swift */; };
 		BCEEB5BF247B809C009AAD2D /* ButtonsLabelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5BE247B809C009AAD2D /* ButtonsLabelsViewController.swift */; };
 		BCEEB5C9247BC19E009AAD2D /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5C8247BC19E009AAD2D /* ImagesViewController.swift */; };
+		BCEEB5CD247BC483009AAD2D /* TextViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5CC247BC483009AAD2D /* TextViewVC.swift */; };
+		BCEEB5CF247BC4D2009AAD2D /* BaseVerticalStackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5CE247BC4D2009AAD2D /* BaseVerticalStackVC.swift */; };
 		C8A9FF746E397DB03D132655 /* Pods_BEPureLayout_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02E4C63BC508800FCAA464 /* Pods_BEPureLayout_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		BCEEB5BB247B7FFA009AAD2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BCEEB5BE247B809C009AAD2D /* ButtonsLabelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsLabelsViewController.swift; sourceTree = "<group>"; };
 		BCEEB5C8247BC19E009AAD2D /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
+		BCEEB5CC247BC483009AAD2D /* TextViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewVC.swift; sourceTree = "<group>"; };
+		BCEEB5CE247BC4D2009AAD2D /* BaseVerticalStackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVerticalStackVC.swift; sourceTree = "<group>"; };
 		EADA8E7399F09C98462BC948 /* Pods-BEPureLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BEPureLayout_Example.debug.xcconfig"; path = "Target Support Files/Pods-BEPureLayout_Example/Pods-BEPureLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +106,7 @@
 				BCEEB5BB247B7FFA009AAD2D /* MainViewController.swift */,
 				BCEEB5BE247B809C009AAD2D /* ButtonsLabelsViewController.swift */,
 				BCEEB5C8247BC19E009AAD2D /* ImagesViewController.swift */,
+				BCEEB5CC247BC483009AAD2D /* TextViewVC.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -169,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD71AFB9204008FA782 /* BaseViewController.swift */,
+				BCEEB5CE247BC4D2009AAD2D /* BaseVerticalStackVC.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -346,8 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCEEB5CF247BC4D2009AAD2D /* BaseVerticalStackVC.swift in Sources */,
 				BCEEB5C9247BC19E009AAD2D /* ImagesViewController.swift in Sources */,
 				BCEEB5BF247B809C009AAD2D /* ButtonsLabelsViewController.swift in Sources */,
+				BCEEB5CD247BC483009AAD2D /* TextViewVC.swift in Sources */,
 				BCEEB5BC247B7FFA009AAD2D /* MainViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* BaseViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,

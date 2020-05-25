@@ -41,8 +41,12 @@ class MainViewController: BaseViewController{
         let button2 = UIButton(label: "UIImageView", textColor: .blue)
         button2.addTarget(self, action: #selector(openImagesVC), for: .touchUpInside)
         
+        let button3 = UIButton(label: "UITextView", textColor: .blue)
+        button3.addTarget(self, action: #selector(openTextViewVC), for: .touchUpInside)
+        
         buttonStackView.addArrangedSubview(button1)
         buttonStackView.addArrangedSubview(button2)
+        buttonStackView.addArrangedSubview(button3)
     }
     
     // MARK: - Actions
@@ -53,6 +57,11 @@ class MainViewController: BaseViewController{
     
     @objc func openImagesVC() {
         let vc = ImagesViewController()
+        show(vc, sender: self)
+    }
+    
+    @objc func openTextViewVC() {
+        let vc = TextViewVC()
         show(vc, sender: self)
     }
 }
