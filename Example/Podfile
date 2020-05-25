@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BEPureLayout_Example' do
+  pod 'BEPureLayout', :path => '../'
+
+  target 'BEPureLayout_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
