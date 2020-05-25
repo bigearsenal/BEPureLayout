@@ -1,0 +1,23 @@
+PODS:
+  - BEPureLayout (0.1.0):
+    - PureLayout (~> 3.1.6)
+  - PureLayout (3.1.6)
+
+DEPENDENCIES:
+  - BEPureLayout (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - PureLayout
+
+EXTERNAL SOURCES:
+  BEPureLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  BEPureLayout: 374080f5005c301f4c4c4805fd450634f90d73d2
+  PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
+
+PODFILE CHECKSUM: d854833626d1bc7569c20403206ae9baef41aaa9
+
+COCOAPODS: 1.9.1

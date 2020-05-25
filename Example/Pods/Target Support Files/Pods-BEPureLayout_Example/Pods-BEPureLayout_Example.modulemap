@@ -1,0 +1,6 @@
+framework module Pods_BEPureLayout_Example {
+  umbrella header "Pods-BEPureLayout_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

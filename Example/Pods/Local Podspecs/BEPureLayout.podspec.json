@@ -1,0 +1,27 @@
+{
+  "name": "BEPureLayout",
+  "version": "0.1.0",
+  "summary": "A short description of BEPureLayout.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/bigearsenal/BEPureLayout",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "bigearsenal": "bigearsenal@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/bigearsenal/BEPureLayout.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "BEPureLayout/Classes/**/*",
+  "dependencies": {
+    "PureLayout": [
+      "~> 3.1.6"
+    ]
+  }
+}
