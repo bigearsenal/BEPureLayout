@@ -31,24 +31,21 @@ class MainViewController: BaseViewController{
         bottomRightView.autoPinToBottomRightCornerOfSuperview(xInset: 16)
         
         // buttons
-        let buttonsView = UIView(forAutoLayout: ())
-        view.addSubview(buttonsView)
-        buttonsView.autoCenterInSuperview()
+        let buttonStackView = UIStackView(axis: .vertical, spacing: 10, alignment: .center, distribution: .fillEqually)
+        view.addSubview(buttonStackView)
+        buttonStackView.autoCenterInSuperview()
         
-        let button1 = UIButton(label: "UIButton+AutoLayout", textColor: .blue)
-        buttonsView.addSubview(button1)
-        button1.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        let button1 = UIButton(label: "UIButton+UILabel", textColor: .blue)
         button1.addTarget(self, action: #selector(openButtonsVC), for: .touchUpInside)
         
-        let button2 = UIButton(label: "UIStackView+AutoLayout", textColor: .blue)
-        buttonsView.addSubview(button2)
-        button2.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
-        button2.autoPinEdge(.top, to: .bottom, of: button1)
+        let button2 = UIButton(label: "UILabel+AutoLayout", textColor: .blue)
+        buttonStackView.addArrangedSubview(button1)
+        buttonStackView.addArrangedSubview(button2)
     }
     
     // MARK: - Actions
     @objc func openButtonsVC() {
-        let vc = ButtonsViewController()
+        let vc = ButtonsLabelsViewController()
         show(vc, sender: self)
     }
 }
