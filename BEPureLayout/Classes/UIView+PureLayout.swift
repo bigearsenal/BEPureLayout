@@ -56,7 +56,6 @@ public extension UIView {
         autoPinEdge(toSuperviewEdge: .trailing, withInset: xInset)
     }
     
-    @available(iOS 9, *)
     func autoPinToTopLeftCornerOfSuperviewSafeArea(
         xInset: CGFloat = 0,
         yInset: CGFloat? = nil
@@ -65,7 +64,6 @@ public extension UIView {
         autoPinEdge(toSuperviewSafeArea: .leading, withInset: xInset)
     }
     
-    @available(iOS 9, *)
     func autoPinToTopRightCornerOfSuperviewSafeArea(
         xInset: CGFloat = 0,
         yInset: CGFloat? = nil
@@ -74,7 +72,6 @@ public extension UIView {
         autoPinEdge(toSuperviewSafeArea: .trailing, withInset: xInset)
     }
     
-    @available(iOS 9, *)
     func autoPinToBottomLeftCornerOfSuperviewSafeArea(
         xInset: CGFloat = 0,
         yInset: CGFloat? = nil
@@ -83,7 +80,6 @@ public extension UIView {
         autoPinEdge(toSuperviewSafeArea: .leading, withInset: xInset)
     }
     
-    @available(iOS 9, *)
     func autoPinToBottomRightCornerOfSuperviewSafeArea(
         xInset: CGFloat = 0,
         yInset: CGFloat? = nil

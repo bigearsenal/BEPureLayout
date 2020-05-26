@@ -8,7 +8,6 @@
 import Foundation
 
 public extension UILabel {
-    @available(iOS 8.2, *)
     convenience init(
         text: String? = nil,
         textSize: CGFloat = UIFont.systemFontSize,
