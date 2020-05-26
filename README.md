@@ -72,6 +72,39 @@ let label = UILabel(text: "Very long text.....")
 scrollView.contentView.addSubview(label)
 label.autoPinEdgesToSuperviewEdges()
 ```
+
+### BETableHeaderView
+This subclass of UIView allows you to create flexible `tableHeaderView` for UITableView. After any layout changes in this BETableHeaderView, it will reassign itself as tableView's tableHeaderView and triggle re-layout in tableView. 
+
+The usage of BETableHeaderView is quite simple, you can subclass it and override function commonInit to layout its content:
+```
+class MyTableHeaderView: BETableHeaderView {
+    lazy var label = UILabel(text: "TableViewHeaderView is loading...", textSize: 20, weight: .bold, textColor: .black, numberOfLines: 0)
+    
+    override func commonInit() {
+        super.commonInit()
+        
+        addSubview(label)
+        label.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16))
+    }
+}
+```
+Then you can construct `MyTableHeaderView` alongside with `UITableView` using initializer:
+```
+let tableHeaderView = MyTableHeaderView(tableView: tableView)
+```
+
+And freely change content of headerView without any concern about re-layouting
+```
+tableHeaderView.label.text =
+    """
+    TableHeaderView was loaded
+
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+    """
+```
+
 For more detail, see Example project
 
 ## Author
