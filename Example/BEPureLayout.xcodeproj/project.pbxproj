@@ -49,7 +49,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		952ABF6F862899625D857CEA /* Pods-BEPureLayout_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BEPureLayout_Example.release.xcconfig"; path = "Target Support Files/Pods-BEPureLayout_Example/Pods-BEPureLayout_Example.release.xcconfig"; sourceTree = "<group>"; };
-		9E3B728A58F970C636BD32D4 /* BEPureLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BEPureLayout.podspec; path = ../BEPureLayout.podspec; sourceTree = "<group>"; };
+		9E3B728A58F970C636BD32D4 /* BEPureLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BEPureLayout.podspec; path = ../BEPureLayout.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A653992B77A0D904AD63C368 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BCEEB5BB247B7FFA009AAD2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BCEEB5BE247B809C009AAD2D /* ButtonsLabelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsLabelsViewController.swift; sourceTree = "<group>"; };
