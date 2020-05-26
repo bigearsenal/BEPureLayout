@@ -47,10 +47,14 @@ class MainViewController: BaseViewController{
         let button4 = UIButton(label: "UITextField", textColor: .blue)
         button4.addTarget(self, action: #selector(openTextFieldVC), for: .touchUpInside)
         
+        let button5 = UIButton(label: "ContentHuggingScrollView", textColor: .blue)
+        button5.addTarget(self, action: #selector(openContentHuggingScrollVC), for: .touchUpInside)
+        
         buttonStackView.addArrangedSubview(button1)
         buttonStackView.addArrangedSubview(button2)
         buttonStackView.addArrangedSubview(button3)
         buttonStackView.addArrangedSubview(button4)
+        buttonStackView.addArrangedSubview(button5)
     }
     
     // MARK: - Actions
@@ -71,6 +75,11 @@ class MainViewController: BaseViewController{
     
     @objc func openTextFieldVC() {
         let vc = TextFieldVC()
+        show(vc, sender: self)
+    }
+    
+    @objc func openContentHuggingScrollVC() {
+        let vc = ContentHuggingScrollVC()
         show(vc, sender: self)
     }
 }

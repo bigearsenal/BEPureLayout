@@ -8,14 +8,13 @@
 
 import Foundation
 
-@available(iOS 9.0, *)
 public class ContentHuggingScrollView: UIScrollView {
     // MARK: - Subviews
-    lazy var contentView = UIView(forAutoLayout: ())
+    public lazy var contentView = UIView(forAutoLayout: ())
     var scrollableAxis: NSLayoutConstraint.Axis
     
     // MARK: - Methods
-    init(scrollableAxis: NSLayoutConstraint.Axis, contentInset: UIEdgeInsets = .zero) {
+    public init(scrollableAxis: NSLayoutConstraint.Axis, contentInset: UIEdgeInsets = .zero) {
         self.scrollableAxis = scrollableAxis
         super.init(frame: .zero)
         self.contentInset = contentInset
@@ -31,9 +30,11 @@ public class ContentHuggingScrollView: UIScrollView {
         addSubview(contentView)
         contentView.autoPinEdgesToSuperviewEdges()
         if scrollableAxis == .vertical {
-            contentView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+            NSLayoutConstraint(item: contentView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0
+            ).isActive = true
         } else {
-            contentView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+            NSLayoutConstraint(item: contentView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0
+            ).isActive = true
         }
     }
 }

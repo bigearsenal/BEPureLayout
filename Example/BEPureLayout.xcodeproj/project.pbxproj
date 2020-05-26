@@ -19,6 +19,7 @@
 		BCEEB5CD247BC483009AAD2D /* TextViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5CC247BC483009AAD2D /* TextViewVC.swift */; };
 		BCEEB5CF247BC4D2009AAD2D /* BaseVerticalStackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5CE247BC4D2009AAD2D /* BaseVerticalStackVC.swift */; };
 		BCEEB5D1247BC6D6009AAD2D /* TextFieldVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5D0247BC6D6009AAD2D /* TextFieldVC.swift */; };
+		BCEEB5D5247CB55C009AAD2D /* ContentHuggingScrollVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5D4247CB55C009AAD2D /* ContentHuggingScrollVC.swift */; };
 		C8A9FF746E397DB03D132655 /* Pods_BEPureLayout_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02E4C63BC508800FCAA464 /* Pods_BEPureLayout_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		BCEEB5CC247BC483009AAD2D /* TextViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewVC.swift; sourceTree = "<group>"; };
 		BCEEB5CE247BC4D2009AAD2D /* BaseVerticalStackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVerticalStackVC.swift; sourceTree = "<group>"; };
 		BCEEB5D0247BC6D6009AAD2D /* TextFieldVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldVC.swift; sourceTree = "<group>"; };
+		BCEEB5D4247CB55C009AAD2D /* ContentHuggingScrollVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHuggingScrollVC.swift; sourceTree = "<group>"; };
 		EADA8E7399F09C98462BC948 /* Pods-BEPureLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BEPureLayout_Example.debug.xcconfig"; path = "Target Support Files/Pods-BEPureLayout_Example/Pods-BEPureLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				BCEEB5C8247BC19E009AAD2D /* ImagesViewController.swift */,
 				BCEEB5CC247BC483009AAD2D /* TextViewVC.swift */,
 				BCEEB5D0247BC6D6009AAD2D /* TextFieldVC.swift */,
+				BCEEB5D4247CB55C009AAD2D /* ContentHuggingScrollVC.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCEEB5CF247BC4D2009AAD2D /* BaseVerticalStackVC.swift in Sources */,
+				BCEEB5D5247CB55C009AAD2D /* ContentHuggingScrollVC.swift in Sources */,
 				BCEEB5C9247BC19E009AAD2D /* ImagesViewController.swift in Sources */,
 				BCEEB5BF247B809C009AAD2D /* ButtonsLabelsViewController.swift in Sources */,
 				BCEEB5CD247BC483009AAD2D /* TextViewVC.swift in Sources */,
@@ -501,6 +505,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BEPureLayout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
@@ -516,6 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BEPureLayout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
