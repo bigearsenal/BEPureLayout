@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class BETableHeaderView: BEView {
+open class BETableHeaderView: BEView {
     // MARK: - Properties
     weak var tableView: UITableView?
     

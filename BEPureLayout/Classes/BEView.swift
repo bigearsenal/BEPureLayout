@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class BEView: UIView {
+open class BEView: UIView {
     // MARK: - Class Initialization
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +22,7 @@ public class BEView: UIView {
     }
     
     // MARK: - Custom Functions
-    public func commonInit() {
+    open func commonInit() {
         
     }
 }

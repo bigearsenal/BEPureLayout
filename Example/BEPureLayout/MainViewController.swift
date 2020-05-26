@@ -50,11 +50,15 @@ class MainViewController: BaseViewController{
         let button5 = UIButton(label: "ContentHuggingScrollView", textColor: .blue)
         button5.addTarget(self, action: #selector(openContentHuggingScrollVC), for: .touchUpInside)
         
+        let button6 = UIButton(label: "TableHeaderView", textColor: .blue)
+        button6.addTarget(self, action: #selector(openTableViewController), for: .touchUpInside)
+        
         buttonStackView.addArrangedSubview(button1)
         buttonStackView.addArrangedSubview(button2)
         buttonStackView.addArrangedSubview(button3)
         buttonStackView.addArrangedSubview(button4)
         buttonStackView.addArrangedSubview(button5)
+        buttonStackView.addArrangedSubview(button6)
     }
     
     // MARK: - Actions
@@ -80,6 +84,11 @@ class MainViewController: BaseViewController{
     
     @objc func openContentHuggingScrollVC() {
         let vc = ContentHuggingScrollVC()
+        show(vc, sender: self)
+    }
+    
+    @objc func openTableViewController() {
+        let vc = TableViewController()
         show(vc, sender: self)
     }
 }
