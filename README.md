@@ -45,7 +45,7 @@ init(width:, height:, backgroundColor:, cornerRadius:, imageNamed:, contentMode:
 ```
 init(width:, height:, backgroundColor:, cornerRadius:, font:, keyboardType:, placeholder:, autocorrectionType:, autocapitalizationType:, spellCheckingType:, textContentType:, isSecureTextEntry:, horizontalPadding:, leftView:, leftViewMode:, rightView:, rightViewMode:)
 ```
-Note: only provide known properties. For example, if the view's width is relative to superview's width, then just remove the width property from the initializer: `UIView(height: 30)`
+Note: You don't have to provide all properties to initializers. Only provide known or required properties, then other properties will be set by default. For example, if the view's width is based on superview's width, then just remove the width property from the initializer: `UIView(height: 30)` and add needed width constraint to superview
 
 ### New methods for adding constraint
 - autoPinToTopLeftCornerOfSuperview
