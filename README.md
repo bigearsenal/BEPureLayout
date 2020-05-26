@@ -23,7 +23,7 @@ pod 'BEPureLayout'
 ```
 ## Usage
 
-BEPureLayout adds some short-hand helper-functions to well-known PureLayout library that helps developers quickly create common UIComponents like pure UIView, UIButton, UILabel, UIImageView,... Besides, this library add some common-used methods for adding constraints.
+BEPureLayout adds some custom UI classes, short-hand helper-functions to well-known PureLayout library that helps developers quickly create common UIComponents like pure UIView, UIButton, UILabel, UIImageView,... Besides, this library add some common-used methods for adding constraints.
 
 ### UIView
 ```
@@ -57,6 +57,22 @@ Note: You don't have to provide all properties to initializers. Only provide kno
 - autoPinToBottomLeftCornerOfSuperviewSafeArea
 - autoPinToBottomRightCornerOfSuperviewSafeArea
 - autoPinBottomToSuperViewSafeAreaAvoidKeyboard
+
+### ContentHuggingScrollView
+This subclass of UIScrollView contains a `contentView` that is hugged inside ScrollView itself and only scrollable in a defined direction provided by property `scrollableAxis`.
+Everything that needs to add to ScrollView should be added only to its `contentView`.
+For example:
+```
+let scrollView = ContentHuggingScrollView(scrollableAxis: .vertical)
+view.addSubview(scrollView)
+scrollView.autoPinEdgesToSuperviewEdges()
+
+let label = UILabel(text: "Very long text.....")
+
+scrollView.contentView.addSubview(label)
+label.autoPinEdgesToSuperviewEdges()
+```
+For more detail, see Example project
 
 ## Author
 
