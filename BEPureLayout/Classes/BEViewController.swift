@@ -31,6 +31,8 @@ public class BEViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        configureNavigationBar()
+        changeStatusBarStyle(preferredStatusBarStyle)
     }
     
     // MARK: - Custom methods
