@@ -21,7 +21,7 @@ class MyTableHeaderView: BETableHeaderView {
     }
 }
 
-class TableViewController: BaseViewController {
+class TableViewController: BEViewController {
     lazy var tableView = UITableView(forAutoLayout: ())
     
     // Data model: These strings will be the data for the table view cells

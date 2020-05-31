@@ -9,7 +9,7 @@
 import Foundation
 import BEPureLayout
 
-class ContentHuggingScrollVC: BaseViewController {
+class ContentHuggingScrollVC: BEViewController {
     override func setUp() {
         super.setUp()
         // add scrollView

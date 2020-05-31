@@ -9,7 +9,7 @@
 import Foundation
 import BEPureLayout
 
-class BaseVerticalStackVC: BaseViewController {
+class BaseVerticalStackVC: BEViewController {
     lazy var vStackView = UIStackView(axis: .vertical, spacing: 10, alignment: .center, distribution: .fill)
     
     override func setUp() {

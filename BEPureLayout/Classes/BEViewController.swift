@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class BEViewController: UIViewController {
+open class BEViewController: UIViewController {
     // MARK: - NestedType
     public enum NavigationBarStyle {
         case normal(translucent: Bool = false, backgroundColor: UIColor = .white, font: UIFont = .boldSystemFont(ofSize: 15), textColor: UIColor = .black, prefersLargeTitle: Bool = false)
@@ -16,19 +16,17 @@ public class BEViewController: UIViewController {
     }
     
     // MARK: - Properties
-    public var preferredBackgroundColor: UIColor {.white}
-    public var preferredNavigationBarStype: NavigationBarStyle {.normal()}
+    open var preferredBackgroundColor: UIColor {.white}
+    open var preferredNavigationBarStype: NavigationBarStyle {.normal()}
     
     // MARK: - Lifecycle methods
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = preferredBackgroundColor
-        
         setUp()
         bind()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         configureNavigationBar()
@@ -36,11 +34,13 @@ public class BEViewController: UIViewController {
     }
     
     // MARK: - Custom methods
-    public func setUp() {}
-    public func bind() {}
+    open func setUp() {
+        view.backgroundColor = preferredBackgroundColor
+    }
+    open func bind() {}
     
     // MARK: - StatusBar's configurations
-    func changeStatusBarStyle(_ style: UIStatusBarStyle) {
+    public func changeStatusBarStyle(_ style: UIStatusBarStyle) {
         (navigationController as? BENavigationController)?.changeStatusBarStyle(style)
     }
     

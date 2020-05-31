@@ -9,7 +9,7 @@
 import Foundation
 import BEPureLayout
 
-class ButtonsLabelsViewController: BaseViewController {
+class ButtonsLabelsViewController: BEViewController {
     override func setUp() {
         super.setUp()
         // Main stackViews
