@@ -28,7 +28,7 @@ public class BENavigationController: UINavigationController {
     public override func popViewController(animated: Bool) -> UIViewController? {
         let vc = super.popViewController(animated: animated)
         if let vc = previousController as? BEViewController {
-            vc.configureNavigationBar()
+//            vc.configureNavigationBar()
             vc.changeStatusBarStyle(vc.preferredStatusBarStyle)
         }
         return vc

@@ -13,6 +13,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		BC9A4E8F247CC4AF007E5913 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4E8E247CC4AF007E5913 /* TableViewController.swift */; };
+		BC9A4E992483EF91007E5913 /* NavBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4E982483EF91007E5913 /* NavBarVC.swift */; };
 		BCEEB5BC247B7FFA009AAD2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5BB247B7FFA009AAD2D /* MainViewController.swift */; };
 		BCEEB5BF247B809C009AAD2D /* ButtonsLabelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5BE247B809C009AAD2D /* ButtonsLabelsViewController.swift */; };
 		BCEEB5C9247BC19E009AAD2D /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEEB5C8247BC19E009AAD2D /* ImagesViewController.swift */; };
@@ -51,6 +52,7 @@
 		9E3B728A58F970C636BD32D4 /* BEPureLayout.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BEPureLayout.podspec; path = ../BEPureLayout.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A653992B77A0D904AD63C368 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		BC9A4E8E247CC4AF007E5913 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		BC9A4E982483EF91007E5913 /* NavBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarVC.swift; sourceTree = "<group>"; };
 		BCEEB5BB247B7FFA009AAD2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BCEEB5BE247B809C009AAD2D /* ButtonsLabelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsLabelsViewController.swift; sourceTree = "<group>"; };
 		BCEEB5C8247BC19E009AAD2D /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				BCEEB5D0247BC6D6009AAD2D /* TextFieldVC.swift */,
 				BCEEB5D4247CB55C009AAD2D /* ContentHuggingScrollVC.swift */,
 				BC9A4E8E247CC4AF007E5913 /* TableViewController.swift */,
+				BC9A4E982483EF91007E5913 /* NavBarVC.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -358,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9A4E992483EF91007E5913 /* NavBarVC.swift in Sources */,
 				BCEEB5CF247BC4D2009AAD2D /* BaseVerticalStackVC.swift in Sources */,
 				BCEEB5D5247CB55C009AAD2D /* ContentHuggingScrollVC.swift in Sources */,
 				BCEEB5C9247BC19E009AAD2D /* ImagesViewController.swift in Sources */,

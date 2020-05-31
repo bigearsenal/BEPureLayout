@@ -53,12 +53,16 @@ class MainViewController: BEViewController {
         let button6 = UIButton(label: "TableHeaderView", textColor: .blue)
         button6.addTarget(self, action: #selector(openTableViewController), for: .touchUpInside)
         
+        let button7 = UIButton(label: "NavBarVC", textColor: .blue)
+        button7.addTarget(self, action: #selector(openNavBarVC), for: .touchUpInside)
+        
         buttonStackView.addArrangedSubview(button1)
         buttonStackView.addArrangedSubview(button2)
         buttonStackView.addArrangedSubview(button3)
         buttonStackView.addArrangedSubview(button4)
         buttonStackView.addArrangedSubview(button5)
         buttonStackView.addArrangedSubview(button6)
+        buttonStackView.addArrangedSubview(button7)
     }
     
     // MARK: - Actions
@@ -90,5 +94,12 @@ class MainViewController: BEViewController {
     @objc func openTableViewController() {
         let vc = TableViewController()
         show(vc, sender: self)
+    }
+    
+    @objc func openNavBarVC() {
+        let vc = NavBarVC(preferedNavBarStyle: .normal(backgroundColor: .blue, textColor: .white))
+        let nc = BENavigationController(rootViewController: vc)
+        nc.modalPresentationStyle = .fullScreen
+        show(nc, sender: self)
     }
 }
