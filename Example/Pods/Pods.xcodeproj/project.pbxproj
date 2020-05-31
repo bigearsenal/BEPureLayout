@@ -37,7 +37,7 @@
 		ACD353DAF7A609E058E474ECE9BE36DD /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7C0824DBFBE95FCB8AA094AA709D0E /* NSLayoutConstraint+PureLayout.m */; };
 		AD9F305FA83AC0B74B7A97380EC577F5 /* UIView+PureLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ADDA2B22C0AA2921C3DD7B0D54A83C /* UIView+PureLayout.swift */; };
 		BC9A4E93248359AF007E5913 /* BEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4E92248359AF007E5913 /* BEViewController.swift */; };
-		BC9A4E9524835EF2007E5913 /* BENavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4E9424835EF2007E5913 /* BENavigationController.swift */; };
+		BC9A4E972483ECBD007E5913 /* BENavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4E962483ECBD007E5913 /* BENavigationController.swift */; };
 		C0821D65744CA439F2992FCCFD06DEE6 /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3391B4FA48EC4B1EC8D9E68BE9142FFB /* PureLayout-dummy.m */; };
 		E53B49E200ADEAE68EDC43BB3EFB91C8 /* PureLayout+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 950BFB13C3F461C7AC6E88BDA4CCC3F1 /* PureLayout+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5926E941D81964F277511DE71F8004F /* PureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B207639271F0B3AD2D7C527B48C530 /* PureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,7 +120,7 @@
 		B83D6B9B2B530259D869B941C15ADC5E /* PureLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-prefix.pch"; sourceTree = "<group>"; };
 		B86FD6AAE4C8C9F226BEEC1908F6633C /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PureLayout.modulemap; sourceTree = "<group>"; };
 		BC9A4E92248359AF007E5913 /* BEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BEViewController.swift; path = BEPureLayout/Classes/BEViewController.swift; sourceTree = "<group>"; };
-		BC9A4E9424835EF2007E5913 /* BENavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BENavigationController.swift; sourceTree = "<group>"; };
+		BC9A4E962483ECBD007E5913 /* BENavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BENavigationController.swift; path = BEPureLayout/Classes/BENavigationController.swift; sourceTree = "<group>"; };
 		BF7C0824DBFBE95FCB8AA094AA709D0E /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
 		CAFD0FCAB66E7C7E05BA3C9557796CC3 /* Pods-BEPureLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BEPureLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CE22508875A0D08F4828B1309EE3DEF1 /* PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 				41E7BDB952658B79ADE6E1CDA32B138D /* UITextField+PureLayout.swift */,
 				65E18C0D8A424C64055C247A09BDD0A9 /* UITextView+PureLayout.swift */,
 				D3ADDA2B22C0AA2921C3DD7B0D54A83C /* UIView+PureLayout.swift */,
-				BC9A4E9424835EF2007E5913 /* BENavigationController.swift */,
+				BC9A4E962483ECBD007E5913 /* BENavigationController.swift */,
 				BC9A4E92248359AF007E5913 /* BEViewController.swift */,
 				22CDFD4CB08BF1D5CBEFBEB6C544DF28 /* Pod */,
 				563BAF60AA5F786553B9E73CB29D7ABA /* Support Files */,
@@ -557,7 +557,7 @@
 				6DE3B59CE998CB9C15802DAB3AEBFBED /* BEPureLayout-dummy.m in Sources */,
 				BC9A4E93248359AF007E5913 /* BEViewController.swift in Sources */,
 				72CCCE9B228062F3F85A10156F1EEB40 /* BETableHeaderView.swift in Sources */,
-				BC9A4E9524835EF2007E5913 /* BENavigationController.swift in Sources */,
+				BC9A4E972483ECBD007E5913 /* BENavigationController.swift in Sources */,
 				1F224CCEE13B283179A50A4B041E0588 /* BEView.swift in Sources */,
 				F950EE1CD94C10F8BDF9E962BE8B9F0B /* ContentHuggingScrollView.swift in Sources */,
 				66520A9A72DAE69FCF1EDE3AD491A395 /* UIButton+PureLayout.swift in Sources */,
