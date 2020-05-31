@@ -36,6 +36,8 @@
 		9EF782D916A98DA9E8407A127517E6D3 /* UIStackView+PureLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9AFF4FB1C5FFDE45F0C85351D853D5 /* UIStackView+PureLayout.swift */; };
 		ACD353DAF7A609E058E474ECE9BE36DD /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7C0824DBFBE95FCB8AA094AA709D0E /* NSLayoutConstraint+PureLayout.m */; };
 		AD9F305FA83AC0B74B7A97380EC577F5 /* UIView+PureLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ADDA2B22C0AA2921C3DD7B0D54A83C /* UIView+PureLayout.swift */; };
+		BC9A4E93248359AF007E5913 /* BEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4E92248359AF007E5913 /* BEViewController.swift */; };
+		BC9A4E9524835EF2007E5913 /* BENavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC9A4E9424835EF2007E5913 /* BENavigationController.swift */; };
 		C0821D65744CA439F2992FCCFD06DEE6 /* PureLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3391B4FA48EC4B1EC8D9E68BE9142FFB /* PureLayout-dummy.m */; };
 		E53B49E200ADEAE68EDC43BB3EFB91C8 /* PureLayout+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 950BFB13C3F461C7AC6E88BDA4CCC3F1 /* PureLayout+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F5926E941D81964F277511DE71F8004F /* PureLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B207639271F0B3AD2D7C527B48C530 /* PureLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,12 +78,12 @@
 /* Begin PBXFileReference section */
 		02E1C8ECFE9284F04F4D4F2A875AA4C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		0CD6DB58CD473D9656894990A43B68CC /* Pods-BEPureLayout_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BEPureLayout_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0D6DF5EA6A1106986EB826535B435308 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0D6DF5EA6A1106986EB826535B435308 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0FC6AD9B9433FE78AC4D012395732683 /* BEPureLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BEPureLayout-dummy.m"; sourceTree = "<group>"; };
 		172C495786F28A44091AEC43F59437D8 /* BEPureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BEPureLayout.modulemap; sourceTree = "<group>"; };
 		193F97166EEFEEFBBF4E7DE84890044E /* UIImageView+PureLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImageView+PureLayout.swift"; path = "BEPureLayout/Classes/UIImageView+PureLayout.swift"; sourceTree = "<group>"; };
 		1B79BA994CA083804E5B0E2D35F28867 /* ContentHuggingScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentHuggingScrollView.swift; path = BEPureLayout/Classes/ContentHuggingScrollView.swift; sourceTree = "<group>"; };
-		1DEA13B629DA6747CC7732266F224317 /* Pods_BEPureLayout_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BEPureLayout_Tests.framework; path = "Pods-BEPureLayout_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DEA13B629DA6747CC7732266F224317 /* Pods_BEPureLayout_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BEPureLayout_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2409EF49AD8B362E84DB2E343A277525 /* Pods-BEPureLayout_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BEPureLayout_Example-Info.plist"; sourceTree = "<group>"; };
 		2810148A7EBC87627DB1E287B24403AE /* PureLayoutDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayoutDefines.h; path = PureLayout/PureLayout/PureLayoutDefines.h; sourceTree = "<group>"; };
 		28B207639271F0B3AD2D7C527B48C530 /* PureLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-umbrella.h"; sourceTree = "<group>"; };
@@ -105,24 +107,26 @@
 		8DC103CC36C9849743C021392E6C61E6 /* Pods-BEPureLayout_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-BEPureLayout_Tests.modulemap"; sourceTree = "<group>"; };
 		950BFB13C3F461C7AC6E88BDA4CCC3F1 /* PureLayout+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "PureLayout+Internal.h"; path = "PureLayout/PureLayout/PureLayout+Internal.h"; sourceTree = "<group>"; };
 		977204E2602E05892924F9F1E147BB06 /* BEPureLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BEPureLayout-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E57A620E496AC66748698FB224EF5CB /* BEView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BEView.swift; path = BEPureLayout/Classes/BEView.swift; sourceTree = "<group>"; };
-		9EE7FBACDECA71BD5867214D0CC802B6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		9EE7FBACDECA71BD5867214D0CC802B6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9F821CB4F97FD8F4CE04BD0F6AE49056 /* Pods-BEPureLayout_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BEPureLayout_Tests-Info.plist"; sourceTree = "<group>"; };
-		A0E757C141C59A1CE4282674CD6B1358 /* BEPureLayout.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = BEPureLayout.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A0E757C141C59A1CE4282674CD6B1358 /* BEPureLayout.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = BEPureLayout.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A3172BA465BE0912A884E46734A78862 /* BEPureLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BEPureLayout.debug.xcconfig; sourceTree = "<group>"; };
-		A86E621FFD7F8E1D5D4BA6D35E84551D /* BEPureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BEPureLayout.framework; path = BEPureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A94D063ED1112DDE6BF41F74B25C7267 /* Pods_BEPureLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BEPureLayout_Example.framework; path = "Pods-BEPureLayout_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A86E621FFD7F8E1D5D4BA6D35E84551D /* BEPureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BEPureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A94D063ED1112DDE6BF41F74B25C7267 /* Pods_BEPureLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BEPureLayout_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB586A7A8FDC1784D640F872D02B90DB /* PureLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PureLayout.release.xcconfig; sourceTree = "<group>"; };
 		B06AA4C08CD7F731602FF781270AE453 /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83D6B9B2B530259D869B941C15ADC5E /* PureLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PureLayout-prefix.pch"; sourceTree = "<group>"; };
 		B86FD6AAE4C8C9F226BEEC1908F6633C /* PureLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = PureLayout.modulemap; sourceTree = "<group>"; };
+		BC9A4E92248359AF007E5913 /* BEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BEViewController.swift; path = BEPureLayout/Classes/BEViewController.swift; sourceTree = "<group>"; };
+		BC9A4E9424835EF2007E5913 /* BENavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BENavigationController.swift; sourceTree = "<group>"; };
 		BF7C0824DBFBE95FCB8AA094AA709D0E /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+PureLayout.m"; path = "PureLayout/PureLayout/NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
 		CAFD0FCAB66E7C7E05BA3C9557796CC3 /* Pods-BEPureLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BEPureLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CE22508875A0D08F4828B1309EE3DEF1 /* PureLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PureLayout.h; path = PureLayout/PureLayout/PureLayout.h; sourceTree = "<group>"; };
 		D3ADDA2B22C0AA2921C3DD7B0D54A83C /* UIView+PureLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+PureLayout.swift"; path = "BEPureLayout/Classes/UIView+PureLayout.swift"; sourceTree = "<group>"; };
 		DEDD7A3832B89EB336605102679C39E3 /* Pods-BEPureLayout_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BEPureLayout_Tests-dummy.m"; sourceTree = "<group>"; };
-		E4E7B3DD46ABB0DBBB56BD5AE90E4911 /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = PureLayout.framework; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4E7B3DD46ABB0DBBB56BD5AE90E4911 /* PureLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PureLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E709D389BBF3A5ACB35D27543FB3E592 /* Pods-BEPureLayout_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BEPureLayout_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA1351B1C56E2B8DDC5FB9F2CD309CB0 /* PureLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PureLayout.debug.xcconfig; sourceTree = "<group>"; };
 		ED688073F59584C46BA94271350AB37A /* Pods-BEPureLayout_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BEPureLayout_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				41E7BDB952658B79ADE6E1CDA32B138D /* UITextField+PureLayout.swift */,
 				65E18C0D8A424C64055C247A09BDD0A9 /* UITextView+PureLayout.swift */,
 				D3ADDA2B22C0AA2921C3DD7B0D54A83C /* UIView+PureLayout.swift */,
+				BC9A4E9424835EF2007E5913 /* BENavigationController.swift */,
+				BC9A4E92248359AF007E5913 /* BEViewController.swift */,
 				22CDFD4CB08BF1D5CBEFBEB6C544DF28 /* Pod */,
 				563BAF60AA5F786553B9E73CB29D7ABA /* Support Files */,
 			);
@@ -332,7 +338,6 @@
 				2810148A7EBC87627DB1E287B24403AE /* PureLayoutDefines.h */,
 				FB641262D1994F2A050C1333C75F68A5 /* Support Files */,
 			);
-			name = PureLayout;
 			path = PureLayout;
 			sourceTree = "<group>";
 		};
@@ -550,7 +555,9 @@
 			files = (
 				964F0C5C72C87F9299C9BF2F6446C211 /* AvoidingKeyboardLayoutConstraint.swift in Sources */,
 				6DE3B59CE998CB9C15802DAB3AEBFBED /* BEPureLayout-dummy.m in Sources */,
+				BC9A4E93248359AF007E5913 /* BEViewController.swift in Sources */,
 				72CCCE9B228062F3F85A10156F1EEB40 /* BETableHeaderView.swift in Sources */,
+				BC9A4E9524835EF2007E5913 /* BENavigationController.swift in Sources */,
 				1F224CCEE13B283179A50A4B041E0588 /* BEView.swift in Sources */,
 				F950EE1CD94C10F8BDF9E962BE8B9F0B /* ContentHuggingScrollView.swift in Sources */,
 				66520A9A72DAE69FCF1EDE3AD491A395 /* UIButton+PureLayout.swift in Sources */,
@@ -855,8 +862,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
