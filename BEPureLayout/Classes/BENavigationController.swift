@@ -7,10 +7,10 @@
 
 import Foundation
 
-public class BENavigationController: UINavigationController {
+open class BENavigationController: UINavigationController {
     // MARK: - Properties
     private var statusBarStyle: UIStatusBarStyle = .default
-    public override var preferredStatusBarStyle: UIStatusBarStyle {self.statusBarStyle}
+    open override var preferredStatusBarStyle: UIStatusBarStyle {self.statusBarStyle}
     
     public var previousController: UIViewController? {
         if viewControllers.count > 1 {
@@ -20,12 +20,12 @@ public class BENavigationController: UINavigationController {
     }
     
     // MARK: - Custom methods
-    public func changeStatusBarStyle(_ style: UIStatusBarStyle) {
+    open func changeStatusBarStyle(_ style: UIStatusBarStyle) {
         self.statusBarStyle = style
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    public override func popViewController(animated: Bool) -> UIViewController? {
+    open override func popViewController(animated: Bool) -> UIViewController? {
         let vc = super.popViewController(animated: animated)
         if let vc = previousController as? BEViewController {
 //            vc.configureNavigationBar()
