@@ -68,6 +68,11 @@ class NavBarVC: BEViewController {
         buttonStackView.addArrangedSubview(button1)
         buttonStackView.addArrangedSubview(button2)
         buttonStackView.addArrangedSubview(button3)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.setNavigationBarBackgroundColor(.orange)
+            self.setNavigationBarTitleStyle(textColor: .white, font: .systemFont(ofSize: 15))
+        }
     }
     
     @objc func back() {
