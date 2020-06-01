@@ -16,6 +16,16 @@ class NavBarVC: BEViewController {
         _preferedNavBarStyle
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        switch _preferedNavBarStyle {
+        case .normal(_, let backgroundColor, _, _, _):
+            if backgroundColor == .white {return .default}
+            return .lightContent
+        default:
+            return .default
+        }
+    }
+    
     init(preferedNavBarStyle: BEViewController.NavigationBarStyle) {
         _preferedNavBarStyle = preferedNavBarStyle
         super.init(nibName: nil, bundle: nil)
