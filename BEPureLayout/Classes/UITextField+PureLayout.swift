@@ -14,8 +14,10 @@ public extension UITextField {
         backgroundColor: UIColor? = nil,
         cornerRadius: CGFloat? = nil,
         font: UIFont? = nil,
+        textColor: UIColor? = nil,
         keyboardType: UIKeyboardType? = nil,
         placeholder: String?,
+        placeholderTextColor: UIColor? = nil,
         autocorrectionType: UITextAutocorrectionType? = nil,
         autocapitalizationType: UITextAutocapitalizationType? = nil,
         spellCheckingType: UITextSpellCheckingType? = nil,
@@ -28,6 +30,10 @@ public extension UITextField {
         rightViewMode: UITextField.ViewMode? = nil
     ) {
         self.init(width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius)
+        if let textColor = textColor {
+            self.textColor = textColor
+        }
+        
         if let font = font {
             self.font = font
         }
@@ -36,6 +42,11 @@ public extension UITextField {
         }
         
         self.placeholder = placeholder
+        
+        if let placeholderTextColor = placeholderTextColor {
+            attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [.foregroundColor: placeholderTextColor])
+        }
+        
         if let autocorrectionType = autocorrectionType {
             self.autocorrectionType = autocorrectionType
         }
