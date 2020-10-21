@@ -28,7 +28,7 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     private var offset: CGFloat = 0
     private var keyboardVisibleHeight: CGFloat = 0
     
-    func observeKeyboardHeight() {
+    public func observeKeyboardHeight() {
         offset = constant
         
         NotificationCenter.default.addObserver(self, selector: #selector(AvoidingKeyboardLayoutConstraint.keyboardWillShowNotification(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
