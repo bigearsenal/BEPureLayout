@@ -1,6 +1,6 @@
 {
   "name": "BEPureLayout",
-  "version": "0.1.2",
+  "version": "0.1.7",
   "summary": "Useful extensions for UIViews using PureLayout",
   "description": "Extend the ability of PureLayout by adding some UI classes, PureLayout-styled function and short-hand UIViews helpers",
   "homepage": "https://github.com/bigearsenal/BEPureLayout",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/bigearsenal/BEPureLayout.git",
-    "tag": "0.1.2"
+    "tag": "0.1.7"
   },
   "social_media_url": "https://twitter.com/bigearsenal",
   "swift_versions": "4.0",

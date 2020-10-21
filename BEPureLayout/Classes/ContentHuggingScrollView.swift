@@ -28,13 +28,11 @@ public class ContentHuggingScrollView: UIScrollView {
     func commonInit() {
         configureForAutoLayout()
         addSubview(contentView)
-        contentView.autoPinEdgesToSuperviewEdges()
+        contentView.autoPinEdgesToSuperviewEdges(with: contentInset)
         if scrollableAxis == .vertical {
-            NSLayoutConstraint(item: contentView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 1, constant: 0
-            ).isActive = true
+            contentView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(contentInset.left + contentInset.right) ).isActive = true
         } else {
-            NSLayoutConstraint(item: contentView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0
-            ).isActive = true
+            contentView.heightAnchor.constraint(equalTo: heightAnchor, constant: -(contentInset.top + contentInset.bottom)).isActive = true
         }
     }
 }
