@@ -12,7 +12,7 @@ public extension UILabel {
         text: String? = nil,
         textSize: CGFloat = UIFont.systemFontSize,
         weight: UIFont.Weight = .regular,
-        textColor: UIColor? = BEPureLayoutConfigs.shared.defaultTextColor,
+        textColor: UIColor? = BEPureLayoutConfigs.defaultTextColor,
         numberOfLines: Int? = nil,
         textAlignment: NSTextAlignment? = nil
     ) {

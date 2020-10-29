@@ -8,7 +8,6 @@
 import Foundation
 
 public struct BEPureLayoutConfigs {
-    public static var shared = BEPureLayoutConfigs()
-    
-    public var defaultTextColor = UIColor.black
+    public static var defaultTextColor = UIColor.black
+    public static var defaultNavigationBarColor = UIColor.white
 }

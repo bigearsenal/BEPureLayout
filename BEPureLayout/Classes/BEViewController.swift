@@ -10,7 +10,7 @@ import Foundation
 open class BEViewController: UIViewController {
     // MARK: - NestedType
     public enum NavigationBarStyle {
-        case normal(translucent: Bool = false, backgroundColor: UIColor = .white, font: UIFont = .boldSystemFont(ofSize: 15), textColor: UIColor = .black, prefersLargeTitle: Bool = false)
+        case normal(translucent: Bool = false, backgroundColor: UIColor = BEPureLayoutConfigs.defaultNavigationBarColor, font: UIFont = .boldSystemFont(ofSize: 15), textColor: UIColor = BEPureLayoutConfigs.defaultTextColor, prefersLargeTitle: Bool = false)
         case hidden
         case embeded
     }
