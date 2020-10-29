@@ -10,4 +10,5 @@ import Foundation
 public struct BEPureLayoutConfigs {
     public static var defaultTextColor = UIColor.black
     public static var defaultNavigationBarColor = UIColor.white
+    public static var defaultNavigationBarTextFont = UIFont.boldSystemFont(ofSize: 15)
 }
