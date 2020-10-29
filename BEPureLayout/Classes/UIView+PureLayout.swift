@@ -122,4 +122,39 @@ public extension UIView {
         isUserInteractionEnabled = true
         return self
     }
+    
+    public func removeAllConstraints() {
+        var _superview = self.superview
+        
+        while let superview = _superview {
+            for constraint in superview.constraints {
+                
+                if let first = constraint.firstItem as? UIView, first == self {
+                    superview.removeConstraint(constraint)
+                }
+                
+                if let second = constraint.secondItem as? UIView, second == self {
+                    superview.removeConstraint(constraint)
+                }
+            }
+            
+            _superview = superview.superview
+        }
+        
+        self.removeConstraints(self.constraints)
+    }
+    
+    public var constraintsToSuperview: [NSLayoutConstraint]? {
+        guard let superview = superview else {return nil}
+        return superview.constraints.filter {
+            ($0.firstItem as? UIView == self && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == superview && $0.secondItem as? UIView == superview)
+        }
+    }
+    
+    public func constraintToSuperviewWithAttribute(_ attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+        constraintsToSuperview?.first {
+            ($0.firstItem as? UIView == self && $0.firstAttribute == attribute) ||
+            ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
+        }
+    }
 }
