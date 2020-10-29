@@ -157,4 +157,9 @@ public extension UIView {
             ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
         }
     }
+    
+    public static var spacer: UIView { UIView(forAutoLayout: ()) }
+    public func separator(height: CGFloat, color: UIColor) -> UIView {
+        UIView(height: height, backgroundColor: color)
+    }
 }
