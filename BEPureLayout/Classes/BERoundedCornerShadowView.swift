@@ -42,6 +42,7 @@ open class BERoundedCornerShadowView: BEView {
         mainView.autoPinEdgesToSuperviewEdges()
         
         mainView.addSubview(stackView)
+        layoutStackView()
     }
     
     open func layoutStackView() {
@@ -54,7 +55,7 @@ open class BERoundedCornerShadowView: BEView {
     }
     
     open func roundCorners() {
-        layer.masksToBounds = true
-        layer.cornerRadius = mainViewCornerRadius
+        mainView.layer.masksToBounds = true
+        mainView.layer.cornerRadius = mainViewCornerRadius
     }
 }
