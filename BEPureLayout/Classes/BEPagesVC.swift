@@ -33,7 +33,7 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
     
     // MARK: - Subviews
     public lazy var containerView = UIView(forAutoLayout: ())
-    lazy var pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+    public lazy var pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
     public lazy var pageControl = UIPageControl(forAutoLayout: ())
     
@@ -77,6 +77,13 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
         pageVC.setViewControllers([viewControllers.first!], direction: .forward, animated: true, completion: nil)
         currentPage = 0
         delegate?.bePagesVC(self, currentPageDidChangeTo: 0)
+    }
+    
+    open func moveToPage(_ index: Int) {
+        guard index < viewControllers.count, index != currentPage else {return}
+        pageVC.setViewControllers([viewControllers[index]], direction: index > currentPage ? .forward: .reverse, animated: true, completion: nil)
+        currentPage = index
+        pageControl.currentPage = index
     }
     
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
