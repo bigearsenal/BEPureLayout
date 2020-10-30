@@ -16,7 +16,7 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
     var currentPage = 0
     public weak var delegate: BEPagesVCDelegate?
     
-    public var viewControllers = [BEPageVCType]() {
+    public var viewControllers = [UIViewController]() {
         didSet {
             pageControl.numberOfPages = viewControllers.count
             kickOff()
@@ -87,22 +87,23 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
     }
     
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let vc = viewController as? BEPageVCType,
-            vc.index != 0
+        guard let index = viewControllers.index(of: viewController),
+            index != 0
         else {return nil}
-        return viewControllers[vc.index - 1]
+        return viewControllers[index - 1]
     }
     
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let vc = viewController as? BEPageVCType,
-            vc.index < viewControllers.count - 1
+        guard let index = viewControllers.index(of: viewController),
+            index < viewControllers.count - 1
         else {return nil}
-        return viewControllers[vc.index + 1]
+        return viewControllers[index + 1]
     }
     
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        if let vc = pageVC.viewControllers?.first as? BEPageVCType {
-            let index = vc.index
+        if let vc = pageVC.viewControllers?.first,
+           let index = viewControllers.index(of: vc)
+        {
             pageControl.currentPage = index
             currentPage = index
             delegate?.bePagesVC(self, currentPageDidChangeTo: index)
