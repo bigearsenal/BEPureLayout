@@ -14,12 +14,17 @@ public extension UIImageView {
         backgroundColor: UIColor? = nil,
         cornerRadius: CGFloat? = nil,
         imageNamed: String? = nil,
+        image: UIImage? = nil,
         contentMode: UIImageView.ContentMode? = nil
     ) {
         self.init(width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius)
         
         if let imageNamed = imageNamed {
-            image = UIImage(named: imageNamed)
+            self.image = UIImage(named: imageNamed)
+        }
+        
+        if let image = image {
+            self.image = image
         }
         
         if let contentMode = contentMode {
