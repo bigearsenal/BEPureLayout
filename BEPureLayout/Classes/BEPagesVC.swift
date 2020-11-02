@@ -13,7 +13,7 @@ public protocol BEPagesVCDelegate: class {
 
 open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     // MARK: - Properties
-    var currentPage = 0
+    public var currentPage = 0
     public weak var delegate: BEPagesVCDelegate?
     
     public var viewControllers = [UIViewController]() {
