@@ -13,4 +13,5 @@ public struct BEPureLayoutConfigs {
     public static var defaultNavigationBarColor = UIColor.white
     public static var defaultShadowColor = UIColor.black
     public static var defaultNavigationBarTextFont = UIFont.boldSystemFont(ofSize: 15)
+    public static var defaultBackButton: UIBarButtonItem?
 }

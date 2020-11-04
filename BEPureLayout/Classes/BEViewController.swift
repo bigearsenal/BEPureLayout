@@ -31,6 +31,7 @@ open class BEViewController: UIViewController {
         
         configureNavigationBar()
         changeStatusBarStyle(preferredStatusBarStyle)
+        setNavBarBackButton()
     }
     
     // MARK: - Custom methods
@@ -90,5 +91,29 @@ open class BEViewController: UIViewController {
         attrs[.font] = font
         attrs[.foregroundColor] = textColor
         navigationController?.navigationBar.titleTextAttributes = attrs
+    }
+    
+    func setNavBarBackButton() {
+        if navigationController?.navigationBar.backItem != nil,
+           let backBarButton = BEPureLayoutConfigs.defaultBackButton
+        {
+            backBarButton.target = self
+            backBarButton.action = #selector(back)
+            self.navigationItem.hidesBackButton = true
+            self.navigationItem.leftBarButtonItem = backBarButton
+        }
+        
+    }
+    
+    @objc public func back() {
+        popOrDismissVC()
+    }
+    
+    private func popOrDismissVC(_ completion: (() -> Void)? = nil) {
+        if let nc = navigationController, nc.viewControllers.first != self {
+            nc.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: completion)
+        }
     }
 }
