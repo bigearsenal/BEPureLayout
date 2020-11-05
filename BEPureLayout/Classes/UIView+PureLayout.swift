@@ -147,7 +147,7 @@ public extension UIView {
     public var constraintsToSuperview: [NSLayoutConstraint]? {
         guard let superview = superview else {return nil}
         return superview.constraints.filter {
-            ($0.firstItem as? UIView == self && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == superview && $0.secondItem as? UIView == superview)
+            ($0.firstItem as? UIView == self && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == superview && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == self && $0.secondItem as? UILayoutGuide == superview.safeAreaLayoutGuide) || ($0.firstItem as? UILayoutGuide == superview.safeAreaLayoutGuide && $0.secondItem as? UIView == self)
         }
     }
     
