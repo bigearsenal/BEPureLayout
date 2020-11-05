@@ -105,7 +105,7 @@ open class BEViewController: UIViewController {
         
     }
     
-    @objc public func back() {
+    @objc open func back() {
         popOrDismissVC()
     }
     
