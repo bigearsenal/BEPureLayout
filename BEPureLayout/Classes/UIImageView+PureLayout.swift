@@ -15,7 +15,8 @@ public extension UIImageView {
         cornerRadius: CGFloat? = nil,
         imageNamed: String? = nil,
         image: UIImage? = nil,
-        contentMode: UIImageView.ContentMode? = nil
+        contentMode: UIImageView.ContentMode? = nil,
+        tintColor: UIColor? = nil
     ) {
         self.init(width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius)
         
@@ -29,6 +30,10 @@ public extension UIImageView {
         
         if let contentMode = contentMode {
             self.contentMode = contentMode
+        }
+        
+        if let tintColor = tintColor {
+            self.tintColor = tintColor
         }
     }
 }
