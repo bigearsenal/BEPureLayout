@@ -35,7 +35,11 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
     public lazy var containerView = UIView(forAutoLayout: ())
     public lazy var pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     
-    public lazy var pageControl = UIPageControl(forAutoLayout: ())
+    public lazy var pageControl: UIPageControl = {
+        let pc = UIPageControl(forAutoLayout: ())
+        pc.addTarget(self, action: #selector(pageControlDidChange), for: .valueChanged)
+        return pc
+    }()
     
     open override func setUp() {
         super.setUp()
@@ -53,12 +57,12 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
         setUpPageControl()
     }
     
-    func setUpContainerView() {
+    open func setUpContainerView() {
         view.addSubview(containerView)
         containerView.autoPinEdgesToSuperviewEdges()
     }
     
-    func setUpPageControl() {
+    open func setUpPageControl() {
         view.addSubview(pageControl)
         pageControl.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 30)
         pageControl.autoAlignAxis(toSuperviewAxis: .vertical)
@@ -108,5 +112,10 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
             currentPage = index
             delegate?.bePagesVC(self, currentPageDidChangeTo: index)
         }
+    }
+    
+    // MARK: - Actions
+    @objc func pageControlDidChange() {
+        moveToPage(pageControl.currentPage)
     }
 }
