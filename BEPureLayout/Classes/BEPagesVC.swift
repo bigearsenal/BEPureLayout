@@ -19,7 +19,11 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
     public var viewControllers = [UIViewController]() {
         didSet {
             pageControl.numberOfPages = viewControllers.count
-            kickOff()
+            if currentPage < viewControllers.count {
+                pageVC.setViewControllers([viewControllers[currentPage]], direction: .forward, animated: false, completion: nil)
+            } else {
+                kickOff()
+            }
         }
     }
     
