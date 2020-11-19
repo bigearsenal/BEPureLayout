@@ -30,6 +30,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'BEPureLayout/Classes/**/*'
   
+  s.resources = 'BEPureLayout/Assets/**'
   # s.resource_bundles = {
   #   'BEPureLayout' => ['BEPureLayout/Assets/*.png']
   # }
