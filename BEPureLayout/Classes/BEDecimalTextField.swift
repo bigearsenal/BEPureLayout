@@ -18,7 +18,7 @@ open class BEDecimalTextField: UITextField {
         commonInit()
     }
     
-    public func commonInit() {
+    open func commonInit() {
         
     }
     
