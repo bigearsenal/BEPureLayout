@@ -95,6 +95,12 @@ public extension UIView {
         superview?.addConstraint(keyboardViewV)
     }
     
+    func autoCenterInSuperView(leftInset: CGFloat, rightInset: CGFloat? = nil) {
+        autoPinEdge(toSuperviewEdge: .leading, withInset: leftInset)
+        autoPinEdge(toSuperviewEdge: .trailing, withInset: rightInset ?? leftInset)
+        autoAlignAxis(toSuperviewAxis: .horizontal)
+    }
+    
     var centeredHorizontallyView: UIView {
         let view = UIView(forAutoLayout: ())
         view.addSubview(self)
@@ -102,6 +108,15 @@ public extension UIView {
         self.autoPinEdge(.bottom, to: .bottom, of: view)
         self.autoAlignAxis(toSuperviewAxis: .vertical)
         return view
+    }
+    
+    // MARK: - Convenience methods
+    var widthConstraint: NSLayoutConstraint? {
+        constraints.first(where: {$0.firstAttribute == .width && $0.secondAttribute == .notAnAttribute})
+    }
+    
+    var heightConstraint: NSLayoutConstraint? {
+        constraints.first(where: {$0.firstAttribute == .height && $0.secondAttribute == .notAnAttribute})
     }
     
     // MARK: - Wrapper
@@ -163,6 +178,21 @@ public extension UIView {
             ($0.firstItem as? UIView == self && $0.firstAttribute == attribute) ||
             ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
         }
+    }
+    
+    public func constraints(toRelativeView view: UIView) -> [NSLayoutConstraint] {
+        superview?.constraints.filter {
+            ($0.firstItem as? UIView == self && $0.secondItem as? UIView == view) ||
+            ($0.firstItem as? UIView == view && $0.secondItem as? UIView == self)
+        } ?? []
+    }
+    
+    public func constraint(toRelativeView view: UIView, withAttribute attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+        constraints(toRelativeView: view)
+            .first {
+                ($0.firstItem as? UIView == self && $0.firstAttribute == attribute) ||
+                ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
+            }
     }
     
     public static var spacer: UIView { UIView(forAutoLayout: ()) }
