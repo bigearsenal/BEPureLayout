@@ -121,8 +121,16 @@ public extension UIView {
     
     // MARK: - Wrapper
     private static let wrapperViewTag = 1111
-    func padding(_ inset: UIEdgeInsets) -> UIView {
+    func padding(_ inset: UIEdgeInsets, backgroundColor: UIColor? = nil, cornerRadius: CGFloat? = nil) -> UIView {
         let view = UIView(forAutoLayout: ())
+        if let bgColor = backgroundColor {
+            view.backgroundColor = bgColor
+        }
+        
+        if let cornerRadius = cornerRadius {
+            view.layer.cornerRadius = cornerRadius
+            view.layer.masksToBounds = true
+        }
         view.tag = UIView.wrapperViewTag
         view.addSubview(self)
         self.autoPinEdgesToSuperviewEdges(with: inset)
@@ -196,7 +204,7 @@ public extension UIView {
     }
     
     public static var spacer: UIView { UIView(forAutoLayout: ()) }
-    public static func separator(height: CGFloat, color: UIColor) -> UIView {
+    public static func separator(height: CGFloat, color: UIColor = .clear) -> UIView {
         UIView(height: height, backgroundColor: color)
     }
     

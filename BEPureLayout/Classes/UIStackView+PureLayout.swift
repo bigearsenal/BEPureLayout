@@ -47,4 +47,14 @@ public extension UIStackView {
         }
         return self
     }
+    
+    public func stretchArrangedSubviews(_ arrangedSubviews: [UIView]) {
+        arrangedSubviews.forEach { view in
+            if axis == .vertical {
+                view.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+            } else {
+                view.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+            }
+        }
+    }
 }
