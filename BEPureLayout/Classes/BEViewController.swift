@@ -94,7 +94,9 @@ open class BEViewController: UIViewController {
     }
     
     func setNavBarBackButton() {
-        if navigationController?.navigationBar.backItem != nil,
+        if self.navigationItem.leftBarButtonItem == nil,
+           let vcIndex = navigationController?.viewControllers.firstIndex(of: self),
+           vcIndex > 0,
            let backBarButton = BEPureLayoutConfigs.defaultBackButton
         {
             backBarButton.target = self
