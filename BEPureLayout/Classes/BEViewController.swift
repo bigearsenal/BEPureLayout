@@ -94,6 +94,7 @@ open class BEViewController: UIViewController {
     }
     
     func setNavBarBackButton() {
+        // FIXME: - Back swipe not working when setting hidesBackButton = true
         if self.navigationItem.leftBarButtonItem == nil,
            let vcIndex = navigationController?.viewControllers.firstIndex(of: self),
            vcIndex > 0,
