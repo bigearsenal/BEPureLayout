@@ -15,7 +15,7 @@ public extension UIView {
     
     static func col(_ arrangedSubviews: [UIView]) -> UIStackView
     {
-        UIStackView(axis: .vertical, spacing: 10, alignment: .center, distribution: .fill, arrangedSubviews: arrangedSubviews)
+        UIStackView(axis: .vertical, spacing: 10, alignment: .fill, distribution: .fill, arrangedSubviews: arrangedSubviews)
     }
     
     func row(_ arrangedSubviews: [UIView], padding: UIEdgeInsets = .zero) -> UIStackView {
