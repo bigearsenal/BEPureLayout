@@ -18,6 +18,7 @@ public extension UIView {
         UIStackView(axis: .vertical, spacing: 10, alignment: .fill, distribution: .fill, arrangedSubviews: arrangedSubviews)
     }
     
+    @discardableResult
     func row(_ arrangedSubviews: [UIView], padding: UIEdgeInsets = .zero) -> UIStackView {
         let row = UIView.row(arrangedSubviews)
         addSubview(row)
@@ -25,6 +26,7 @@ public extension UIView {
         return row
     }
     
+    @discardableResult
     func col(_ arrangedSubviews: [UIView], padding: UIEdgeInsets = .zero) -> UIStackView
     {
         let col = UIView.col(arrangedSubviews)
