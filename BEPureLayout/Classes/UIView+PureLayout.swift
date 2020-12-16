@@ -226,4 +226,10 @@ public extension UIView {
         shape.path = maskPath.cgPath
         layer.mask = shape
     }
+    
+    @discardableResult
+    public func withTag(_ tag: Int) -> Self {
+        self.tag = tag
+        return self
+    }
 }

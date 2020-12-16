@@ -31,7 +31,7 @@ public extension UIStackView {
     
     public func addArrangedSubviews(_ subviews: [UIView], withCustomSpacings spacings: [CGFloat] = []) {
         subviews.forEach {addArrangedSubview($0)}
-        spacings.enumerated().forEach {setCustomSpacing($1, after: self.arrangedSubviews[$0])}
+        spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
     }
     
     @discardableResult
