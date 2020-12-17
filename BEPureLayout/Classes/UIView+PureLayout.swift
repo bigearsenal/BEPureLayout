@@ -104,6 +104,7 @@ public extension UIView {
     var centeredHorizontallyView: UIView {
         let view = UIView(forAutoLayout: ())
         view.addSubview(self)
+        view.tag = UIView.wrapperViewTag
         self.autoPinEdge(.top, to: .top, of: view)
         self.autoPinEdge(.bottom, to: .bottom, of: view)
         self.autoAlignAxis(toSuperviewAxis: .vertical)
