@@ -12,13 +12,14 @@ public extension UILabel {
         text: String? = nil,
         textSize: CGFloat = UIFont.systemFontSize,
         weight: UIFont.Weight = .regular,
+        font: UIFont? = nil,
         textColor: UIColor? = BEPureLayoutConfigs.defaultTextColor,
         numberOfLines: Int? = nil,
         textAlignment: NSTextAlignment? = nil
     ) {
         self.init(forAutoLayout: ())
         self.text = text
-        self.font = .systemFont(ofSize: textSize, weight: weight)
+        self.font = font ?? .systemFont(ofSize: textSize, weight: weight)
         
         if let textColor = textColor {
             self.textColor = textColor
