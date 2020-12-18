@@ -29,8 +29,16 @@ public extension UIStackView {
         }
     }
     
-    public func addArrangedSubviews(_ subviews: [UIView], withCustomSpacings spacings: [CGFloat] = []) {
+    public func addArrangedSubviews(_ subviews: [UIView], withCustomSpacings spacings: [CGFloat] = [])
+    {
         subviews.forEach {addArrangedSubview($0)}
+        spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
+    }
+    
+    public func insertArrangedSubviews(_ subviews: [UIView], at index: Int, withCustomSpacings spacings: [CGFloat] = [])
+    {
+        var index = index
+        subviews.forEach {insertArrangedSubview($0, at: index);index += 1}
         spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
     }
     
