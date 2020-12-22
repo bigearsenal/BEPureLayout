@@ -119,4 +119,12 @@ open class BEViewController: UIViewController {
             self.dismiss(animated: true, completion: completion)
         }
     }
+    
+    public func setStatusBarColor(_ color: UIColor) {
+        let headerView = UIView(backgroundColor: color)
+        view.addSubview(headerView)
+        headerView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        headerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            .isActive = true
+    }
 }
