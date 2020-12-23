@@ -8,6 +8,10 @@
 import Foundation
 
 public extension UIEdgeInsets {
+    mutating func modify(dTop: CGFloat? = nil, dLeft: CGFloat? = nil, dBottom: CGFloat? = nil, dRight: CGFloat? = nil) {
+        self = self.modifying(dTop: dTop, dLeft: dLeft, dBottom: dBottom, dRight: dRight)
+    }
+    
     func modifying(dTop: CGFloat? = nil, dLeft: CGFloat? = nil, dBottom: CGFloat? = nil, dRight: CGFloat? = nil) -> UIEdgeInsets {
         var insets = self
         if let dTop = dTop {
