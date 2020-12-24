@@ -13,7 +13,8 @@ public extension UIStackView {
         spacing: CGFloat? = nil,
         alignment: UIStackView.Alignment = .center,
         distribution: UIStackView.Distribution = .fill,
-        arrangedSubviews: [UIView]? = nil
+        arrangedSubviews: [UIView]? = nil,
+        customSpacing: [CGFloat]? = nil
     ) {
         self.init(forAutoLayout: ())
         self.axis = axis
@@ -21,7 +22,7 @@ public extension UIStackView {
         self.distribution = distribution
         
         if let subviews = arrangedSubviews {
-            addArrangedSubviews(subviews)
+            addArrangedSubviews(subviews, withCustomSpacings: customSpacing ?? [])
         }
         
         if let spacing = spacing {
