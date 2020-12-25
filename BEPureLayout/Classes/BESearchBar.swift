@@ -31,7 +31,6 @@ extension BESearchBarDelegate where Self: UIViewController {
 }
 
 open class BESearchBar: BEView {
-    private let magnifyingIconSize: CGFloat = 14
     // MARK: - Properties
     public var placeholder = NSLocalizedString("Search", comment: "") {
         didSet { textField.placeholder = placeholder }
@@ -46,6 +45,22 @@ open class BESearchBar: BEView {
         let imageView = UIImageView(width: magnifyingIconSize, height: magnifyingIconSize, image: image)
         return imageView
     }()
+    public var magnifyingIconSize: CGFloat = 14 {
+        didSet {
+            magnifyingIconImageView.widthConstraint?.constant = magnifyingIconSize
+            magnifyingIconImageView.heightConstraint?.constant = magnifyingIconSize
+            magnifyingIconImageView.setNeedsLayout()
+            textField.leftView?.layoutIfNeeded()
+        }
+    }
+    
+    public lazy var leftViewWidth: CGFloat = magnifyingIconSize + 20 {
+        didSet {
+            textField.leftView?.widthConstraint?.constant = leftViewWidth
+            textField.leftView?.setNeedsLayout()
+            textField.layoutIfNeeded()
+        }
+    }
     
     // MARK: - Subviews
     private lazy var stackView = UIStackView(axis: .horizontal, spacing: 10, alignment: .fill, distribution: .fill)
@@ -54,7 +69,7 @@ open class BESearchBar: BEView {
         let textField = UITextField(backgroundColor: textFieldBgColor, placeholder: placeholder, showClearButton: true)
         
         // textField's leftView
-        let leftView = UIView(width: 34, height: magnifyingIconSize)
+        let leftView = UIView(width: leftViewWidth, height: 0)
         
         leftView.addSubview(magnifyingIconImageView)
         magnifyingIconImageView.autoCenterInSuperview()
@@ -74,16 +89,6 @@ open class BESearchBar: BEView {
     }()
     
     // MARK: - Initializers
-    public init() {
-        super.init(frame: .zero)
-        configureForAutoLayout()
-        autoSetDimension(.height, toSize: 35)
-    }
-    
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     open override func commonInit() {
         super.commonInit()
         stackView.addArrangedSubviews([textField, cancelButton])
@@ -97,14 +102,6 @@ open class BESearchBar: BEView {
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        if frame.height > 0 {
-            textField.layer.cornerRadius = frame.height / 2
-            textField.layer.masksToBounds = true
-        }
-    }
-    
     fileprivate func showCancelButton(_ show: Bool = true) {
         if cancelButton.isHidden != show {return}
         cancelButton.isHidden = !show
@@ -116,6 +113,16 @@ open class BESearchBar: BEView {
     open func clear() {
         textField.text = ""
         textField.sendActions(for: .editingChanged)
+    }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if textField.leftView?.heightConstraint?.constant != self.bounds.height {
+            textField.leftView?.heightConstraint?.constant = self.bounds.height
+            textField.leftView?.setNeedsLayout()
+            textField.layoutIfNeeded()
+        }
+        
     }
     
     // MARK: - Actions
