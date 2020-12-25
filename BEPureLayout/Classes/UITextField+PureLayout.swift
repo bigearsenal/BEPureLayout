@@ -27,7 +27,8 @@ public extension UITextField {
         leftView: UIView? = nil,
         leftViewMode: UITextField.ViewMode? = nil,
         rightView: UIView? = nil,
-        rightViewMode: UITextField.ViewMode? = nil
+        rightViewMode: UITextField.ViewMode? = nil,
+        showClearButton: Bool = false
     ) {
         self.init(width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius)
         if let textColor = textColor {
@@ -86,6 +87,12 @@ public extension UITextField {
             rightView.autoSetDimension(.height, toSize: height ?? 16)
             self.rightView = rightView
             self.rightViewMode = rightViewMode ?? .always
+        }
+        
+        if !showClearButton {
+            rightView?.autoSetDimension(.height, toSize: height ?? 16)
+        } else {
+            self.clearButtonMode = .whileEditing
         }
         
     }

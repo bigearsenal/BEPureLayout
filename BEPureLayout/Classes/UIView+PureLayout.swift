@@ -239,4 +239,11 @@ public extension UIView {
         self.tag = tag
         return self
     }
+    
+    @discardableResult
+    public func withContentHuggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> Self
+    {
+        setContentHuggingPriority(priority, for: axis)
+        return self
+    }
 }
