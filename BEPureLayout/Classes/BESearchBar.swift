@@ -89,6 +89,14 @@ open class BESearchBar: BEView {
     }()
     
     // MARK: - Initializers
+    public convenience init(fixedHeight: CGFloat, cornerRadius: CGFloat? = nil) {
+        self.init(height: fixedHeight)
+        defer {
+            textField.layer.cornerRadius = cornerRadius ?? fixedHeight / 2
+            textField.layer.masksToBounds = true
+        }
+    }
+    
     open override func commonInit() {
         super.commonInit()
         stackView.addArrangedSubviews([textField, cancelButton])
@@ -98,8 +106,9 @@ open class BESearchBar: BEView {
         
         cancelButton.isHidden = true
         
-        textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        textField.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
+        textField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
     }
     
     fileprivate func showCancelButton(_ show: Bool = true) {
@@ -136,20 +145,18 @@ open class BESearchBar: BEView {
         perform(#selector(triggerSearch), with: nil, afterDelay: 0.3)
     }
     
-    @objc private func triggerSearch() {
-        delegate?.beSearchBar(self, searchWithKeyword: textField.text ?? "")
-    }
-}
-
-extension BESearchBar: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    @objc private func textFieldDidBeginEditing(_ textField: UITextField) {
         showCancelButton()
         delegate?.beSearchBarDidBeginSearching(self)
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @objc private func textFieldDidEndEditing(_ textField: UITextField) {
         showCancelButton(false)
         delegate?.beSearchBarDidEndSearching(self)
+    }
+    
+    @objc private func triggerSearch() {
+        delegate?.beSearchBar(self, searchWithKeyword: textField.text ?? "")
     }
 }
 
