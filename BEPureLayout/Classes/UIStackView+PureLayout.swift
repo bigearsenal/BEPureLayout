@@ -20,8 +20,7 @@ public extension UIStackView {
         spacing: CGFloat? = nil,
         alignment: UIStackView.Alignment = .center,
         distribution: UIStackView.Distribution = .fill,
-        arrangedSubviews: [UIView]? = nil,
-        customSpacing: [CGFloat]? = nil
+        arrangedSubviews: [BEStackViewElement]? = nil
     ) {
         self.init(forAutoLayout: ())
         self.axis = axis
