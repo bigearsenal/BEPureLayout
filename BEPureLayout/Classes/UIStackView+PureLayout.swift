@@ -9,7 +9,10 @@ import Foundation
 
 public protocol BEStackViewElement {}
 extension UIView: BEStackViewElement {}
-extension CGFloat: BEStackViewElement {}
+extension BEStackViewSpacing: BEStackViewElement {}
+extension Array: BEStackViewElement where Element: BEStackViewElement {}
+
+public typealias BEStackViewSpacing = CGFloat
 
 public extension UIStackView {
     convenience init(
@@ -26,7 +29,7 @@ public extension UIStackView {
         self.distribution = distribution
         
         if let subviews = arrangedSubviews {
-            addArrangedSubviews(subviews, withCustomSpacings: customSpacing ?? [])
+            addArrangedSubviews(subviews)
         }
         
         if let spacing = spacing {
@@ -34,12 +37,7 @@ public extension UIStackView {
         }
     }
     
-    public func addArrangedSubviews(_ subviews: [UIView], withCustomSpacings spacings: [CGFloat] = [])
-    {
-        subviews.forEach {addArrangedSubview($0)}
-        spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
-    }
-    
+    @available(*, deprecated, message: "use insertArrangedSubviewsWithCustomSpacing instead")
     public func insertArrangedSubviews(_ subviews: [UIView], at index: Int, withCustomSpacings spacings: [CGFloat] = [])
     {
         var index = index
@@ -47,7 +45,7 @@ public extension UIStackView {
         spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
     }
     
-    public func addArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement]) {
+    public func addArrangedSubviews(_ collection: [BEStackViewElement]) {
         for (index, element) in collection.enumerated() {
             if let view = element as? UIView {
                 addArrangedSubview(view)
@@ -56,6 +54,29 @@ public extension UIStackView {
             if let spacing = element as? CGFloat {
                 let lastView = collection[index - 1] as! UIView
                 setCustomSpacing(spacing, after: lastView)
+            }
+            
+            if let array = element as? [BEStackViewElement] {
+                addArrangedSubviews(array)
+            }
+        }
+    }
+    
+    public func insertArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement], at index: inout Int)
+    {
+        for (i, element) in collection.enumerated() {
+            if let view = element as? UIView {
+                insertArrangedSubview(view, at: index)
+                index += 1
+            }
+            
+            if let spacing = element as? CGFloat {
+                let lastView = collection[i - 1] as! UIView
+                setCustomSpacing(spacing, after: lastView)
+            }
+            
+            if let array = element as? [BEStackViewElement] {
+                insertArrangedSubviewsWithCustomSpacing(array, at: &index)
             }
         }
     }
