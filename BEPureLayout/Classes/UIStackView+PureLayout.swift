@@ -7,6 +7,10 @@
 
 import Foundation
 
+public protocol BEStackViewElement {}
+extension UIView: BEStackViewElement {}
+extension CGFloat: BEStackViewElement {}
+
 public extension UIStackView {
     convenience init(
         axis: NSLayoutConstraint.Axis,
@@ -41,6 +45,19 @@ public extension UIStackView {
         var index = index
         subviews.forEach {insertArrangedSubview($0, at: index);index += 1}
         spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
+    }
+    
+    public func addArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement]) {
+        for (index, element) in collection.enumerated() {
+            if let view = element as? UIView {
+                addArrangedSubview(view)
+            }
+            
+            if let spacing = element as? CGFloat {
+                let lastView = collection[index - 1] as! UIView
+                setCustomSpacing(spacing, after: lastView)
+            }
+        }
     }
     
     @discardableResult
