@@ -111,6 +111,16 @@ open class BESearchBar: BEView {
         textField.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
     }
     
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if textField.leftView?.heightConstraint?.constant != self.bounds.height {
+            textField.leftView?.heightConstraint?.constant = self.bounds.height
+            textField.leftView?.setNeedsLayout()
+            textField.layoutIfNeeded()
+        }
+        
+    }
+    
     fileprivate func showCancelButton(_ show: Bool = true) {
         if cancelButton.isHidden != show {return}
         cancelButton.isHidden = !show
@@ -124,14 +134,30 @@ open class BESearchBar: BEView {
         textField.sendActions(for: .editingChanged)
     }
     
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        if textField.leftView?.heightConstraint?.constant != self.bounds.height {
-            textField.leftView?.heightConstraint?.constant = self.bounds.height
-            textField.leftView?.setNeedsLayout()
-            textField.layoutIfNeeded()
+    public func setUpTextField(
+        placeholderTextColor: UIColor? = nil,
+        autocorrectionType: UITextAutocorrectionType? = nil,
+        autocapitalizationType: UITextAutocapitalizationType? = nil,
+        spellCheckingType: UITextSpellCheckingType? = nil,
+        textContentType: UITextContentType? = nil
+    ) {
+        if let placeholderTextColor = placeholderTextColor {
+            textField.attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [.foregroundColor: placeholderTextColor])
         }
         
+        if let autocorrectionType = autocorrectionType {
+            textField.autocorrectionType = autocorrectionType
+        }
+        if let autocapitalizationType = autocapitalizationType {
+            textField.autocapitalizationType = autocapitalizationType
+        }
+        if let spellCheckingType = spellCheckingType {
+            textField.spellCheckingType = spellCheckingType
+        }
+        
+        if let textContentType = textContentType {
+            textField.textContentType = textContentType
+        }
     }
     
     // MARK: - Actions
