@@ -96,7 +96,7 @@ public extension UIView {
     }
     
     func autoPinBottomToSuperViewAvoidKeyboard(inset: CGFloat = 0) {
-        let keyboardViewV = AvoidingKeyboardLayoutConstraint(item: superview, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: inset)
+        let keyboardViewV = AvoidingKeyboardLayoutConstraint(item: superview!, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: inset)
         keyboardViewV.observeKeyboardHeight()
         superview?.addConstraint(keyboardViewV)
     }
@@ -160,7 +160,7 @@ public extension UIView {
         return self
     }
     
-    public func removeAllConstraints() {
+    func removeAllConstraints() {
         var _superview = self.superview
         
         while let superview = _superview {
@@ -181,28 +181,28 @@ public extension UIView {
         self.removeConstraints(self.constraints)
     }
     
-    public var constraintsToSuperview: [NSLayoutConstraint]? {
+    var constraintsToSuperview: [NSLayoutConstraint]? {
         guard let superview = superview else {return nil}
         return superview.constraints.filter {
             ($0.firstItem as? UIView == self && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == superview && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == self && $0.secondItem as? UILayoutGuide == superview.safeAreaLayoutGuide) || ($0.firstItem as? UILayoutGuide == superview.safeAreaLayoutGuide && $0.secondItem as? UIView == self)
         }
     }
     
-    public func constraintToSuperviewWithAttribute(_ attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    func constraintToSuperviewWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         constraintsToSuperview?.first {
             ($0.firstItem as? UIView == self && $0.firstAttribute == attribute) ||
             ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
         }
     }
     
-    public func constraints(toRelativeView view: UIView) -> [NSLayoutConstraint] {
+    func constraints(toRelativeView view: UIView) -> [NSLayoutConstraint] {
         superview?.constraints.filter {
             ($0.firstItem as? UIView == self && $0.secondItem as? UIView == view) ||
             ($0.firstItem as? UIView == view && $0.secondItem as? UIView == self)
         } ?? []
     }
     
-    public func constraint(toRelativeView view: UIView, withAttribute attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    func constraint(toRelativeView view: UIView, withAttribute attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         constraints(toRelativeView: view)
             .first {
                 ($0.firstItem as? UIView == self && $0.firstAttribute == attribute) ||
@@ -210,12 +210,12 @@ public extension UIView {
             }
     }
     
-    public static var spacer: UIView { UIView(forAutoLayout: ()) }
-    public static func separator(height: CGFloat, color: UIColor = .clear) -> UIView {
+    static var spacer: UIView { UIView(forAutoLayout: ()) }
+    static func separator(height: CGFloat, color: UIColor = .clear) -> UIView {
         UIView(height: height, backgroundColor: color)
     }
     
-    public func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+    func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -223,7 +223,7 @@ public extension UIView {
         layer.masksToBounds = false
     }
     
-    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let maskPath = UIBezierPath(
             roundedRect: bounds,
             byRoundingCorners: corners,
@@ -235,13 +235,13 @@ public extension UIView {
     }
     
     @discardableResult
-    public func withTag(_ tag: Int) -> Self {
+    func withTag(_ tag: Int) -> Self {
         self.tag = tag
         return self
     }
     
     @discardableResult
-    public func withContentHuggingPriority(_ priority: UILayoutPriority, for axis: UILayoutConstraintAxis) -> Self
+    func withContentHuggingPriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> Self
     {
         setContentHuggingPriority(priority, for: axis)
         return self

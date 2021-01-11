@@ -142,7 +142,7 @@ open class BESearchBar: BEView {
         textContentType: UITextContentType? = nil
     ) {
         if let placeholderTextColor = placeholderTextColor {
-            textField.attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [.foregroundColor: placeholderTextColor])
+            textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor: placeholderTextColor])
         }
         
         if let autocorrectionType = autocorrectionType {

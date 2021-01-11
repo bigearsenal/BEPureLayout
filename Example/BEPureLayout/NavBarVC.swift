@@ -75,7 +75,7 @@ class NavBarVC: BEViewController {
         }
     }
     
-    @objc func back() {
+    @objc override func back() {
         navigationController?.popViewController(animated: true)
     }
     

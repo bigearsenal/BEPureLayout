@@ -1,5 +1,5 @@
 PODS:
-  - BEPureLayout (0.1.9):
+  - BEPureLayout (0.2.0):
     - PureLayout
   - PureLayout (3.1.6)
 
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BEPureLayout: f7359ceb98902514e00b4b15c8dbcfaf08a52d43
+  BEPureLayout: 375afc3f2a07c1662d524e266316499e59c780e4
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
 
-PODFILE CHECKSUM: 2dc028e9e01daffc193e58fa34048b8a5821d51e
+PODFILE CHECKSUM: 626814d1ba1180a0c4bc30a7d92ad3e10ca31314
 
 COCOAPODS: 1.10.0

@@ -53,9 +53,9 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
         // add pageVC
         pageVC.dataSource = self
         pageVC.delegate = self
-        addChildViewController(pageVC)
+        addChild(pageVC)
         containerView.addSubview(pageVC.view)
-        pageVC.didMove(toParentViewController: self)
+        pageVC.didMove(toParent: self)
         
         // add page control
         setUpPageControl()
@@ -95,14 +95,14 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
     }
     
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let index = viewControllers.index(of: viewController),
+        guard let index = viewControllers.firstIndex(of: viewController),
             index != 0
         else {return nil}
         return viewControllers[index - 1]
     }
     
     open func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let index = viewControllers.index(of: viewController),
+        guard let index = viewControllers.firstIndex(of: viewController),
             index < viewControllers.count - 1
         else {return nil}
         return viewControllers[index + 1]
@@ -110,7 +110,7 @@ open class BEPagesVC: BEViewController, UIPageViewControllerDataSource, UIPageVi
     
     open func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if let vc = pageVC.viewControllers?.first,
-           let index = viewControllers.index(of: vc)
+           let index = viewControllers.firstIndex(of: vc)
         {
             pageControl.currentPage = index
             currentPage = index

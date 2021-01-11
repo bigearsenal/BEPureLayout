@@ -37,14 +37,14 @@ public extension UIStackView {
     }
     
     @available(*, deprecated, message: "use insertArrangedSubviewsWithCustomSpacing instead")
-    public func insertArrangedSubviews(_ subviews: [UIView], at index: Int, withCustomSpacings spacings: [CGFloat] = [])
+    func insertArrangedSubviews(_ subviews: [UIView], at index: Int, withCustomSpacings spacings: [CGFloat] = [])
     {
         var index = index
         subviews.forEach {insertArrangedSubview($0, at: index);index += 1}
         spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
     }
     
-    public func addArrangedSubviews(_ collection: [BEStackViewElement]) {
+    func addArrangedSubviews(_ collection: [BEStackViewElement]) {
         for (index, element) in collection.enumerated() {
             if let view = element as? UIView {
                 addArrangedSubview(view)
@@ -61,7 +61,7 @@ public extension UIStackView {
         }
     }
     
-    public func insertArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement], at index: inout Int)
+    func insertArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement], at index: inout Int)
     {
         for (i, element) in collection.enumerated() {
             if let view = element as? UIView {
@@ -81,7 +81,7 @@ public extension UIStackView {
     }
     
     @discardableResult
-    public func with(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView
+    func with(spacing: CGFloat? = nil, alignment: UIStackView.Alignment? = nil, distribution: UIStackView.Distribution? = nil) -> UIStackView
     {
         if let spacing = spacing {
             self.spacing = spacing
@@ -95,7 +95,7 @@ public extension UIStackView {
         return self
     }
     
-    public func stretchArrangedSubviews(_ arrangedSubviews: [UIView]) {
+    func stretchArrangedSubviews(_ arrangedSubviews: [UIView]) {
         arrangedSubviews.forEach { view in
             if axis == .vertical {
                 view.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
