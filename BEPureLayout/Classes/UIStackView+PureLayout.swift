@@ -8,6 +8,11 @@
 import Foundation
 
 public protocol BEStackViewElement {}
+public extension BEStackViewElement {
+    static var spacing: (CGFloat) -> BEStackViewSpacing {
+        return {BEStackViewSpacing($0)}
+    }
+}
 extension UIView: BEStackViewElement {}
 extension BEStackViewSpacing: BEStackViewElement {}
 extension Array: BEStackViewElement where Element: BEStackViewElement {}
