@@ -48,26 +48,27 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     // MARK: Notification
     
     @objc func keyboardWillShowNotification(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            keyboardVisibleHeight = keyboardSize.height
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        else {
+            return
+        }
+        keyboardVisibleHeight = keyboardSize.height
+        updateConstant()
+        
+        if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
+           let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+        {
+            let options = UIView.AnimationOptions(rawValue: curve.uintValue)
             
-            updateConstant()
-            
-            if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
-               let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-            {
-                let options = UIView.AnimationOptions(rawValue: curve.uintValue)
-                
-                UIView.animate(
-                    withDuration: TimeInterval(duration.doubleValue),
-                    delay: 0,
-                    options: options,
-                    animations: {
-                        UIApplication.shared.keyWindow?.layoutIfNeeded()
-                        return
-                }, completion: { _ in
-                })
-            }
+            UIView.animate(
+                withDuration: TimeInterval(duration.doubleValue),
+                delay: 0,
+                options: options,
+                animations: {
+                    UIApplication.shared.keyWindow?.layoutIfNeeded()
+                    return
+            }, completion: { _ in
+            })
         }
     }
     
