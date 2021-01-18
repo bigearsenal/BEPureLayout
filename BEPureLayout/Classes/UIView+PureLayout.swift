@@ -144,6 +144,12 @@ public extension UIView {
         return view
     }
     
+    func border(width: CGFloat, color: UIColor) -> Self {
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+        return self
+    }
+    
     var wrapper: UIView? {
         superview?.tag == UIView.wrapperViewTag ? superview: nil
     }
