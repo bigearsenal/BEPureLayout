@@ -9,8 +9,8 @@ import Foundation
 
 public protocol BEStackViewElement {}
 public extension BEStackViewElement {
-    static var spacing: (CGFloat) -> BEStackViewSpacing {
-        return {BEStackViewSpacing($0)}
+    static func spacer(_ space: CGFloat) -> BEStackViewSpacing {
+        return BEStackViewSpacing(space)
     }
 }
 extension UIView: BEStackViewElement {}
@@ -56,8 +56,20 @@ public extension UIStackView {
             }
             
             if let spacing = element as? CGFloat {
-                let lastView = collection[index - 1] as! UIView
-                setCustomSpacing(spacing, after: lastView)
+                if index - 1 >= 0,
+                   let lastView = collection[index - 1] as? UIView
+                {
+                    setCustomSpacing(spacing, after: lastView)
+                } else {
+                    var viewToAdd: UIView
+                    switch axis {
+                    case .horizontal:
+                        viewToAdd = UIView(width: spacing)
+                    default:
+                        viewToAdd = UIView(height: spacing)
+                    }
+                    addArrangedSubview(viewToAdd)
+                }
             }
             
             if let array = element as? [BEStackViewElement] {
