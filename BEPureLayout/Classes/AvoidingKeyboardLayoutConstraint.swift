@@ -48,15 +48,10 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     // MARK: Notification
     
     @objc func keyboardWillShowNotification(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             keyboardVisibleHeight = keyboardSize.height
             
-            if #available(iOS 11.0, *) {
-                if let bottomInset = UIApplication.shared.keyWindow?.safeAreaInsets.bottom {
-                    keyboardVisibleHeight -= bottomInset
-                }
-            }
-            self.updateConstant()
+            updateConstant()
             
             if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
                let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
