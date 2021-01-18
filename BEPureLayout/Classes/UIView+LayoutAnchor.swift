@@ -1,7 +1,7 @@
 import UIKit
 
 /// Represents a single `NSLayoutConstraint`
-enum BELayoutAnchor {
+public enum BELayoutAnchor {
     case constant(attribute: NSLayoutConstraint.Attribute,
                   relation: NSLayoutConstraint.Relation,
                   constant: CGFloat)
@@ -14,7 +14,7 @@ enum BELayoutAnchor {
 }
 
 // MARK: - Factory methods
-extension BELayoutAnchor {
+public extension BELayoutAnchor {
     static let leading = relative(attribute: .leading, relation: .equal, relatedTo: .leading)
     static let trailing = relative(attribute: .trailing, relation: .equal, relatedTo: .trailing)
     static let top = relative(attribute: .top, relation: .equal, relatedTo: .top)
@@ -48,7 +48,7 @@ extension BELayoutAnchor {
 }
 
 // MARK: - Conveniences
-extension UIView {
+public extension UIView {
     func addSubview(_ subview: UIView, anchors: [BELayoutAnchor]) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
