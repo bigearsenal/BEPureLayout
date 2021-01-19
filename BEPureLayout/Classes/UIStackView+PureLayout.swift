@@ -49,7 +49,7 @@ public extension UIStackView {
         spacings.enumerated().forEach {setCustomSpacing($1, after: subviews[$0])}
     }
     
-    func addArrangedSubviews(_ collection: [BEStackViewElement]) {
+    func addArrangedSubviews(_ collection: [BEStackViewElement?]) {
         for (index, element) in collection.enumerated() {
             if let view = element as? UIView {
                 addArrangedSubview(view)
@@ -78,7 +78,7 @@ public extension UIStackView {
         }
     }
     
-    func insertArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement], at index: inout Int)
+    func insertArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement?], at index: inout Int)
     {
         for (i, element) in collection.enumerated() {
             if let view = element as? UIView {
