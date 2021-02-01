@@ -72,8 +72,10 @@ public extension UITextField {
             self.leftView = UIView(width: horizontalPadding, height: height ?? 1)
             self.leftViewMode = .always
             
-            self.rightView = UIView(width: horizontalPadding, height: height ?? 1)
-            self.rightViewMode = .always
+            if !showClearButton {
+                self.rightView = UIView(width: horizontalPadding, height: height ?? 1)
+                self.rightViewMode = .always
+            }
         }
         
         // NOTE: These properties override horizontalPadding property
