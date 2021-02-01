@@ -144,6 +144,7 @@ public extension UIView {
         return view
     }
     
+    @discardableResult
     func border(width: CGFloat, color: UIColor) -> Self {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
