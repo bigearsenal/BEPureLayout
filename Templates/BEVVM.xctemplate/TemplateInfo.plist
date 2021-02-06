@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>A ViewController and a ViewModel</string>
+	<key>Kind</key>
+	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Description</key>
+			<string>The entity name</string>
+			<key>Identifier</key>
+			<string>entityName</string>
+			<key>Name</key>
+			<string>Entity name:</string>
+			<key>NotPersisted</key>
+			<true/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Description</key>
+			<string>The base class name</string>
+			<key>Identifier</key>
+			<string>baseClass</string>
+			<key>Name</key>
+			<string>Subclass of:</string>
+			<key>NotPersisted</key>
+			<false/>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>text</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:identifier___ViewController</string>
+			<key>Description</key>
+			<string>The ViewController&apos;s name</string>
+			<key>Identifier</key>
+			<string>viewControllerName</string>
+			<key>Name</key>
+			<string>ViewController name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_entityName:identifier___ViewModel</string>
+			<key>Description</key>
+			<string>The ViewModel&apos;s name</string>
+			<key>Identifier</key>
+			<string>viewModelName</string>
+			<key>Name</key>
+			<string>viewModelName</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+	</array>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>SortOrder</key>
+	<string>1</string>
+	<key>Summary</key>
+	<string>A scene with view controller, view model</string>
+</dict>
+</plist>
