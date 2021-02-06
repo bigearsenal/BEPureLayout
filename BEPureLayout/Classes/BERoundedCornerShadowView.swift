@@ -29,10 +29,6 @@ open class BERoundedCornerShadowView: BEView {
         }
     }
     
-    required public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     open override func commonInit() {
         super.commonInit()
         configureForAutoLayout()

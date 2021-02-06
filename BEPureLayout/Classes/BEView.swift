@@ -15,10 +15,11 @@ open class BEView: UIView {
         commonInit()
     }
     
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        commonInit()
+    @available(*, unavailable,
+    message: "Loading this view from a nib is unsupported in favor of initializer dependency injection."
+    )
+    public required init?(coder aDecoder: NSCoder) {
+        fatalError("Loading this view from a nib is unsupported in favor of initializer dependency injection.")
     }
     
     // MARK: - Custom Functions
