@@ -12,9 +12,16 @@ import SwiftUI
 class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     
     // MARK: - Properties
-//    let viewModel: ___VARIABLE_entityName___ViewModel
+    let viewModel: ___VARIABLE_entityName___ViewModel
     
     // MARK: - Subviews
+    
+    // MARK: - Initializer
+    init(viewModel: ___VARIABLE_entityName___ViewModel = ___VARIABLE_entityName___ViewModel())
+    {
+        self.viewModel = viewModel
+        super.init()
+    }
     
     // MARK: - Methods
     override func setUp() {
