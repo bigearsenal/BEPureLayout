@@ -9,7 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
 struct ___VARIABLE_entityName___ViewModel {
     // MARK: - Constants
     
@@ -17,5 +16,5 @@ struct ___VARIABLE_entityName___ViewModel {
     let bag = DisposeBag()
     
     // MARK: - Subjects
-    
+//    let navigatorSubject = PublishSubject<Navigation>()
 }

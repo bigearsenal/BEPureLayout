@@ -24,6 +24,10 @@ class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     }
     
     // MARK: - Methods
+    override func loadView() {
+        view = ___VARIABLE_entityName___RootView(viewModel: viewModel)
+    }
+    
     override func setUp() {
         super.setUp()
         
