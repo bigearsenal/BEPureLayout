@@ -13,11 +13,11 @@ enum ___VARIABLE_entityName___NavigatableScene {
 //    case detail
 }
 
-struct ___VARIABLE_entityName___ViewModel {
+class ___VARIABLE_entityName___ViewModel {
     // MARK: - Constants
     
     // MARK: - Properties
-    let bag = DisposeBag()
+    let disposeBag = DisposeBag()
     
     // MARK: - Subjects
     let navigationSubject = PublishSubject<___VARIABLE_entityName___NavigatableScene>()
