@@ -14,8 +14,6 @@ class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     // MARK: - Properties
     let viewModel: ___VARIABLE_entityName___ViewModel
     
-    // MARK: - Subviews
-    
     // MARK: - Initializer
     init(viewModel: ___VARIABLE_entityName___ViewModel = ___VARIABLE_entityName___ViewModel())
     {
@@ -35,20 +33,26 @@ class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     
     override func bind() {
         super.bind()
-        
+        viewModel.navigationSubject
+            .subscribe(onNext: {
+                switch $0 {
+                
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Helpers
 }
 
-@available(iOS 13, *)
-struct ___VARIABLE_entityName___ViewController_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            UIViewControllerPreview {
-                ___VARIABLE_entityName___ViewController()
-            }
-            .previewDevice("iPhone SE (2nd generation)")
-        }
-    }
-}
+//@available(iOS 13, *)
+//struct ___VARIABLE_entityName___ViewController_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            UIViewControllerPreview {
+//                ___VARIABLE_entityName___ViewController()
+//            }
+//            .previewDevice("iPhone SE (2nd generation)")
+//        }
+//    }
+//}

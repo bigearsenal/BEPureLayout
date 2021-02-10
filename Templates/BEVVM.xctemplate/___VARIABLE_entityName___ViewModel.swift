@@ -9,6 +9,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+enum ___VARIABLE_entityName___NavigatableScene {
+//    case detail
+}
+
 struct ___VARIABLE_entityName___ViewModel {
     // MARK: - Constants
     
@@ -16,5 +20,23 @@ struct ___VARIABLE_entityName___ViewModel {
     let bag = DisposeBag()
     
     // MARK: - Subjects
-//    let navigatorSubject = PublishSubject<Navigation>()
+    let navigationSubject = PublishSubject<___VARIABLE_entityName___NavigatableScene>()
+    
+    // MARK: - Input
+//    let textFieldInput = BehaviorRelay<String?>(value: nil)
+    
+    // MARK: - Initializer
+    init() {
+        bind()
+    }
+    
+    // MARK: - Binding
+    func bind() {
+        
+    }
+    
+    // MARK: - Actions
+//    @objc func showDetail() {
+//        
+//    }
 }

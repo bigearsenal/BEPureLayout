@@ -24,5 +24,21 @@ class ___VARIABLE_entityName___RootView: BEView {
     // MARK: - Methods
     override func commonInit() {
         super.commonInit()
+        layout()
+        bind()
+    }
+    
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        
+    }
+    
+    // MARK: - Layout
+    private func layout() {
+        
+    }
+    
+    private func bind() {
+        
     }
 }
