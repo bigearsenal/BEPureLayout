@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import SwiftUI
+//import SwiftUI
 
 class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     
@@ -34,15 +34,16 @@ class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     override func bind() {
         super.bind()
         viewModel.navigationSubject
-            .subscribe(onNext: {
-                switch $0 {
-                
-                }
-            })
+            .subscribe(onNext: {self.navigate(to: $0)})
             .disposed(by: disposeBag)
     }
     
-    // MARK: - Helpers
+    // MARK: - Navigation
+    private func navigate(to scene: ___VARIABLE_entityName___NavigatableScene) {
+        switch scene {
+        
+        }
+    }
 }
 
 //@available(iOS 13, *)

@@ -25,15 +25,6 @@ class ___VARIABLE_entityName___ViewModel {
     // MARK: - Input
 //    let textFieldInput = BehaviorRelay<String?>(value: nil)
     
-    // MARK: - Initializer
-    init() {
-        bind()
-    }
-    
-    // MARK: - Binding
-    func bind() {
-        
-    }
     
     // MARK: - Actions
 //    @objc func showDetail() {
