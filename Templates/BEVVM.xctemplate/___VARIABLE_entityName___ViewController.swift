@@ -15,7 +15,7 @@ class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     let viewModel: ___VARIABLE_entityName___ViewModel
     
     // MARK: - Initializer
-    init(viewModel: ___VARIABLE_entityName___ViewModel = ___VARIABLE_entityName___ViewModel())
+    init(viewModel: ___VARIABLE_entityName___ViewModel)
     {
         self.viewModel = viewModel
         super.init()
