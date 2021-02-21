@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import SwiftUI
 
 class ___VARIABLE_entityName___RootView: BEView {
     // MARK: - Constants
@@ -42,3 +43,15 @@ class ___VARIABLE_entityName___RootView: BEView {
         
     }
 }
+
+//@available(iOS 13, *)
+//struct ___VARIABLE_entityName___ViewController_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
+//            UIViewPreview {
+//                ___VARIABLE_entityName___RootView(viewModel: ___VARIABLE_entityName___ViewModel())
+//            }
+//            .previewDevice("iPhone SE (2nd generation)")
+//        }
+//    }
+//}

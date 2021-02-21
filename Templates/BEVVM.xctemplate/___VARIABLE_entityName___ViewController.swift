@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-//import SwiftUI
 
 class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     
@@ -45,15 +44,3 @@ class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
         }
     }
 }
-
-//@available(iOS 13, *)
-//struct ___VARIABLE_entityName___ViewController_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            UIViewControllerPreview {
-//                ___VARIABLE_entityName___ViewController()
-//            }
-//            .previewDevice("iPhone SE (2nd generation)")
-//        }
-//    }
-//}

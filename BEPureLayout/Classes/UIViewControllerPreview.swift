@@ -20,3 +20,18 @@ public struct UIViewControllerPreview<ViewController: UIViewController>: UIViewC
 
     public func updateUIViewController(_ uiViewController: ViewController, context: Context) {}
 }
+
+@available(iOS 13, *)
+public struct UIViewPreview<View: UIView>: UIViewRepresentable {
+    let view: View
+
+    public init(_ builder: @escaping () -> View) {
+        view = builder()
+    }
+    
+    public func makeUIView(context: Context) -> View {
+        view
+    }
+    
+    public func updateUIView(_ uiView: View, context: Context) {}
+}
