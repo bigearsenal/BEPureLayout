@@ -30,6 +30,8 @@ open class BECheckbox: UIButton {
         // trigger
         isSelected = false
         addTarget(self, action: #selector(didTouch), for: .touchUpInside)
+        
+        layer.borderColor = BEPureLayoutConfigs.defaultCheckBoxActiveColor.cgColor
     }
     
     open override var isSelected: Bool {
@@ -43,7 +45,6 @@ open class BECheckbox: UIButton {
             } else {
                 backgroundColor = BEPureLayoutConfigs.defaultBackgroundColor
                 layer.borderWidth = notShowOffCheckbox ? 0: 1
-                layer.borderColor = BEPureLayoutConfigs.defaultCheckBoxActiveColor.cgColor
                 setBackgroundImage(nil, for: .normal)
             }
         }
