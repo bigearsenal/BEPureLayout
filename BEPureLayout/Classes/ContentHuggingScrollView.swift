@@ -13,6 +13,21 @@ public class ContentHuggingScrollView: UIScrollView {
     public lazy var contentView = UIView(forAutoLayout: ())
     var scrollableAxis: NSLayoutConstraint.Axis
     
+    private var contentViewWidthConstraint: NSLayoutConstraint?
+    private var contentViewHeightConstraint: NSLayoutConstraint?
+    
+    public override var contentInset: UIEdgeInsets {
+        didSet {
+            if scrollableAxis == .vertical {
+                contentViewWidthConstraint?.constant = -(contentInset.left + contentInset.right)
+                contentView.setNeedsLayout()
+            } else {
+                contentViewHeightConstraint?.constant = -(contentInset.top + contentInset.bottom)
+                contentView.setNeedsLayout()
+            }
+        }
+    }
+    
     // MARK: - Methods
     public init(scrollableAxis: NSLayoutConstraint.Axis, contentInset: UIEdgeInsets = .zero) {
         self.scrollableAxis = scrollableAxis
@@ -33,9 +48,11 @@ public class ContentHuggingScrollView: UIScrollView {
         addSubview(contentView)
         contentView.autoPinEdgesToSuperviewEdges()
         if scrollableAxis == .vertical {
-            contentView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(contentInset.left + contentInset.right) ).isActive = true
+            contentViewWidthConstraint = contentView.widthAnchor.constraint(equalTo: widthAnchor, constant: -(contentInset.left + contentInset.right))
+            contentViewWidthConstraint?.isActive = true
         } else {
-            contentView.heightAnchor.constraint(equalTo: heightAnchor, constant: -(contentInset.top + contentInset.bottom)).isActive = true
+            contentViewHeightConstraint = contentView.heightAnchor.constraint(equalTo: heightAnchor, constant: -(contentInset.top + contentInset.bottom))
+            contentViewHeightConstraint?.isActive = true
         }
     }
 }
