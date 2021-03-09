@@ -10,7 +10,7 @@ import Foundation
 public extension UILabel {
     convenience init(
         text: String? = nil,
-        textSize: CGFloat = UIFont.systemFontSize,
+        textSize: CGFloat = 15,
         weight: UIFont.Weight = .regular,
         font: UIFont? = nil,
         textColor: UIColor? = BEPureLayoutConfigs.defaultTextColor,
