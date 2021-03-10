@@ -44,4 +44,9 @@ public extension UIButton {
             }
         }
     }
+    
+    func enableIf(_ condition: Bool) -> Self {
+        self.isEnabled = condition
+        return self
+    }
 }
