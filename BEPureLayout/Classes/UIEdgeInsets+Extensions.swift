@@ -36,4 +36,20 @@ public extension UIEdgeInsets {
     init(all inset: CGFloat) {
         self.init(top: inset, left: inset, bottom: inset, right: inset)
     }
+    
+    init(only edge: UIRectEdge, inset: CGFloat) {
+        self = .zero
+        switch edge {
+        case .top:
+            self.modify(dTop: inset)
+        case .left:
+            self.modify(dLeft: inset)
+        case .bottom:
+            self.modify(dBottom: inset)
+        case .right:
+            self.modify(dRight: inset)
+        default:
+            break
+        }
+    }
 }
