@@ -20,13 +20,19 @@ open class BERoundedCornerShadowView: BEView {
     
     public let contentInset: UIEdgeInsets
     
+    private let shadowColor: UIColor
+    private let shadowRadius: CGFloat
+    private let shadowOffset: CGSize
+    private let shadowOpacity: Float
+    
     public init(shadowColor: UIColor = BEPureLayoutConfigs.defaultShadowColor, radius: CGFloat = 16, offset: CGSize = CGSize(width: 0, height: -6), opacity: Float = 0.08, cornerRadius: CGFloat, contentInset: UIEdgeInsets = .zero) {
+        self.shadowColor = shadowColor
+        self.shadowRadius = radius
+        self.shadowOffset = offset
+        self.shadowOpacity = opacity
         self.contentInset = contentInset
         self.mainViewCornerRadius = cornerRadius
         super.init(frame: .zero)
-        defer {
-            addShadow(ofColor: shadowColor, radius: radius, offset: offset, opacity: opacity)
-        }
     }
     
     open override func commonInit() {
@@ -47,6 +53,7 @@ open class BERoundedCornerShadowView: BEView {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
+        addShadow(ofColor: shadowColor, radius: shadowRadius, offset: shadowOffset, opacity: shadowOpacity)
         roundCorners()
     }
     
