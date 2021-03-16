@@ -158,6 +158,7 @@ public extension UIView {
     @discardableResult
     func onTap(_ target: Any?, action: Selector) -> Self {
         if self is UIButton {
+            (self as? UIButton)?.removeTarget(nil, action: nil, for: .touchUpInside)
             (self as? UIButton)?.addTarget(target, action: action, for: .touchUpInside)
             return self
         }
