@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 //import SwiftUI
 
 class ___VARIABLE_entityName___RootView: BEView {
     // MARK: - Constants
+    let disposeBag = DisposeBag()
     
     // MARK: - Properties
     let viewModel: ___VARIABLE_entityName___ViewModel

@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+//protocol ___VARIABLE_entityName___ScenesFactory {
+//    func make___VARIABLE_entityName___DetailViewController() -> ___VARIABLE_entityName___DetailViewController
+//}
+//
+//@objc protocol ___VARIABLE_entityName___ViewControllerDelegate {
+//    
+//}
+
 class ___VARIABLE_entityName___ViewController: ___VARIABLE_baseClass___ {
     
     // MARK: - Properties
