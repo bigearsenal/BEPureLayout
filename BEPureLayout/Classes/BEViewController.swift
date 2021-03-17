@@ -90,7 +90,7 @@ open class BEViewController: UIViewController {
             break
         }
         
-        view.superview?.layoutIfNeeded()
+        view.setNeedsLayout()
     }
     
     public func setNavigationBarBackgroundColor(_ backgroundColor: UIColor) {
