@@ -62,6 +62,7 @@ open class BESpinnerView: BEView {
             repeatCount: .greatestFiniteMagnitude
         )
         
+        rotationAnimation.isRemovedOnCompletion = false
         layer.add(rotationAnimation, forKey: nil)
     }
 }
