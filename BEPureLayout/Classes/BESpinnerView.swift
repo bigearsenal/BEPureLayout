@@ -8,7 +8,7 @@
 import Foundation
 
 open class BESpinnerView: BEView {
-    public var startColor: UIColor = .white { didSet { setNeedsLayout() } }
+    public var startColor: UIColor = UIColor.white.withAlphaComponent(0) { didSet { setNeedsLayout() } }
     public var endColor: UIColor = .black { didSet { setNeedsLayout() } }
     public var lineWidth: CGFloat = 4 { didSet { setNeedsLayout() } }
 
