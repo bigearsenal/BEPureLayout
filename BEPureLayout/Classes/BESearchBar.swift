@@ -137,9 +137,11 @@ open class BESearchBar: BEView {
         }, completion: nil)
     }
     
-    open func clear() {
+    open func clear(notify: Bool = true) {
         textField.text = ""
-        textField.sendActions(for: .editingChanged)
+        if notify {
+            textField.sendActions(for: .editingChanged)
+        }
     }
     
     public func setUpTextField(
