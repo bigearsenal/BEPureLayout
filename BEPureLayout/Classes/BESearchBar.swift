@@ -62,6 +62,12 @@ open class BESearchBar: BEView {
         }
     }
     
+    open override var tintColor: UIColor! {
+        didSet {
+            cancelButton.setTitleColor(tintColor, for: .normal)
+        }
+    }
+    
     // MARK: - Subviews
     private lazy var stackView = UIStackView(axis: .horizontal, spacing: 10, alignment: .fill, distribution: .fill)
     
@@ -89,8 +95,10 @@ open class BESearchBar: BEView {
     }()
     
     // MARK: - Initializers
-    public convenience init(fixedHeight: CGFloat, cornerRadius: CGFloat? = nil) {
-        self.init(height: fixedHeight)
+    public init(fixedHeight: CGFloat, cornerRadius: CGFloat? = nil) {
+        super.init(frame: .zero)
+        configureForAutoLayout()
+        autoSetDimension(.height, toSize: fixedHeight)
         defer {
             textField.layer.cornerRadius = cornerRadius ?? fixedHeight / 2
             textField.layer.masksToBounds = true
