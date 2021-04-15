@@ -72,7 +72,14 @@ open class BESearchBar: BEView {
     private lazy var stackView = UIStackView(axis: .horizontal, spacing: 10, alignment: .fill, distribution: .fill)
     
     private lazy var textField: UITextField = {
-        let textField = UITextField(backgroundColor: textFieldBgColor, placeholder: placeholder, showClearButton: true)
+        let textField = UITextField(
+            backgroundColor: textFieldBgColor,
+            placeholder: placeholder,
+            autocorrectionType: .no,
+            autocapitalizationType: UITextAutocapitalizationType.none,
+            spellCheckingType: .no,
+            showClearButton: true
+        )
         
         // textField's leftView
         let leftView = UIView(width: leftViewWidth, height: 0)
