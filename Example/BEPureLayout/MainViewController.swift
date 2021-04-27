@@ -35,34 +35,22 @@ class MainViewController: BEViewController {
         view.addSubview(buttonStackView)
         buttonStackView.autoCenterInSuperview()
         
-        let button1 = UIButton(label: "UIButton+UILabel", textColor: .blue)
-        button1.addTarget(self, action: #selector(openButtonsLabelsVC), for: .touchUpInside)
-        
-        let button2 = UIButton(label: "UIImageView", textColor: .blue)
-        button2.addTarget(self, action: #selector(openImagesVC), for: .touchUpInside)
-        
-        let button3 = UIButton(label: "UITextView", textColor: .blue)
-        button3.addTarget(self, action: #selector(openTextViewVC), for: .touchUpInside)
-        
-        let button4 = UIButton(label: "UITextField", textColor: .blue)
-        button4.addTarget(self, action: #selector(openTextFieldVC), for: .touchUpInside)
-        
-        let button5 = UIButton(label: "ContentHuggingScrollView", textColor: .blue)
-        button5.addTarget(self, action: #selector(openContentHuggingScrollVC), for: .touchUpInside)
-        
-        let button6 = UIButton(label: "TableHeaderView", textColor: .blue)
-        button6.addTarget(self, action: #selector(openTableViewController), for: .touchUpInside)
-        
-        let button7 = UIButton(label: "NavBarVC", textColor: .blue)
-        button7.addTarget(self, action: #selector(openNavBarVC), for: .touchUpInside)
-        
-        buttonStackView.addArrangedSubview(button1)
-        buttonStackView.addArrangedSubview(button2)
-        buttonStackView.addArrangedSubview(button3)
-        buttonStackView.addArrangedSubview(button4)
-        buttonStackView.addArrangedSubview(button5)
-        buttonStackView.addArrangedSubview(button6)
-        buttonStackView.addArrangedSubview(button7)
+        buttonStackView.addArrangedSubviews {
+            UIButton(label: "UIButton+UILabel", textColor: .blue)
+                .onTap(self, action: #selector(openButtonsLabelsVC))
+            UIButton(label: "UIImageView", textColor: .blue)
+                .onTap(self, action: #selector(openImagesVC))
+            UIButton(label: "UITextView", textColor: .blue)
+                .onTap(self, action: #selector(openTextViewVC))
+            UIButton(label: "UITextField", textColor: .blue)
+                .onTap(self, action: #selector(openTextFieldVC))
+            UIButton(label: "ContentHuggingScrollView", textColor: .blue)
+                .onTap(self, action: #selector(openContentHuggingScrollVC))
+            UIButton(label: "TableHeaderView", textColor: .blue)
+                .onTap(self, action: #selector(openTableViewController))
+            UIButton(label: "NavBarVC", textColor: .blue)
+                .onTap(self, action: #selector(openNavBarVC))
+        }
     }
     
     // MARK: - Actions
