@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol BEPagesVCDelegate: class {
+public protocol BEPagesVCDelegate: AnyObject {
     func bePagesVC(_ pagesVC: BEPagesVC, currentPageDidChangeTo currentPage: Int)
 }
 

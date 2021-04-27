@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol BESearchBarDelegate: class {
+public protocol BESearchBarDelegate: AnyObject {
     func beSearchBar(_ searchBar: BESearchBar, searchWithKeyword keyword: String)
     func beSearchBarDidBeginSearching(_ searchBar: BESearchBar)
     func beSearchBarDidEndSearching(_ searchBar: BESearchBar)
