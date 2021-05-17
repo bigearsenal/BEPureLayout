@@ -168,6 +168,14 @@ public extension UIView {
         return self
     }
     
+    @discardableResult
+    func onSwipe(_ target: Any?, action: Selector) -> Self {
+        let swipe = UIPanGestureRecognizer(target: target, action: action)
+        addGestureRecognizer(swipe)
+        isUserInteractionEnabled = true
+        return self
+    }
+    
     func removeAllConstraints() {
         var _superview = self.superview
         
