@@ -7,15 +7,29 @@
 
 import Foundation
 
-public protocol BEStackViewElement {}
+public protocol BEStackViewElement {
+    var elements: [BEStackViewElement] {get}
+}
 public extension BEStackViewElement {
     static func spacer(_ space: CGFloat) -> BEStackViewSpacing {
         return BEStackViewSpacing(space)
     }
 }
-extension UIView: BEStackViewElement {}
-extension BEStackViewSpacing: BEStackViewElement {}
-extension Array: BEStackViewElement where Element: BEStackViewElement {}
+extension UIView: BEStackViewElement {
+    public var elements: [BEStackViewElement] {
+        [self]
+    }
+}
+extension BEStackViewSpacing: BEStackViewElement {
+    public var elements: [BEStackViewElement] {
+        [self]
+    }
+}
+extension Array: BEStackViewElement where Element: BEStackViewElement {
+    public var elements: [BEStackViewElement] {
+        self
+    }
+}
 
 public typealias BEStackViewSpacing = CGFloat
 
@@ -32,13 +46,32 @@ public extension UIStackView {
         self.alignment = alignment
         self.distribution = distribution
         
+        if let spacing = spacing {
+            self.spacing = spacing
+        }
+        
         if let subviews = arrangedSubviews {
             addArrangedSubviews(subviews)
         }
+    }
+    
+    convenience init(
+        axis: NSLayoutConstraint.Axis,
+        spacing: CGFloat? = nil,
+        alignment: UIStackView.Alignment = .center,
+        distribution: UIStackView.Distribution = .fill,
+        @BEStackViewBuilder builder: () -> [BEStackViewElement]
+    ) {
+        self.init(forAutoLayout: ())
+        self.axis = axis
+        self.alignment = alignment
+        self.distribution = distribution
         
         if let spacing = spacing {
             self.spacing = spacing
         }
+        
+        addArrangedSubviews(builder: builder)
     }
     
     @available(*, deprecated, message: "use insertArrangedSubviewsWithCustomSpacing instead")
@@ -78,6 +111,11 @@ public extension UIStackView {
         }
     }
     
+    func addArrangedSubviews(@BEStackViewBuilder builder: () -> [BEStackViewElement])
+    {
+        addArrangedSubviews(builder())
+    }
+    
     func insertArrangedSubviewsWithCustomSpacing(_ collection: [BEStackViewElement?], at index: inout Int)
     {
         for (i, element) in collection.enumerated() {
@@ -95,6 +133,11 @@ public extension UIStackView {
                 insertArrangedSubviewsWithCustomSpacing(array, at: &index)
             }
         }
+    }
+    
+    func insertArrangedSubviews(at index: inout Int, @BEStackViewBuilder builder: () -> [BEStackViewElement])
+    {
+        insertArrangedSubviewsWithCustomSpacing(builder(), at: &index)
     }
     
     @discardableResult

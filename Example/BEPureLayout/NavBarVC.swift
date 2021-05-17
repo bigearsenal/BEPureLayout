@@ -28,7 +28,7 @@ class NavBarVC: BEViewController {
     
     init(preferedNavBarStyle: BEViewController.NavigationBarStyle) {
         _preferedNavBarStyle = preferedNavBarStyle
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder: NSCoder) {

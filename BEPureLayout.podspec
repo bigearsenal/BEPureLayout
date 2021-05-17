@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BEPureLayout'
-  s.version          = '0.2.1'
+  s.version          = '0.3.0'
   s.summary          = 'Useful extensions for UIViews using PureLayout'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.author           = { 'bigearsenal' => 'bigearsenal@gmail.com' }
   s.source           = { :git => 'https://github.com/bigearsenal/BEPureLayout.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/bigearsenal'
-  s.swift_version = '5.2'
+  s.swift_version = '5.4'
   s.ios.deployment_target = '12.0'
 
   s.source_files = 'BEPureLayout/Classes/**/*'
