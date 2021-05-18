@@ -262,4 +262,10 @@ public extension UIView {
         setContentHuggingPriority(priority, for: axis)
         return self
     }
+    
+    @discardableResult
+    func withModifier(_ modify: (Self) -> Self) -> Self {
+        var view = modify(self)
+        return view
+    }
 }
