@@ -3,34 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>A ViewController and a ViewModel</string>
+	<string>MVVM pattern with &quot;scene-oriented&quot; programming in iOS</string>
 	<key>Kind</key>
 	<string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
 	<key>Options</key>
 	<array>
 		<dict>
 			<key>Description</key>
-			<string>The entity name</string>
+			<string>The scene name</string>
 			<key>Identifier</key>
-			<string>entityName</string>
+			<string>scene</string>
 			<key>Name</key>
-			<string>Entity name:</string>
+			<string>Scene name:</string>
 			<key>NotPersisted</key>
 			<true/>
-			<key>Required</key>
-			<true/>
-			<key>Type</key>
-			<string>text</string>
-		</dict>
-		<dict>
-			<key>Description</key>
-			<string>The base class name</string>
-			<key>Identifier</key>
-			<string>baseClass</string>
-			<key>Name</key>
-			<string>Subclass of:</string>
-			<key>NotPersisted</key>
-			<false/>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
@@ -38,7 +24,7 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_entityName:identifier___ViewController</string>
+			<string>___VARIABLE_scene:identifier___.ViewController</string>
 			<key>Description</key>
 			<string>The ViewController&apos;s name</string>
 			<key>Identifier</key>
@@ -52,13 +38,27 @@
 		</dict>
 		<dict>
 			<key>Default</key>
-			<string>___VARIABLE_entityName:identifier___ViewModel</string>
+			<string>___VARIABLE_scene:identifier___.ViewModel</string>
 			<key>Description</key>
 			<string>The ViewModel&apos;s name</string>
 			<key>Identifier</key>
 			<string>viewModelName</string>
 			<key>Name</key>
 			<string>viewModelName</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>___VARIABLE_scene:identifier___.RootView</string>
+			<key>Description</key>
+			<string>The RootView&apos;s name</string>
+			<key>Identifier</key>
+			<string>rootViewName</string>
+			<key>Name</key>
+			<string>rootViewName</string>
 			<key>Required</key>
 			<true/>
 			<key>Type</key>
