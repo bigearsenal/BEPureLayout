@@ -9,18 +9,18 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-enum ___VARIABLE_scene___NavigatableScene {
-     case detail
-}
-
 extension ___VARIABLE_scene___ {
+    enum NavigatableScene {
+        case detail
+    }
+    
     class ViewModel: ViewModelType {
         // MARK: - Nested type
         struct Input {
             
         }
         struct Output {
-             let navigationScene: Driver<___VARIABLE_scene___NavigatableScene>
+            let navigationScene: Driver<NavigatableScene>
         }
         
         // MARK: - Properties
@@ -30,7 +30,7 @@ extension ___VARIABLE_scene___ {
         let output: Output
         
         // MARK: - Subject
-         private let navigationSubject = PublishSubject<___VARIABLE_scene___NavigatableScene>()
+        private let navigationSubject = PublishSubject<NavigatableScene>()
         
         // MARK: - Initializer
         init() {
