@@ -36,14 +36,24 @@ extension ___VARIABLE_scene___ {
         init() {
             self.input = Input()
             self.output = Output(
-                 navigationScene: navigationSubject.asDriver(onErrorJustReturn: .detail)
+                navigationScene: navigationSubject
+                    .asDriver(onErrorJustReturn: .detail)
             )
             
             bind()
         }
         
-        /// Bind output into input
+        /// Bind subjects
         private func bind() {
+            bindOutputIntoInput()
+            bindSubjectsIntoSubjects()
+        }
+        
+        private func bindOutputIntoInput() {
+            
+        }
+        
+        private func bindSubjectsIntoSubjects() {
             
         }
         
