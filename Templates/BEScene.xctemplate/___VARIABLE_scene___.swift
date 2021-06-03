@@ -8,5 +8,7 @@
 import Foundation
 
 struct ___VARIABLE_scene___ {
-    
+    enum NavigatableScene {
+        case detail
+    }
 }

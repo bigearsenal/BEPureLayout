@@ -47,9 +47,11 @@ extension ___VARIABLE_scene___ {
         }
         
         // MARK: - Navigation
-        private func navigate(to scene: NavigatableScene) {
+        private func navigate(to scene: NavigatableScene?) {
             switch scene {
             case .detail:
+                break
+            default:
                 break
             }
         }

@@ -10,18 +10,16 @@ import RxSwift
 import RxCocoa
 
 extension ___VARIABLE_scene___ {
-    enum NavigatableScene {
-        case detail
-    }
-    
     class ViewModel: ViewModelType {
         // MARK: - Nested type
         struct Input {
             
         }
         struct Output {
-            let navigationScene: Driver<NavigatableScene>
+            let navigationScene: Driver<NavigatableScene?>
         }
+        
+        // MARK: - Dependencies
         
         // MARK: - Properties
         private let disposeBag = DisposeBag()
@@ -30,14 +28,14 @@ extension ___VARIABLE_scene___ {
         let output: Output
         
         // MARK: - Subject
-        private let navigationSubject = PublishSubject<NavigatableScene>()
+        private let navigationSubject = BehaviorRelay<NavigatableScene?>(value: nil)
         
         // MARK: - Initializer
         init() {
             self.input = Input()
             self.output = Output(
                 navigationScene: navigationSubject
-                    .asDriver(onErrorJustReturn: .detail)
+                    .asDriver(onErrorJustReturn: nil)
             )
             
             bind()
@@ -45,11 +43,11 @@ extension ___VARIABLE_scene___ {
         
         /// Bind subjects
         private func bind() {
-            bindOutputIntoInput()
+            bindInputIntoSubjects()
             bindSubjectsIntoSubjects()
         }
         
-        private func bindOutputIntoInput() {
+        private func bindInputIntoSubjects() {
             
         }
         
