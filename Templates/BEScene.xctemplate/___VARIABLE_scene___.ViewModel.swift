@@ -57,7 +57,7 @@ extension ___VARIABLE_scene___ {
         
         // MARK: - Actions
         @objc func showDetail() {
-            navigationSubject.onNext(.detail)
+            navigationSubject.accept(.detail)
         }
     }
 }

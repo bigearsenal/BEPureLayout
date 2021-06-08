@@ -8,10 +8,7 @@
 import Foundation
 import UIKit
 
-//protocol ___VARIABLE_scene___ScenesFactory {
-//    func make___VARIABLE_scene___DetailViewController() -> ___VARIABLE_scene___DetailViewController
-//}
-//
+
 //@objc protocol ___VARIABLE_scene___ViewControllerDelegate {
 //
 //}
