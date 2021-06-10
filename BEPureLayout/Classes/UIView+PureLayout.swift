@@ -268,4 +268,10 @@ public extension UIView {
         var view = modify(self)
         return view
     }
+    
+    @discardableResult
+    func hidden(_ hide: Bool = true) -> Self {
+        self.isHidden = true
+        return self
+    }
 }
