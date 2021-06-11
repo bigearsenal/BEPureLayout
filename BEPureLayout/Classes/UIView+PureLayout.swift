@@ -270,6 +270,13 @@ public extension UIView {
     }
     
     @discardableResult
+    func withCenteredChild(_ child: UIView) -> Self {
+        self.addSubview(child)
+        child.autoCenterInSuperview()
+        return self
+    }
+    
+    @discardableResult
     func hidden(_ hide: Bool = true) -> Self {
         self.isHidden = true
         return self

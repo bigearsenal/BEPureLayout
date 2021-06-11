@@ -31,4 +31,10 @@ public extension UILabel {
             self.textAlignment = textAlignment
         }
     }
+    
+    @discardableResult
+    func lineBreakMode(_ mode: NSLineBreakMode) -> Self {
+        self.lineBreakMode = mode
+        return self
+    }
 }
