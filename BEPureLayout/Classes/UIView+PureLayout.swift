@@ -264,6 +264,13 @@ public extension UIView {
     }
     
     @discardableResult
+    func withContentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> Self
+    {
+        setContentCompressionResistancePriority(priority, for: axis)
+        return self
+    }
+    
+    @discardableResult
     func withModifier(_ modify: (Self) -> Self) -> Self {
         var view = modify(self)
         return view

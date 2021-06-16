@@ -37,4 +37,10 @@ public extension UILabel {
         self.lineBreakMode = mode
         return self
     }
+    
+    @discardableResult
+    func adjustsFontSizeToFitWidth() -> Self {
+        self.adjustsFontSizeToFitWidth = true
+        return self
+    }
 }
