@@ -155,6 +155,16 @@ public extension UIView {
         superview?.tag == UIView.wrapperViewTag ? superview: nil
     }
     
+    func fittingHeight(targetWidth: CGFloat) -> CGFloat {
+        let fittingSize = CGSize(
+            width: targetWidth,
+            height: UIView.layoutFittingCompressedSize.height
+        )
+        return systemLayoutSizeFitting(fittingSize, withHorizontalFittingPriority: .required,
+                                verticalFittingPriority: .defaultLow)
+            .height
+    }
+    
     @discardableResult
     func onTap(_ target: Any?, action: Selector) -> Self {
         if self is UIButton {
