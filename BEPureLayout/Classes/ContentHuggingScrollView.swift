@@ -56,3 +56,9 @@ public class ContentHuggingScrollView: UIScrollView {
         }
     }
 }
+
+extension ContentHuggingScrollView {
+    public override func fittingHeight(targetWidth: CGFloat) -> CGFloat {
+        contentView.fittingHeight(targetWidth: targetWidth - contentInset.left - contentInset.right) + contentInset.top + contentInset.bottom + contentInset.bottom
+    }
+}

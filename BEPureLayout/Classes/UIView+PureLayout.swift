@@ -155,7 +155,7 @@ public extension UIView {
         superview?.tag == UIView.wrapperViewTag ? superview: nil
     }
     
-    func fittingHeight(targetWidth: CGFloat) -> CGFloat {
+    @objc open func fittingHeight(targetWidth: CGFloat) -> CGFloat {
         let fittingSize = CGSize(
             width: targetWidth,
             height: UIView.layoutFittingCompressedSize.height
