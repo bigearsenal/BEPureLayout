@@ -49,7 +49,6 @@ open class BEViewController: UIViewController {
         super.viewWillAppear(animated)
         
         configureNavigationBar()
-        changeStatusBarStyle(preferredStatusBarStyle)
         setNavBarBackButton()
     }
     
@@ -58,11 +57,6 @@ open class BEViewController: UIViewController {
         view.backgroundColor = preferredBackgroundColor
     }
     open func bind() {}
-    
-    // MARK: - StatusBar's configurations
-    public func changeStatusBarStyle(_ style: UIStatusBarStyle) {
-        (navigationController as? BENavigationController)?.changeStatusBarStyle(style)
-    }
     
     // MARK: - NavigationBar's configurations
     public func configureNavigationBar() {

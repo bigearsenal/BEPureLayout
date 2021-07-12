@@ -26,14 +26,13 @@ pod 'BEPureLayout'
 BEPureLayout adds some custom UI classes, short-hand helper-functions to well-known PureLayout library that helps developers quickly create common UIComponents like pure UIView, UIButton, UILabel, UIImageView,... Besides, this library add some common-used methods for adding constraints.
 
 ### BEViewController + BENavigationController
-BEViewController is a subclass of UIViewController which was implemented methods for easy NavigationBar and StatusBar configurations and setUps
+BEViewController is a subclass of UIViewController which was implemented methods for easy NavigationBar configurations and setUps
 - `BEViewController` should be embeded in a `BENavigationController`
 - Layout code should be implemented inside `override func setUp()`
 - DataBinding should be implemented inside `override func bind()`
 - For NavigationBar customization, override property `var preferredNavigationBarStype: BEViewController.NavigationBarStyle`
 - For changing navigationBar's backgroundColor, use `setNavigationBarBackgroundColor(:)`
 - For changing navigationBar's textStyle, use `setNavigationBarTitleStyle(textColor: UIColor, font: UIFont)`
-- For changing statusBarStyle, use `changeStatusBarStyle(_ style: UIStatusBarStyle)`
 
 ### UIView
 ```
