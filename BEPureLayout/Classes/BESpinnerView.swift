@@ -19,6 +19,15 @@ open class BESpinnerView: BEView {
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         return gradientLayer
     }()
+    
+    public init(size: CGFloat, endColor: UIColor = .black) {
+        super.init(frame: .zero)
+        configureForAutoLayout()
+        autoSetDimensions(to: .init(width: size, height: size))
+        layer.cornerRadius = size / 2
+        layer.masksToBounds = true
+        self.endColor = endColor
+    }
 
     open override func commonInit() {
         layer.addSublayer(gradientLayer)
@@ -53,6 +62,10 @@ open class BESpinnerView: BEView {
         animateRotation()
     }
     
+    open func stopAnimating() {
+        gradientLayer.removeAllAnimations()
+    }
+    
     private func animateRotation() {
         let rotationAnimation = BERotationAnimation(
             direction: .z,
@@ -63,6 +76,6 @@ open class BESpinnerView: BEView {
         )
         
         rotationAnimation.isRemovedOnCompletion = false
-        layer.add(rotationAnimation, forKey: nil)
+        gradientLayer.add(rotationAnimation, forKey: nil)
     }
 }
