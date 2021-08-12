@@ -15,6 +15,7 @@ public extension UITextField {
         cornerRadius: CGFloat? = nil,
         font: UIFont? = nil,
         textColor: UIColor? = nil,
+        textAlignment: NSTextAlignment? = nil,
         keyboardType: UIKeyboardType? = nil,
         placeholder: String?,
         placeholderTextColor: UIColor? = nil,
@@ -33,6 +34,10 @@ public extension UITextField {
         self.init(width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius)
         if let textColor = textColor {
             self.textColor = textColor
+        }
+        
+        if let textAlignment = textAlignment {
+            self.textAlignment = textAlignment
         }
         
         if let font = font {
