@@ -17,10 +17,10 @@ extension ___VARIABLE_scene___ {
     class ViewController: BaseVC {
         
         // MARK: - Properties
-        let viewModel: ViewModel
+        private let viewModel: ___VARIABLE_scene___ViewModelType
         
         // MARK: - Initializer
-        init(viewModel: ViewModel)
+        init(viewModel: ___VARIABLE_scene___ViewModelType)
         {
             self.viewModel = viewModel
             super.init()
@@ -38,7 +38,7 @@ extension ___VARIABLE_scene___ {
         
         override func bind() {
             super.bind()
-            viewModel.output.navigationScene
+            viewModel.navigationDriver
                 .drive(onNext: {[weak self] in self?.navigate(to: $0)})
                 .disposed(by: disposeBag)
         }

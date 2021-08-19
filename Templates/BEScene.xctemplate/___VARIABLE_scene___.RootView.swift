@@ -15,12 +15,12 @@ extension ___VARIABLE_scene___ {
         let disposeBag = DisposeBag()
         
         // MARK: - Properties
-        let viewModel: ViewModel
+        let viewModel: ___VARIABLE_scene___ViewModelType
         
         // MARK: - Subviews
         
         // MARK: - Initializers
-        init(viewModel: ViewModel) {
+        init(viewModel: ___VARIABLE_scene___ViewModelType) {
             self.viewModel = viewModel
             super.init(frame: .zero)
         }
