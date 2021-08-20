@@ -33,6 +33,11 @@ open class BEDecimalTextField: UITextField {
     /// }
     /// ```
     open func shouldChangeCharactersInRange(_ range: NSRange, replacementString string: String) -> Bool {
+        // fix conflict in decimal separator
+        let string = string
+            .replacingOccurrences(of: ",", with: Locale.current.decimalSeparator ?? ".")
+            .replacingOccurrences(of: ".", with: Locale.current.decimalSeparator ?? ".")
+        
         // if input comma (or dot)
         if text?.isEmpty == true, string == Locale.current.decimalSeparator {
             text = "0\(Locale.current.decimalSeparator ?? ".")"
