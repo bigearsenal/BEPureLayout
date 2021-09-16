@@ -45,7 +45,13 @@ public extension UILabel {
     }
     
     @discardableResult
-    func withAttributedText(_ attributedString: NSAttributedString) -> Self {
+    func withAttributedText(_ attributedString: NSAttributedString, lineSpacing: CGFloat? = nil) -> Self {
+        var attributedString = NSMutableAttributedString(attributedString: attributedString)
+        if let lineSpacing = lineSpacing {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 8
+            attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+        }
         self.attributedText = attributedString
         return self
     }
