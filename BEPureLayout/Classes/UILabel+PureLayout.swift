@@ -43,4 +43,10 @@ public extension UILabel {
         self.adjustsFontSizeToFitWidth = true
         return self
     }
+    
+    @discardableResult
+    func withAttributedText(_ attributedString: NSAttributedString) -> Self {
+        self.attributedText = attributedString
+        return self
+    }
 }
