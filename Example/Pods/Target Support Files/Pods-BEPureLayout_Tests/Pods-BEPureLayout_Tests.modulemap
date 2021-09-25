@@ -1,6 +1,0 @@
-framework module Pods_BEPureLayout_Tests {
-  umbrella header "Pods-BEPureLayout_Tests-umbrella.h"
-
-  export *
-  module * { export * }
-}
