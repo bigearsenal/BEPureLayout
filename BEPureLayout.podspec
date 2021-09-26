@@ -29,10 +29,11 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
 
   s.source_files = 'Sources/BEPureLayout/**/*.swift'
+  s.resources = 'Sources/BEPureLayout/Resources/*'
   
-  s.resource_bundles = {
-    'BEPureLayout' => ['Sources/BEPureLayout/Resources/*']
-  }
+  # s.resource_bundles = {
+  #   'BEPureLayout' => ['Sources/BEPureLayout/Resources/*']
+  #}
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
