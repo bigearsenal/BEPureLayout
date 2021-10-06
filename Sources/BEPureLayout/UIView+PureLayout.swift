@@ -101,6 +101,12 @@ public extension UIView {
         superview?.addConstraint(keyboardViewV)
     }
     
+    func autoPinBottomAvoidKeyboard(to view: UIView, inset: CGFloat = 0) {
+        let keyboardViewV = AvoidingKeyboardLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: inset)
+        keyboardViewV.observeKeyboardHeight()
+        view.addConstraint(keyboardViewV)
+    }
+    
     func autoCenterInSuperView(leftInset: CGFloat, rightInset: CGFloat? = nil) {
         autoPinEdge(toSuperviewEdge: .leading, withInset: leftInset)
         autoPinEdge(toSuperviewEdge: .trailing, withInset: rightInset ?? leftInset)
