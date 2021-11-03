@@ -88,6 +88,10 @@ public extension UIView {
         autoPinEdge(toSuperviewSafeArea: .trailing, withInset: xInset)
     }
     
+    func autoAdjustWidthHeightRatio(_ ratio: CGFloat) {
+        widthAnchor.constraint(equalTo: heightAnchor, multiplier: ratio).isActive = true
+    }
+    
     @available(iOS 11, *)
     func autoPinBottomToSuperViewSafeAreaAvoidKeyboard(inset: CGFloat = 0) {
         let keyboardViewV = AvoidingKeyboardLayoutConstraint(item: superview!.safeAreaLayoutGuide, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: inset)
@@ -113,6 +117,7 @@ public extension UIView {
         autoAlignAxis(toSuperviewAxis: .horizontal)
     }
     
+//    @available(*, deprecated, renamed: "centered(_:)")
     var centeredHorizontallyView: UIView {
         let view = UIView(forAutoLayout: ())
         view.addSubview(self)
@@ -120,6 +125,27 @@ public extension UIView {
         self.autoPinEdge(.top, to: .top, of: view)
         self.autoPinEdge(.bottom, to: .bottom, of: view)
         self.autoAlignAxis(toSuperviewAxis: .vertical)
+        return view
+    }
+    
+    func centered(_ axis: NSLayoutConstraint.Axis) -> UIView {
+        let view = UIView(forAutoLayout: ())
+        view.addSubview(self)
+        view.tag = UIView.wrapperViewTag
+        switch axis {
+        case .horizontal:
+            self.autoPinEdge(.top, to: .top, of: view)
+            self.autoPinEdge(.bottom, to: .bottom, of: view)
+            self.autoAlignAxis(toSuperviewAxis: .vertical)
+            self.autoPinEdge(toSuperviewEdge: .leading, withInset: 0, relation: .greaterThanOrEqual)
+            self.autoPinEdge(toSuperviewEdge: .trailing, withInset: 0, relation: .greaterThanOrEqual)
+        case .vertical:
+            self.autoPinEdge(.leading, to: .leading, of: view)
+            self.autoPinEdge(.trailing, to: .trailing, of: view)
+            self.autoAlignAxis(toSuperviewAxis: .horizontal)
+            self.autoPinEdge(toSuperviewEdge: .top, withInset: 0, relation: .greaterThanOrEqual)
+            self.autoPinEdge(toSuperviewEdge: .bottom, withInset: 0, relation: .greaterThanOrEqual)
+        }
         return view
     }
     
