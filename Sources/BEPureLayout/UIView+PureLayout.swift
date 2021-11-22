@@ -92,6 +92,18 @@ public extension UIView {
         widthAnchor.constraint(equalTo: heightAnchor, multiplier: ratio).isActive = true
     }
     
+    func frame(width: CGFloat? = nil, height: CGFloat? = nil) -> Self {
+        if let width: CGFloat = width {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        
+        if let height = height {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+        
+        return self
+    }
+    
     @available(iOS 11, *)
     func autoPinBottomToSuperViewSafeAreaAvoidKeyboard(inset: CGFloat = 0) {
         let keyboardViewV = AvoidingKeyboardLayoutConstraint(item: superview!.safeAreaLayoutGuide, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: inset)
