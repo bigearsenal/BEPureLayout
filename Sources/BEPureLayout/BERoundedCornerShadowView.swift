@@ -13,6 +13,7 @@ open class BERoundedCornerShadowView: BEView {
     public var mainViewCornerRadius: CGFloat {
         didSet { setNeedsLayout() }
     }
+    public lazy var topStackConstraint = stackView.autoPinEdge(toSuperviewEdge: .top)
     open override var backgroundColor: UIColor? {
         get { mainView.backgroundColor }
         set { mainView.backgroundColor = newValue }
@@ -48,7 +49,9 @@ open class BERoundedCornerShadowView: BEView {
     }
     
     open func layoutStackView() {
-        stackView.autoPinEdgesToSuperviewEdges(with: contentInset)
+        topStackConstraint.priority = .defaultHigh
+        stackView.autoPinEdge(toSuperviewEdge: .top, withInset: .zero, relation: .lessThanOrEqual)
+        stackView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
     }
     
     open override func layoutSubviews() {
