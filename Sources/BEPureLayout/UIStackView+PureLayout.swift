@@ -42,18 +42,15 @@ public extension UIStackView {
         arrangedSubviews: [BEStackViewElement]? = nil
     ) {
         self.init(forAutoLayout: ())
-        self.axis = axis
-        self.alignment = alignment
-        self.distribution = distribution
         
-        if let spacing = spacing {
-            self.spacing = spacing
-        }
+        set(axis: axis, spacing: spacing, alignment: alignment, distribution: distribution)
         
         if let subviews = arrangedSubviews {
             addArrangedSubviews(subviews)
         }
     }
+    
+    
     
     convenience init(
         axis: NSLayoutConstraint.Axis,
@@ -63,13 +60,8 @@ public extension UIStackView {
         @BEStackViewBuilder builder: () -> [BEStackViewElement]
     ) {
         self.init(forAutoLayout: ())
-        self.axis = axis
-        self.alignment = alignment
-        self.distribution = distribution
         
-        if let spacing = spacing {
-            self.spacing = spacing
-        }
+        set(axis: axis, spacing: spacing, alignment: alignment, distribution: distribution)
         
         addArrangedSubviews(builder: builder)
     }
@@ -162,6 +154,21 @@ public extension UIStackView {
             } else {
                 view.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
             }
+        }
+    }
+    
+    func set(
+        axis: NSLayoutConstraint.Axis,
+        spacing: CGFloat? = nil,
+        alignment: UIStackView.Alignment = .center,
+        distribution: UIStackView.Distribution = .fill
+    ) {
+        self.axis = axis
+        self.alignment = alignment
+        self.distribution = distribution
+        
+        if let spacing = spacing {
+            self.spacing = spacing
         }
     }
 }
