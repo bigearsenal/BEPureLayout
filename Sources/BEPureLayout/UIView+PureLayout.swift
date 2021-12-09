@@ -391,4 +391,10 @@ public extension UIView {
         self.isHidden = true
         return self
     }
+    
+    @discardableResult
+    func setup(_ onBind: (UIView) -> Void) -> Self {
+        onBind(self)
+        return self
+    }
 }

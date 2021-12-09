@@ -1,17 +1,27 @@
 //
-//  BEStackViewBuilder.swift
-//  BEPureLayout
-//
-//  Created by Chung Tran on 27/04/2021.
+// Created by Giang Long Tran on 09.12.21.
 //
 
 import Foundation
 
+public typealias Builder = () -> [UIView]
+
+extension Array where Element == UIView {
+    public func build() -> UIView {
+        switch (count) {
+        case 0: return BEView()
+        case 1: return self[0]
+        default: return UIStackView(axis: .vertical, arrangedSubviews: self)
+        }
+    }
+}
+
 @resultBuilder
-public struct BEStackViewBuilder {
-    public typealias Expression = BEStackViewElement
+public struct BEViewBuilder {
     
-    public typealias Component = [BEStackViewElement]
+    public typealias Expression = UIView
+    
+    public typealias Component = [UIView]
     
     public static func buildExpression(_ expression: Expression) -> Component {
         [expression]
