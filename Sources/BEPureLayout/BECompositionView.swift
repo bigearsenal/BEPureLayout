@@ -5,7 +5,7 @@
 import Foundation
 
 open class BECompositionView: BEView {
-    open override func commonInit() {
+    final public override func commonInit() {
         super.commonInit()
         
         let child = build()
