@@ -179,10 +179,13 @@ extension UIStackView {
             view.isHidden = isHidden
             view.alpha = 1
         } else {
+            // put all another views into its position first
+            layoutIfNeeded()
+            
+            // set oldValue
             let oldHiddenValue = view.isHidden
-            layer.removeAllAnimations()
-            view.layer.removeAllAnimations()
-            view.layer.isHidden = oldHiddenValue
+            view.isHidden = oldHiddenValue
+            view.alpha = oldHiddenValue ? 0: 1
             
             UIView.animate(
                 withDuration: 0.3,
