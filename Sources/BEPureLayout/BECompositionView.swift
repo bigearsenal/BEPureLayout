@@ -5,6 +5,14 @@
 import Foundation
 
 open class BECompositionView: BEView {
+    public init() {
+        super.init(frame: .zero)
+    }
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
     final public override func commonInit() {
         super.commonInit()
         
