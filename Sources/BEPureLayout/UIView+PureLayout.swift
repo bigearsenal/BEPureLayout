@@ -107,16 +107,20 @@ public extension UIView {
     }
     
     @available(iOS 11, *)
-    func autoPinBottomToSuperViewSafeAreaAvoidKeyboard(inset: CGFloat = 0) {
+    @discardableResult
+    func autoPinBottomToSuperViewSafeAreaAvoidKeyboard(inset: CGFloat = 0) -> AvoidingKeyboardLayoutConstraint {
         let keyboardViewV = AvoidingKeyboardLayoutConstraint(item: superview!.safeAreaLayoutGuide, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: inset)
         keyboardViewV.observeKeyboardHeight()
         superview?.addConstraint(keyboardViewV)
+        return keyboardViewV
     }
     
-    func autoPinBottomToSuperViewAvoidKeyboard(inset: CGFloat = 0) {
+    @discardableResult
+    func autoPinBottomToSuperViewAvoidKeyboard(inset: CGFloat = 0) -> AvoidingKeyboardLayoutConstraint {
         let keyboardViewV = AvoidingKeyboardLayoutConstraint(item: superview!, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: inset)
         keyboardViewV.observeKeyboardHeight()
         superview?.addConstraint(keyboardViewV)
+        return keyboardViewV
     }
     
     func autoPinBottomAvoidKeyboard(to view: UIView, inset: CGFloat = 0) {
