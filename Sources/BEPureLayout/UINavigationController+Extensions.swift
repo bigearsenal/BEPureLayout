@@ -1,5 +1,5 @@
 //
-//  BENavigationController.swift
+//  UINavigationController+Extensions.swift
 //  BEPureLayout
 //
 //  Created by Chung Tran on 5/31/20.
@@ -7,8 +7,7 @@
 
 import Foundation
 
-open class BENavigationController: UINavigationController {
-    // MARK: - Properties
+extension UINavigationController {
     public var previousController: UIViewController? {
         if viewControllers.count > 1 {
             return viewControllers[viewControllers.count-2]
