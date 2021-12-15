@@ -19,7 +19,12 @@ open class BECompositionView: BEView {
         let child = build()
         addSubview(child)
         child.autoPinEdgesToSuperviewEdges()
+        
+        // Will be use for late layout
+        layout()
     }
+    
+    open func layout() {}
     
     final public override func addSubview(_ view: UIView) {
         super.addSubview(view)
