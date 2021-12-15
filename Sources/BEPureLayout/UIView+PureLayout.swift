@@ -392,7 +392,7 @@ public extension UIView {
     
     @discardableResult
     func hidden(_ hide: Bool = true) -> Self {
-        self.isHidden = true
+        self.isHidden = hide
         return self
     }
     
