@@ -88,8 +88,10 @@ public extension UIView {
         autoPinEdge(toSuperviewSafeArea: .trailing, withInset: xInset)
     }
     
-    func autoAdjustWidthHeightRatio(_ ratio: CGFloat) {
+    @discardableResult
+    func autoAdjustWidthHeightRatio(_ ratio: CGFloat) -> Self {
         widthAnchor.constraint(equalTo: heightAnchor, multiplier: ratio).isActive = true
+        return self
     }
     
     func frame(width: CGFloat? = nil, height: CGFloat? = nil) -> Self {
@@ -132,7 +134,7 @@ public extension UIView {
         autoPinEdge(toSuperviewEdge: .trailing, withInset: rightInset ?? leftInset)
         autoAlignAxis(toSuperviewAxis: .horizontal)
     }
-    
+
 //    @available(*, deprecated, renamed: "centered(_:)")
     var centeredHorizontallyView: UIView {
         let view = UIView(forAutoLayout: ())
@@ -167,15 +169,16 @@ public extension UIView {
     
     // MARK: - Convenience methods
     var widthConstraint: NSLayoutConstraint? {
-        constraints.first(where: {$0.firstAttribute == .width && $0.secondAttribute == .notAnAttribute})
+        constraints.first(where: { $0.firstAttribute == .width && $0.secondAttribute == .notAnAttribute })
     }
     
     var heightConstraint: NSLayoutConstraint? {
-        constraints.first(where: {$0.firstAttribute == .height && $0.secondAttribute == .notAnAttribute})
+        constraints.first(where: { $0.firstAttribute == .height && $0.secondAttribute == .notAnAttribute })
     }
     
     // MARK: - Wrapper
     private static let wrapperViewTag = 1111
+    
     func padding(_ inset: UIEdgeInsets, backgroundColor: UIColor? = nil, cornerRadius: CGFloat? = nil) -> UIView {
         let view = UIView(forAutoLayout: ())
         if let bgColor = backgroundColor {
@@ -193,14 +196,56 @@ public extension UIView {
     }
     
     @discardableResult
+    func margin(_ inset: UIEdgeInsets) -> UIView {
+        let view = UIView(forAutoLayout: ())
+        
+        view.addSubview(self)
+        self.autoPinEdgesToSuperviewEdges(with: inset)
+        return view
+    }
+    
+    @discardableResult
+    func backgroundColor(color: UIColor) -> Self {
+        backgroundColor = color
+        return self
+    }
+    
+    @discardableResult
+    func box(cornerRadius: CGFloat) -> Self {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = true
+        return self
+    }
+    
+    @discardableResult
     func border(width: CGFloat, color: UIColor) -> Self {
-        layer.borderColor = color.cgColor
         layer.borderWidth = width
+        layer.borderColor = color.cgColor
+        
+        return self
+    }
+    
+    @discardableResult
+    func shadow(color: UIColor = .black, alpha: Float = 0, x: CGFloat = 0, y: CGFloat = 0, blur: CGFloat = 0, spread: CGFloat = 0) -> Self {
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = alpha
+        layer.shadowOffset = CGSize(width: x, height: y)
+        layer.shadowRadius = blur / UIScreen.main.scale
+        layer.masksToBounds = false
+        
+        if spread == 0 {
+            layer.shadowPath = nil
+        } else {
+            let dx = -spread
+            let rect = bounds.insetBy(dx: dx, dy: dx)
+            layer.shadowPath = UIBezierPath(rect: rect).cgPath
+        }
+        
         return self
     }
     
     var wrapper: UIView? {
-        superview?.tag == UIView.wrapperViewTag ? superview: nil
+        superview?.tag == UIView.wrapperViewTag ? superview : nil
     }
     
     @objc open func fittingHeight(targetWidth: CGFloat) -> CGFloat {
@@ -209,7 +254,7 @@ public extension UIView {
             height: UIView.layoutFittingCompressedSize.height
         )
         return systemLayoutSizeFitting(fittingSize, withHorizontalFittingPriority: .required,
-                                verticalFittingPriority: .defaultLow)
+            verticalFittingPriority: .defaultLow)
             .height
     }
     
@@ -256,7 +301,7 @@ public extension UIView {
     }
     
     var constraintsToSuperview: [NSLayoutConstraint]? {
-        guard let superview = superview else {return nil}
+        guard let superview = superview else { return nil }
         return superview.constraints.filter {
             ($0.firstItem as? UIView == self && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == superview && $0.secondItem as? UIView == superview) || ($0.firstItem as? UIView == self && $0.secondItem as? UILayoutGuide == superview.safeAreaLayoutGuide) || ($0.firstItem as? UILayoutGuide == superview.safeAreaLayoutGuide && $0.secondItem as? UIView == self)
         }
@@ -265,14 +310,14 @@ public extension UIView {
     func constraintToSuperviewWithAttribute(_ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         constraintsToSuperview?.first {
             ($0.firstItem as? UIView == self && $0.firstAttribute == attribute) ||
-            ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
+                ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
         }
     }
     
     func constraints(toRelativeView view: UIView) -> [NSLayoutConstraint] {
         superview?.constraints.filter {
             ($0.firstItem as? UIView == self && $0.secondItem as? UIView == view) ||
-            ($0.firstItem as? UIView == view && $0.secondItem as? UIView == self)
+                ($0.firstItem as? UIView == view && $0.secondItem as? UIView == self)
         } ?? []
     }
     
@@ -280,15 +325,19 @@ public extension UIView {
         constraints(toRelativeView: view)
             .first {
                 ($0.firstItem as? UIView == self && $0.firstAttribute == attribute) ||
-                ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
+                    ($0.secondItem as? UIView == self && $0.secondAttribute == attribute)
             }
     }
     
-    static var spacer: UIView { UIView(forAutoLayout: ()) }
+    static var spacer: UIView {
+        UIView(forAutoLayout: ())
+    }
+    
     static func separator(height: CGFloat, color: UIColor = .clear) -> UIView {
         UIView(height: height, backgroundColor: color)
     }
     
+    @available(*, deprecated, renamed: "shadow")
     func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
@@ -297,15 +346,18 @@ public extension UIView {
         layer.masksToBounds = false
     }
     
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+    @discardableResult
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) -> Self {
         let maskPath = UIBezierPath(
             roundedRect: bounds,
             byRoundingCorners: corners,
             cornerRadii: CGSize(width: radius, height: radius))
-
+        
         let shape = CAShapeLayer()
         shape.path = maskPath.cgPath
         layer.mask = shape
+        
+        return self
     }
     
     @discardableResult
@@ -315,15 +367,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func withContentHuggingPriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> Self
-    {
+    func withContentHuggingPriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> Self {
         setContentHuggingPriority(priority, for: axis)
         return self
     }
     
     @discardableResult
-    func withContentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> Self
-    {
+    func withContentCompressionResistancePriority(_ priority: UILayoutPriority, for axis: NSLayoutConstraint.Axis) -> Self {
         setContentCompressionResistancePriority(priority, for: axis)
         return self
     }
@@ -342,7 +392,13 @@ public extension UIView {
     
     @discardableResult
     func hidden(_ hide: Bool = true) -> Self {
-        self.isHidden = true
+        self.isHidden = hide
+        return self
+    }
+    
+    @discardableResult
+    func setup(_ onBind: (UIView) -> Void) -> Self {
+        onBind(self)
         return self
     }
 }

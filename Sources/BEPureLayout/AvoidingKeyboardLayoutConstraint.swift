@@ -26,7 +26,6 @@ import UIKit
 public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     
     private var offset: CGFloat = 0
-
     public func observeKeyboardHeight() {
         offset = constant
         
@@ -48,7 +47,7 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     
     @objc func keyboardWillShowNotification(_ notification: Notification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        else {
+            else {
             return
         }
 
@@ -66,7 +65,7 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
                 animations: {
                     UIApplication.shared.keyWindow?.layoutIfNeeded()
                     return
-            }, completion: { _ in
+                }, completion: { _ in
             })
         }
     }
@@ -86,7 +85,7 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
                 animations: {
                     UIApplication.shared.keyWindow?.layoutIfNeeded()
                     return
-            }, completion: { _ in
+                }, completion: { _ in
             })
         }
     }
@@ -108,4 +107,3 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     }
 }
 #endif
-

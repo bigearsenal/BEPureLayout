@@ -122,15 +122,7 @@ open class BEViewController: UIViewController {
     }
     
     @objc open func back() {
-        popOrDismissVC()
-    }
-    
-    private func popOrDismissVC(_ completion: (() -> Void)? = nil) {
-        if let nc = navigationController, nc.viewControllers.first != self {
-            nc.popViewController(animated: true)
-        } else {
-            self.dismiss(animated: true, completion: completion)
-        }
+        close()
     }
     
     public func setStatusBarColor(_ color: UIColor) {
@@ -139,5 +131,15 @@ open class BEViewController: UIViewController {
         headerView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
         headerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
             .isActive = true
+    }
+}
+
+extension UIViewController {
+    public func close(_ completion: (() -> Void)? = nil) {
+        if let nc = navigationController, nc.viewControllers.first != self {
+            nc.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: completion)
+        }
     }
 }
