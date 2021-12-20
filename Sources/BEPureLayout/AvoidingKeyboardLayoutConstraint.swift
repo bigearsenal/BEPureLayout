@@ -26,7 +26,6 @@ import UIKit
 public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     
     private var offset: CGFloat = 0
-    private var keyboardVisibleHeight: CGFloat = 0
     
     public func observeKeyboardHeight() {
         offset = constant
@@ -49,11 +48,11 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     
     @objc func keyboardWillShowNotification(_ notification: Notification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        else {
+            else {
             return
         }
-        keyboardVisibleHeight = keyboardSize.height
-        updateConstant()
+        
+        updateConstraintOnKeyboardWillShow(height: keyboardSize.height)
         
         if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
            let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
@@ -67,14 +66,13 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
                 animations: {
                     UIApplication.shared.keyWindow?.layoutIfNeeded()
                     return
-            }, completion: { _ in
+                }, completion: { _ in
             })
         }
     }
     
     @objc func keyboardWillHideNotification(_ notification: NSNotification) {
-        keyboardVisibleHeight = 0
-        self.updateConstant()
+        self.updateConstraintOnKeyboardWillHide()
         
         if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
            let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
@@ -88,15 +86,25 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
                 animations: {
                     UIApplication.shared.keyWindow?.layoutIfNeeded()
                     return
-            }, completion: { _ in
+                }, completion: { _ in
             })
         }
     }
     
-    func updateConstant() {
-        self.constant = offset + keyboardVisibleHeight
+    func updateConstraintOnKeyboardWillHide() {
+        constant = offset
     }
     
+    func updateConstraintOnKeyboardWillShow(height: CGFloat) {
+        if
+            let secondItem = secondItem as? UIView,
+            let bottomPoint = secondItem.superview?.convert(secondItem.frame, to: nil).maxY,
+            let windowHeight = secondItem.window?.frame.height
+        {
+            constant = height - (windowHeight - bottomPoint) + offset
+        } else {
+            constant = offset + height
+        }
+    }
 }
 #endif
-
