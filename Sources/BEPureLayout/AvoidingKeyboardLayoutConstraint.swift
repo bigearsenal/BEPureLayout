@@ -26,7 +26,6 @@ import UIKit
 public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     
     private var offset: CGFloat = 0
-    
     public func observeKeyboardHeight() {
         offset = constant
         
@@ -51,9 +50,9 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
             else {
             return
         }
-        
+
         updateConstraintOnKeyboardWillShow(height: keyboardSize.height)
-        
+
         if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
            let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
         {
@@ -90,11 +89,11 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
             })
         }
     }
-    
+
     func updateConstraintOnKeyboardWillHide() {
         constant = offset
     }
-    
+
     func updateConstraintOnKeyboardWillShow(height: CGFloat) {
         if
             let secondItem = secondItem as? UIView,
