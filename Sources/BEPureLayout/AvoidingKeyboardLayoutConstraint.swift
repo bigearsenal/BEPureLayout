@@ -26,6 +26,7 @@ import UIKit
 public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     
     private var offset: CGFloat = 0
+
     public func observeKeyboardHeight() {
         offset = constant
         
@@ -46,12 +47,11 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     // MARK: Notification
     
     @objc func keyboardWillShowNotification(_ notification: Notification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-            else {
+        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
 
-        updateConstraintOnKeyboardWillShow(height: keyboardSize.height)
+        updateConstraintOnKeyboardWillShow(height: keyboardSize.cgRectValue.height)
 
         if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
            let curve = notification.userInfo?[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
@@ -65,7 +65,7 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
                 animations: {
                     UIApplication.shared.keyWindow?.layoutIfNeeded()
                     return
-                }, completion: { _ in
+            }, completion: { _ in
             })
         }
     }
@@ -85,8 +85,8 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
                 animations: {
                     UIApplication.shared.keyWindow?.layoutIfNeeded()
                     return
-                }, completion: { _ in
-            })
+                }
+            )
         }
     }
 
@@ -100,10 +100,12 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
             let bottomPoint = secondItem.superview?.convert(secondItem.frame, to: nil).maxY,
             let windowHeight = secondItem.window?.frame.height
         {
-            constant = height - (windowHeight - bottomPoint) + offset
+            let requiredBottomPoint = windowHeight - (height + offset)
+            constant += bottomPoint - requiredBottomPoint
         } else {
             constant = offset + height
         }
     }
 }
 #endif
+
