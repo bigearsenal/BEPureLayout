@@ -265,6 +265,9 @@ public extension UIView {
             (self as? UIButton)?.addTarget(target, action: action, for: .touchUpInside)
             return self
         }
+        // clear all old tap gesture
+        gestureRecognizers?.removeAll(where: {$0 is UITapGestureRecognizer})
+        
         let tap = UITapGestureRecognizer(target: target, action: action)
         addGestureRecognizer(tap)
         isUserInteractionEnabled = true
