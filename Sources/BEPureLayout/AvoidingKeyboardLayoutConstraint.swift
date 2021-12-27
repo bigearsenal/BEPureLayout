@@ -95,9 +95,14 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
     }
 
     func updateConstraintOnKeyboardWillShow(height: CGFloat) {
+        guard let secondItem = secondItem as? UIView else {
+            return constant = offset + height
+        }
+
+        var root = findKeyboardRoot(in: secondItem.superview)
+
         if
-            let secondItem = secondItem as? UIView,
-            let bottomPoint = secondItem.superview?.convert(secondItem.frame, to: nil).maxY,
+            let bottomPoint = secondItem.superview?.convert(secondItem.frame, to: root).maxY,
             let windowHeight = secondItem.window?.frame.height
         {
             let requiredBottomPoint = windowHeight - (height + offset)
@@ -105,6 +110,15 @@ public class AvoidingKeyboardLayoutConstraint: NSLayoutConstraint {
         } else {
             constant = offset + height
         }
+    }
+
+    private func findKeyboardRoot(in view: UIView?) -> UIView? {
+        // UIDropShadowSiew while pageSheet transition has transformation
+        if view == nil || view is UIWindow || view?.transform != .identity {
+            return view
+        }
+
+        return findKeyboardRoot(in: view?.superview)
     }
 }
 #endif
