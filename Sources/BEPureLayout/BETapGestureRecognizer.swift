@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 // Taken from: https://stackoverflow.com/a/53601585 (Pavel Stepanov)
+
+public typealias BEVoidCallback = () -> Void
+public typealias BECallback<T> = (_ value: T) -> Void
+
 public final class BETapGestureRecognizer: UITapGestureRecognizer {
     private var action: () -> Void
     
