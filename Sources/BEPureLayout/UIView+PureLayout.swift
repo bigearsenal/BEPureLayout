@@ -404,4 +404,10 @@ public extension UIView {
         onBind(self)
         return self
     }
+    
+    @discardableResult
+    func setupWithType<T>(_ type: T.Type, _ onBind: (T) -> Void) -> Self {
+        onBind(self as! T)
+        return self
+    }
 }
