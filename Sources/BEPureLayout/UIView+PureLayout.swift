@@ -179,7 +179,7 @@ public extension UIView {
     // MARK: - Wrapper
     private static let wrapperViewTag = 1111
     
-    func padding(_ inset: UIEdgeInsets, backgroundColor: UIColor? = nil, cornerRadius: CGFloat? = nil) -> UIView {
+    func padding(_ inset: UIEdgeInsets, backgroundColor: UIColor? = nil, cornerRadius: CGFloat? = nil, borderColor: UIColor? = nil) -> UIView {
         let view = UIView(forAutoLayout: ())
         if let bgColor = backgroundColor {
             view.backgroundColor = bgColor
@@ -187,6 +187,10 @@ public extension UIView {
         
         if let cornerRadius = cornerRadius {
             view.layer.cornerRadius = cornerRadius
+            if borderColor != nil {
+                view.layer.borderColor = borderColor?.cgColor
+                view.layer.borderWidth = 1
+            }
             view.layer.masksToBounds = true
         }
         view.tag = UIView.wrapperViewTag
@@ -266,7 +270,7 @@ public extension UIView {
             return self
         }
         // clear all old tap gesture
-        gestureRecognizers?.removeAll(where: {$0 is UITapGestureRecognizer})
+        gestureRecognizers?.removeAll(where: { $0 is UITapGestureRecognizer })
         
         let tap = UITapGestureRecognizer(target: target, action: action)
         addGestureRecognizer(tap)
