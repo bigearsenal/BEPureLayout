@@ -50,14 +50,26 @@ public extension UIStackView {
         }
     }
     
-    
-    
     convenience init(
         axis: NSLayoutConstraint.Axis,
         spacing: CGFloat? = nil,
         alignment: UIStackView.Alignment = .center,
         distribution: UIStackView.Distribution = .fill,
         @BEStackViewBuilder builder: () -> [BEStackViewElement]
+    ) {
+        self.init(forAutoLayout: ())
+        
+        set(axis: axis, spacing: spacing, alignment: alignment, distribution: distribution)
+        
+        addArrangedSubviews(builder: builder)
+    }
+    
+    convenience init(
+        axis: NSLayoutConstraint.Axis,
+        spacing: CGFloat? = nil,
+        alignment: UIStackView.Alignment = .center,
+        distribution: UIStackView.Distribution = .fill,
+        @BEViewBuilder builder: Builder
     ) {
         self.init(forAutoLayout: ())
         
