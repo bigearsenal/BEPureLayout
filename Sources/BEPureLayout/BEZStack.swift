@@ -61,6 +61,8 @@ open class BEZStackPosition: BEView {
             child.autoPinEdgesToSuperviewEdges()
         }
         
-        autoPinEdgesToSuperviewEdges()
+        if let superview = superview {
+            autoPinEdgesToSuperviewEdges()
+        }
     }
 }
