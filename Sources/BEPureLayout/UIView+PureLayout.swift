@@ -277,6 +277,17 @@ public extension UIView {
         isUserInteractionEnabled = true
         return self
     }
+
+    @discardableResult
+    func onLongTap(_ target: Any?, action: Selector) -> Self {
+        // clear all old tap gesture
+        gestureRecognizers?.removeAll(where: { $0 is UITapGestureRecognizer })
+
+        let tap = UILongPressGestureRecognizer(target: target, action: action)
+        addGestureRecognizer(tap)
+        isUserInteractionEnabled = true
+        return self
+    }
     
     @discardableResult
     func onSwipe(_ target: Any?, action: Selector) -> Self {
@@ -402,16 +413,22 @@ public extension UIView {
         self.isHidden = hide
         return self
     }
-    
-    @discardableResult
-    func setup(_ onBind: (UIView) -> Void) -> Self {
-        onBind(self)
-        return self
-    }
-    
+
     @discardableResult
     func setupWithType<T>(_ type: T.Type, _ onBind: (T) -> Void) -> Self {
         onBind(self as! T)
         return self
     }
 }
+
+public protocol Setupable {}
+
+extension Setupable where Self: UIView {
+    @discardableResult
+    public func setup(_ onBind: (Self) -> Void) -> Self {
+        onBind(self)
+        return self
+    }
+}
+
+extension UIView: Setupable {}
