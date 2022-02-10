@@ -24,7 +24,6 @@ open class BEZStack: BEView {
     final public override func commonInit() {
         super.commonInit()
         children.forEach { child in super.addSubview(child) }
-        
     }
     
     open override func addSubview(_ view: UIView) {
@@ -37,6 +36,7 @@ open class BEZStackPosition: BEView {
     public enum Mode {
         case fill
         case center
+        case pinEdges(top: Bool, left: Bool, bottom: Bool, right: Bool)
     }
     
     let mode: Mode
@@ -57,12 +57,18 @@ open class BEZStackPosition: BEView {
         switch (mode) {
         case .center:
             for constraint in child.autoCenterInSuperview() { constraint.isActive = true }
+            if let superview = superview { autoPinEdgesToSuperviewEdges() }
         case .fill:
             child.autoPinEdgesToSuperviewEdges()
-        }
-        
-        if let superview = superview {
-            autoPinEdgesToSuperviewEdges()
+            if let superview = superview { autoPinEdgesToSuperviewEdges() }
+        case .pinEdges(top: let top, left: let left, bottom: let bottom, right: let right):
+            child.autoPinEdgesToSuperviewEdges()
+            if let superview = superview {
+                if top { autoPinEdge(toSuperviewEdge: .top) }
+                if left { autoPinEdge(toSuperviewEdge: .left) }
+                if bottom { autoPinEdge(toSuperviewEdge: .bottom) }
+                if right { autoPinEdge(toSuperviewEdge: .right) }
+            }
         }
     }
 }
