@@ -12,10 +12,19 @@ public class BEScrollView: BEView {
     private let stackView: UIStackView
     var scrollViewBottomConstraint: NSLayoutConstraint!
     
-    public init(contentInsets: UIEdgeInsets? = nil, spacing: CGFloat? = nil, @BEViewBuilder builder: Builder) {
+    public init(
+        contentInsets: UIEdgeInsets? = nil,
+        spacing: CGFloat? = nil,
+        alwaysBounceVertical: Bool = false,
+        refreshControl: UIRefreshControl? = nil,
+        @BEViewBuilder builder: Builder
+    ) {
         scrollView = ContentHuggingScrollView(scrollableAxis: .vertical, contentInset: contentInsets ?? .zero)
         stackView = UIStackView(axis: .vertical, spacing: spacing, alignment: .fill, distribution: .fill, arrangedSubviews: builder())
         super.init(frame: .zero)
+        
+        scrollView.refreshControl = refreshControl
+        scrollView.alwaysBounceVertical = alwaysBounceVertical
     }
     
     final public override func commonInit() {
