@@ -379,6 +379,13 @@ public extension UIView {
     }
     
     @discardableResult
+    func roundCorners(_ corners: CACornerMask, radius: CGFloat) -> Self {
+        layer.cornerRadius = radius
+        layer.maskedCorners = corners
+        return self
+    }
+    
+    @discardableResult
     func withTag(_ tag: Int) -> Self {
         self.tag = tag
         return self

@@ -7,24 +7,57 @@
 
 import Foundation
 
-public class BEScrollView: BEView {
-    private let scrollView: ContentHuggingScrollView
-    private let stackView: UIStackView
-    var scrollViewBottomConstraint: NSLayoutConstraint!
-    
-    public init(
+extension ContentHuggingScrollView {
+    public convenience init(
+        axis: NSLayoutConstraint.Axis = .vertical,
         contentInsets: UIEdgeInsets? = nil,
         spacing: CGFloat? = nil,
         alwaysBounceVertical: Bool = false,
         refreshControl: UIRefreshControl? = nil,
+        isPagingEnabled: Bool = false,
+        showsHorizontalScrollIndicator: Bool = true,
+        delegate: UIScrollViewDelegate? = nil,
         @BEViewBuilder builder: Builder
     ) {
-        scrollView = ContentHuggingScrollView(scrollableAxis: .vertical, contentInset: contentInsets ?? .zero)
+        self.init(scrollableAxis: axis, contentInset: contentInsets ?? .zero)
+        
+        self.refreshControl = refreshControl
+        self.alwaysBounceVertical = alwaysBounceVertical
+        self.isPagingEnabled = isPagingEnabled
+        self.showsHorizontalScrollIndicator = showsHorizontalScrollIndicator
+        self.delegate = delegate
+        
+        for view in builder() {
+            contentView.addSubview(view)
+        }
+    }
+}
+
+public class BEScrollView: BEView {
+    public let scrollView: ContentHuggingScrollView
+    private let stackView: UIStackView
+    var scrollViewBottomConstraint: NSLayoutConstraint!
+    
+    public init(
+        axis: NSLayoutConstraint.Axis = .vertical,
+        contentInsets: UIEdgeInsets? = nil,
+        spacing: CGFloat? = nil,
+        alwaysBounceVertical: Bool = false,
+        refreshControl: UIRefreshControl? = nil,
+        isPagingEnabled: Bool = false,
+        showsHorizontalScrollIndicator: Bool = true,
+        delegate: UIScrollViewDelegate? = nil,
+        @BEViewBuilder builder: Builder
+    ) {
+        scrollView = ContentHuggingScrollView(scrollableAxis: axis, contentInset: contentInsets ?? .zero)
         stackView = UIStackView(axis: .vertical, spacing: spacing, alignment: .fill, distribution: .fill, arrangedSubviews: builder())
         super.init(frame: .zero)
         
         scrollView.refreshControl = refreshControl
         scrollView.alwaysBounceVertical = alwaysBounceVertical
+        scrollView.isPagingEnabled = isPagingEnabled
+        scrollView.showsHorizontalScrollIndicator = showsHorizontalScrollIndicator
+        scrollView.delegate = delegate
     }
     
     final public override func commonInit() {
