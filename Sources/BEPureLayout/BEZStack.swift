@@ -34,9 +34,13 @@ open class BEZStack: BEView {
 open class BEZStackPosition: BEView {
     
     public enum Mode {
+        public enum Edge {
+            case top, left, bottom, right
+        }
+        
         case fill
         case center
-        case pinEdges(top: Bool = false, left: Bool = false, bottom: Bool = false, right: Bool = false, avoidKeyboard: Bool = false)
+        case pinEdges(_ edges: Set<Edge>, avoidKeyboard: Bool = false)
     }
     
     let mode: Mode
@@ -61,13 +65,13 @@ open class BEZStackPosition: BEView {
         case .fill:
             child.autoPinEdgesToSuperviewEdges()
             if let superview = superview { autoPinEdgesToSuperviewEdges() }
-        case .pinEdges(top: let top, left: let left, bottom: let bottom, right: let right, let avoidKeyboard):
+        case .pinEdges(let edges, let avoidKeyboard):
             child.autoPinEdgesToSuperviewEdges()
             if let superview = superview {
-                if top { autoPinEdge(toSuperviewEdge: .top) }
-                if left { autoPinEdge(toSuperviewEdge: .left) }
-                if bottom { avoidKeyboard ? autoPinBottomToSuperViewAvoidKeyboard(): autoPinEdge(toSuperviewEdge: .bottom) }
-                if right { autoPinEdge(toSuperviewEdge: .right) }
+                if edges.contains(.top) { autoPinEdge(toSuperviewEdge: .top) }
+                if edges.contains(.left) { autoPinEdge(toSuperviewEdge: .left) }
+                if edges.contains(.bottom) { avoidKeyboard ? autoPinBottomToSuperViewAvoidKeyboard(): autoPinEdge(toSuperviewEdge: .bottom) }
+                if edges.contains(.right) { autoPinEdge(toSuperviewEdge: .right) }
             }
         }
     }
