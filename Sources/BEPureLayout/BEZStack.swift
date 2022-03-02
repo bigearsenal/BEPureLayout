@@ -36,7 +36,7 @@ open class BEZStackPosition: BEView {
     public enum Mode {
         case fill
         case center
-        case pinEdges(top: Bool, left: Bool, bottom: Bool, right: Bool, avoidKeyboard: Bool = false)
+        case pinEdges(top: Bool = false, left: Bool = false, bottom: Bool = false, right: Bool = false, avoidKeyboard: Bool = false)
     }
     
     let mode: Mode
