@@ -36,6 +36,20 @@ public class ContentHuggingScrollView: UIScrollView {
         commonInit()
     }
     
+    convenience init(
+        scrollableAxis: NSLayoutConstraint.Axis,
+        contentInset: UIEdgeInsets = .zero,
+        spacing: CGFloat = 8,
+        alignment: UIStackView.Alignment = .fill,
+        distribution: UIStackView.Distribution = .fill,
+        @BEViewBuilder builder: Builder
+    ) {
+        self.init(scrollableAxis: scrollableAxis, contentInset: contentInset)
+        let stackView = UIStackView(axis: scrollableAxis, spacing: spacing, alignment: alignment, distribution: distribution, arrangedSubviews: builder())
+        contentView.addSubview(stackView)
+        stackView.autoPinEdgesToSuperviewEdges()
+    }
+    
     @available(*, unavailable,
     message: "Loading this view from a nib is unsupported in favor of initializer dependency injection."
     )
