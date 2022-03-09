@@ -7,32 +7,6 @@
 
 import Foundation
 
-extension ContentHuggingScrollView {
-    public convenience init(
-        axis: NSLayoutConstraint.Axis = .vertical,
-        contentInsets: UIEdgeInsets? = nil,
-        spacing: CGFloat? = nil,
-        alwaysBounceVertical: Bool = false,
-        refreshControl: UIRefreshControl? = nil,
-        isPagingEnabled: Bool = false,
-        showsHorizontalScrollIndicator: Bool = true,
-        delegate: UIScrollViewDelegate? = nil,
-        @BEViewBuilder builder: Builder
-    ) {
-        self.init(scrollableAxis: axis, contentInset: contentInsets ?? .zero)
-        
-        self.refreshControl = refreshControl
-        self.alwaysBounceVertical = alwaysBounceVertical
-        self.isPagingEnabled = isPagingEnabled
-        self.showsHorizontalScrollIndicator = showsHorizontalScrollIndicator
-        self.delegate = delegate
-        
-        for view in builder() {
-            contentView.addSubview(view)
-        }
-    }
-}
-
 public class BEScrollView: BEView {
     public let scrollView: ContentHuggingScrollView
     private let stackView: UIStackView
