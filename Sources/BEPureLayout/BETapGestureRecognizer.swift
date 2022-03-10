@@ -27,10 +27,31 @@ public final class BETapGestureRecognizer: UITapGestureRecognizer {
     }
 }
 
+public final class BELongPressGestureRecognizer: UILongPressGestureRecognizer {
+    private var action: (UILongPressGestureRecognizer) -> Void
+    
+    public init(_ action: @escaping (UILongPressGestureRecognizer) -> Void) {
+        self.action = action
+        super.init(target: nil, action: nil)
+        addTarget(self, action: #selector(execute(_:)))
+    }
+    
+    @objc private func execute(_ gesture: UILongPressGestureRecognizer) {
+        action(gesture)
+    }
+}
+
 extension UIView {
     @discardableResult
     public func onTap(_ action: @escaping () -> Void) -> Self {
         addGestureRecognizer(BETapGestureRecognizer(action))
+        return self
+    }
+    
+    @discardableResult
+    public func onLongTap(_ action: @escaping (UILongPressGestureRecognizer) -> Void) -> Self {
+        let gesture = BELongPressGestureRecognizer(action)
+        addGestureRecognizer(gesture)
         return self
     }
 }
