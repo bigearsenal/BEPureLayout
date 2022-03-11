@@ -133,13 +133,3 @@ open class BEViewController: UIViewController {
             .isActive = true
     }
 }
-
-extension UIViewController {
-    public func close(_ completion: (() -> Void)? = nil) {
-        if let nc = navigationController, nc.viewControllers.first != self {
-            nc.popViewController(animated: true)
-        } else {
-            self.dismiss(animated: true, completion: completion)
-        }
-    }
-}

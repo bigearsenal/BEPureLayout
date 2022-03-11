@@ -14,4 +14,33 @@ extension UINavigationController {
         }
         return nil
     }
+    
+    public func popViewController(animated: Bool, completion: @escaping () -> Void) {
+        if animated {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock(completion)
+        }
+        
+        popViewController(animated: animated)
+        
+        if animated {
+            CATransaction.commit()
+        } else {
+            completion()
+        }
+    }
+    public func pushViewController(_ vc: UIViewController, animated: Bool, completion: @escaping () -> Void) {
+        if animated {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock(completion)
+        }
+        
+        pushViewController(vc, animated: animated)
+        
+        if animated {
+            CATransaction.commit()
+        } else {
+            completion()
+        }
+    }
 }
