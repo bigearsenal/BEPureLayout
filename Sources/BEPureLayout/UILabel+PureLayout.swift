@@ -18,6 +18,27 @@ public extension UILabel {
         textAlignment: NSTextAlignment? = nil
     ) {
         self.init(forAutoLayout: ())
+        self.set(
+            text: text,
+            textSize: textSize,
+            weight: weight,
+            font: font,
+            textColor: textColor,
+            numberOfLines: numberOfLines,
+            textAlignment: textAlignment
+        )
+    }
+    
+    @discardableResult
+    func set(
+        text: String? = nil,
+        textSize: CGFloat = 15,
+        weight: UIFont.Weight = .regular,
+        font: UIFont? = nil,
+        textColor: UIColor? = BEPureLayoutConfigs.defaultTextColor,
+        numberOfLines: Int? = nil,
+        textAlignment: NSTextAlignment? = nil
+    ) -> Self {
         self.text = text
         self.font = font ?? .systemFont(ofSize: textSize, weight: weight)
         
@@ -30,6 +51,7 @@ public extension UILabel {
         if let textAlignment = textAlignment {
             self.textAlignment = textAlignment
         }
+        return self
     }
     
     @discardableResult
