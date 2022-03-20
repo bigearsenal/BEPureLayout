@@ -4,10 +4,16 @@
 
 import Foundation
 
+@dynamicMemberLookup
 public class BERef<T: UIView> {
     public weak var view: T?
     
     public init() {}
+    
+    public subscript<R>(dynamicMember member: WritableKeyPath<T, R>) -> R {
+        get { view![keyPath: member] }
+        set { view?[keyPath: member] = newValue }
+    }
 }
 
 public extension UIView {

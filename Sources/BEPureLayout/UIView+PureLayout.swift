@@ -420,6 +420,12 @@ public extension UIView {
         self.isHidden = hide
         return self
     }
+    
+    @discardableResult
+    func setAlpha(_ value: Double) -> Self {
+        alpha = value
+        return self
+    }
 
     @discardableResult
     func setupWithType<T>(_ type: T.Type, _ onBind: (T) -> Void) -> Self {
