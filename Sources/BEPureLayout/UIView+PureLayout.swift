@@ -432,6 +432,12 @@ public extension UIView {
         onBind(self as! T)
         return self
     }
+    
+    @discardableResult
+    func setUserInteractionEnabled(_ value : Bool) -> Self {
+        isUserInteractionEnabled = value
+        return self
+    }
 }
 
 public protocol Setupable {}
