@@ -5,7 +5,7 @@
 //  Created by Chung Tran on 11/3/20.
 //
 
-import Foundation
+import UIKit
 
 public extension UIEdgeInsets {
     mutating func modify(dTop: CGFloat? = nil, dLeft: CGFloat? = nil, dBottom: CGFloat? = nil, dRight: CGFloat? = nil) {
