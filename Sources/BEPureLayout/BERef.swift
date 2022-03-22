@@ -2,7 +2,7 @@
 // Created by Giang Long Tran on 15.02.2022.
 //
 
-import Foundation
+import UIKit
 
 @dynamicMemberLookup
 public class BERef<T: UIView> {

@@ -49,4 +49,9 @@ public extension UIButton {
         self.isEnabled = condition
         return self
     }
+    
+    func setTarget(target: Any?, action: Selector, for event: Event) -> Self {
+        addTarget(target, action: action, for: event)
+        return self
+    }
 }
