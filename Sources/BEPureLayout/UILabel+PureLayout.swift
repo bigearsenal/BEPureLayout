@@ -5,7 +5,7 @@
 //  Created by Chung Tran on 5/25/20.
 //
 
-import Foundation
+import UIKit
 
 public extension UILabel {
     convenience init(

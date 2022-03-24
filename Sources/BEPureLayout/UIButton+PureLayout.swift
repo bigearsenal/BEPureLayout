@@ -5,7 +5,7 @@
 //  Created by Chung Tran on 5/25/20.
 //
 
-import Foundation
+import UIKit
 
 public extension UIButton {
     convenience init(
@@ -47,6 +47,11 @@ public extension UIButton {
     
     func enableIf(_ condition: Bool) -> Self {
         self.isEnabled = condition
+        return self
+    }
+    
+    func setTarget(target: Any?, action: Selector, for event: Event) -> Self {
+        addTarget(target, action: action, for: event)
         return self
     }
 }

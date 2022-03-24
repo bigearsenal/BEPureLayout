@@ -420,6 +420,18 @@ public extension UIView {
         self.isHidden = hide
         return self
     }
+    
+    @discardableResult
+    func setAlpha(_ value: Double) -> Self {
+        alpha = value
+        return self
+    }
+    
+    @discardableResult
+    func setUserInteractionEnabled(_ value : Bool) -> Self {
+        isUserInteractionEnabled = value
+        return self
+    }
 }
 
 public protocol Setupable {}

@@ -5,7 +5,7 @@
 //  Created by Giang Long Tran on 15.12.21.
 //
 
-import Foundation
+import UIKit
 import PureLayout
 
 open class BEZStack: BEView {
