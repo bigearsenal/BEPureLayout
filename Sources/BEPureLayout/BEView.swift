@@ -5,7 +5,7 @@
 //  Created by Chung Tran on 5/26/20.
 //
 
-import Foundation
+import UIKit
 
 open class BEView: UIView {
     // MARK: - Class Initialization

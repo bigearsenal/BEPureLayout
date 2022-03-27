@@ -5,7 +5,7 @@
 //  Created by Giang Long Tran on 09.12.21.
 //
 
-import Foundation
+import UIKit
 
 open class BEContainer: BEView {
     let child: UIView
