@@ -61,7 +61,11 @@ open class BEZStackPosition: BEView {
         switch (mode) {
         case .center:
             for constraint in child.autoCenterInSuperview() { constraint.isActive = true }
-            if let superview = superview { autoPinEdgesToSuperviewEdges() }
+            if let superview = superview {
+                superview.autoMatch(.height, to: .height, of: child, withOffset: 0, relation: .greaterThanOrEqual)
+                superview.autoMatch(.width, to: .width, of: child, withOffset: 0, relation: .greaterThanOrEqual)
+                autoPinEdgesToSuperviewEdges()
+            }
         case .fill:
             child.autoPinEdgesToSuperviewEdges()
             if let superview = superview { autoPinEdgesToSuperviewEdges() }
