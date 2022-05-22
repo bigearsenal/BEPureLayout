@@ -27,6 +27,23 @@ public final class BETapGestureRecognizer: UITapGestureRecognizer {
     }
 }
 
+@available(iOS 13.0, *)
+public final class BEAsyncTapGestureRecognizer: UITapGestureRecognizer {
+    private var action: () async throws -> Void
+    
+    public init(_ action: @Sendable @escaping () async throws -> Void) {
+        self.action = action
+        super.init(target: nil, action: nil)
+        addTarget(self, action: #selector(execute))
+    }
+    
+    @objc private func execute() {
+        Task {
+            try await action()
+        }
+    }
+}
+
 public final class BELongPressGestureRecognizer: UILongPressGestureRecognizer {
     private var action: (UILongPressGestureRecognizer) -> Void
     
@@ -52,6 +69,13 @@ extension UIView {
     public func onLongTap(_ action: @escaping (UILongPressGestureRecognizer) -> Void) -> Self {
         let gesture = BELongPressGestureRecognizer(action)
         addGestureRecognizer(gesture)
+        return self
+    }
+    
+    @available(iOS 13.0, *)
+    @discardableResult
+    public func onTap(_ action: @Sendable @escaping () async throws -> Void) -> Self {
+        addGestureRecognizer(BEAsyncTapGestureRecognizer(action))
         return self
     }
 }
