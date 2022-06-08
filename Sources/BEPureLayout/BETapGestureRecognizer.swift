@@ -65,6 +65,11 @@ extension UIView {
         return self
     }
     
+    public func onTap(with recognizer: BETapGestureRecognizer) -> Self {
+        addGestureRecognizer(recognizer)
+        return self
+    }
+    
     @discardableResult
     public func onLongTap(_ action: @escaping (UILongPressGestureRecognizer) -> Void) -> Self {
         let gesture = BELongPressGestureRecognizer(action)
