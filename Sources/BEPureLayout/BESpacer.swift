@@ -6,16 +6,20 @@ import Foundation
 
 /// Take all available space in UIStackView
 class BESpacer: UIView {
-    enum Type {
+    enum Axis {
         case horizontal
         case vertical
     }
     
-    let type: Type
+    let type: Axis
     
-    override init(type: Type) {
+    override init(_type: Axis) {
         self.type = type
         super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override var intrinsicContentSize: CoreGraphics.CGSize {
