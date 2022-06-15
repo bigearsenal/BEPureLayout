@@ -5,15 +5,15 @@
 import Foundation
 
 /// Take all available space in UIStackView
-class BESpacer: UIView {
-    enum Axis {
+public class BESpacer: UIView {
+    public enum Axis {
         case horizontal
         case vertical
     }
     
     let type: Axis
     
-    init(_ type: Axis) {
+    public init(_ type: Axis) {
         self.type = type
         super.init(frame: .zero)
     }
@@ -22,10 +22,10 @@ class BESpacer: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var intrinsicContentSize: CoreGraphics.CGSize {
+    override public var intrinsicContentSize: CoreGraphics.CGSize {
         switch type {
-        case .horizontal: return .init(width: CGFloat.infinity, height: 0)
-        case .vertical: return .init(width: 0, height: CGFloat.infinity)
+        case .horizontal: return .init(width: 999_999, height: Self.noIntrinsicMetric)
+        case .vertical: return .init(width: Self.noIntrinsicMetric, height: 999_999)
         }
     }
 }
