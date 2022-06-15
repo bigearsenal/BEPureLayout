@@ -5,7 +5,7 @@
 import Foundation
 
 /// Take all available space in UIStackView
-class BESpace: UIView {
+class BESpacer: UIView {
     enum Type {
         case horizontal
         case vertical
