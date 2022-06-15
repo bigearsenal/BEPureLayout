@@ -13,7 +13,7 @@ class BESpacer: UIView {
     
     let type: Axis
     
-    init(_type: Axis) {
+    init(_ type: Axis) {
         self.type = type
         super.init(frame: .zero)
     }
