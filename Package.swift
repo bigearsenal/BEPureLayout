@@ -27,7 +27,7 @@ let package = Package(
         .target(
             name: "BEPureLayout",
             dependencies: ["PureLayout"],
-            resources: [.process("Resources/Image.xcassets")]
+            resources: [.process("Resources")]
         ),
         .testTarget(
             name: "BEPureLayoutTests",

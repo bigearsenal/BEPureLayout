@@ -40,8 +40,7 @@ open class BESearchBar: BEView {
     }
     public weak var delegate: BESearchBarDelegate?
     public lazy var magnifyingIconImageView: UIImageView = {
-        let bundle = Bundle(for: self.classForCoder)
-        let image = UIImage(named: "search", in: bundle, compatibleWith: nil)
+        let image = UIImage(named: "search", in: Bundle.module, compatibleWith: nil)
         let imageView = UIImageView(width: magnifyingIconSize, height: magnifyingIconSize, image: image)
         return imageView
     }()
