@@ -132,9 +132,16 @@ open class BESearchBar: BEView {
             textField.leftView?.setNeedsLayout()
             textField.layoutIfNeeded()
         }
-        
     }
-    
+
+    open override func becomeFirstResponder() -> Bool {
+        textField.becomeFirstResponder()
+    }
+
+    open override func resignFirstResponder() -> Bool {
+        textField.resignFirstResponder()
+    }
+
     fileprivate func showCancelButton(_ show: Bool = true) {
         if cancelButton.isHidden != show {return}
         cancelButton.isHidden = !show
