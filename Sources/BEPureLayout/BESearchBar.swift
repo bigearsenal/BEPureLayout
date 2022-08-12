@@ -40,7 +40,7 @@ open class BESearchBar: BEView {
     }
     public weak var delegate: BESearchBarDelegate?
     public lazy var magnifyingIconImageView: UIImageView = {
-        let image = UIImage(named: "search", in: Bundle.module, compatibleWith: nil)
+        let image = UIImage(named: "search", in: Bundle(for: Self.self), compatibleWith: nil)
         let imageView = UIImageView(width: magnifyingIconSize, height: magnifyingIconSize, image: image)
         return imageView
     }()
@@ -132,9 +132,16 @@ open class BESearchBar: BEView {
             textField.leftView?.setNeedsLayout()
             textField.layoutIfNeeded()
         }
-        
     }
-    
+
+    open override func becomeFirstResponder() -> Bool {
+        textField.becomeFirstResponder()
+    }
+
+    open override func resignFirstResponder() -> Bool {
+        textField.resignFirstResponder()
+    }
+
     fileprivate func showCancelButton(_ show: Bool = true) {
         if cancelButton.isHidden != show {return}
         cancelButton.isHidden = !show

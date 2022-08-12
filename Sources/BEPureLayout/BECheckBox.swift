@@ -39,7 +39,7 @@ open class BECheckbox: UIButton {
             if isSelected {
                 backgroundColor = BEPureLayoutConfigs.defaultCheckBoxActiveColor
                 layer.borderWidth = 0
-                let image = UIImage(named: "checkmark", in: Bundle.module, compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
+                let image = UIImage(named: "checkmark", in: Bundle(for: Self.self), compatibleWith: nil)!.withRenderingMode(.alwaysOriginal)
                 setBackgroundImage(image, for: .selected)
             } else {
                 backgroundColor = BEPureLayoutConfigs.defaultBackgroundColor
